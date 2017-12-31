@@ -1,0 +1,17 @@
+Admin
+1. admin can use backend access to manage CMS
+
+2. admin can do CRUD with Products, Categories, and News
+
+3. admin can update System settings
+
+4. admin can update Home, About, History, Contact, Location, Support, and FAQ page
+
+Users
+1. Users have access to multi lang website
+
+2. Users can subscrible newsletters
+
+3. Users can search for products by all product, category, and product under one category
+
+4. Users can send messages to Admin on Contact page
