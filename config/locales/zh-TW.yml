@@ -3,3 +3,6 @@ en:
     translations:
       index:
         table: "default"
+  pages:
+    homepage:
+      h1: "default en"

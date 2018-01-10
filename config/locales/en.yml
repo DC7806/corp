@@ -2,4 +2,7 @@ en:
   admin:
     translations:
       index:
-        table: "default" 
+        table: "default"
+  pages:
+    homepage:
+      h1: "default en" 

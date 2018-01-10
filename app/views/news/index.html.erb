@@ -1,0 +1,9 @@
+<h1><%= t('.h1') %></h1>
+
+<% @news.each do |news| %>
+<div class="col-xs-12 col-sm-6">
+  <%= news.title %>
+  <%= news.image %>
+  <%= link_to "Enter", news_path(news) %>
+</div>
+<% end %>

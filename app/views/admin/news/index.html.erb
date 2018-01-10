@@ -1,0 +1,24 @@
+<h1>News List</h1>
+
+<h2><%= link_to "Add News", new_admin_news_path, class: "btn btn-default" %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Content</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_news.each do |news| %>
+    <tr>
+      <td><%= news.title %></td>
+      <td><%= news.content %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_news_path(news) %>
+        <%= link_to "Delete", admin_news_path(news), method: "delete", data: { confirm: "Sure?" } %>  
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

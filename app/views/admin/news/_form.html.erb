@@ -1,0 +1,15 @@
+<%= form_for admin_news do |f| %>
+  <% I18n.available_locales.each do |locale| %>
+    <div>
+      <% title = "title_#{Mobility.normalize_locale(locale)}" %>
+      <% content  = "content_#{Mobility.normalize_locale(locale)}" %>
+      <%= f.label title %>
+      <%= f.text_field title %>
+      <%= f.label content %>
+      <%= f.text_area content %>
+    </div>
+  <% end %>
+  <%= f.label :permalink, "Permalink" %>
+  <%= f.text_field :permalink %>
+  <%= f.submit %>
+<% end %>
