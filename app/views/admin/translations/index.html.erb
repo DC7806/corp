@@ -1,0 +1,11 @@
+<h1>Translation Table</h1>
+
+<% @indexing.each do |t| %>
+  <%= t.key %>
+  <% @admin_translations.select_key(t.key).each do |translate| %>
+    <%= form_for translate do |f| %>
+    <%= f.text_field :value %>
+    <%= f.submit %>
+    <% end %>
+  <% end %>
+<% end %>

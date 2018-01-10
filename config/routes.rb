@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #user
+  scope '(:locale)', locale: /en|zh-TW/ do
+    resources :categories, :products, :news, only: [:index, :show]
+    root "pages#index"
+
+  end
+
+  #admin
+  namespace :admin, path: 'corp' do
+    # resources :categories, :products, :news, except: :show
+    # get 'dashboard', to: 'admin#dashboard', as: :root
+    resources :translations
+  end
 end
