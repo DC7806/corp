@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+
   before_action :find_news, only: :show
 
   def index

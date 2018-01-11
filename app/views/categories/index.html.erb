@@ -1,0 +1,8 @@
+<h1>Category List</h1>
+
+<% @categories.each do |cat| %>
+<div class="col-xs-12 col-sm-6">
+  <p><%= cat.name %></p>
+  <p><%= cat.permalink %></p>
+</div>
+<% end %>

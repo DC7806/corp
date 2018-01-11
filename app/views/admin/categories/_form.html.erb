@@ -1,0 +1,12 @@
+<%= form_for admin_category do |f| %>
+  <% I18n.available_locales.each do |locale| %>
+    <div>
+      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
+      <%= f.label name %>
+      <%= f.text_field name %>
+    </div>
+  <% end %>
+  <%= f.label :permalink, "Permalink" %>
+  <%= f.text_field :permalink %>
+  <%= f.submit %>
+<% end %>

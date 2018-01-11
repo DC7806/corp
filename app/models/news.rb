@@ -1,6 +1,7 @@
 class News < ApplicationRecord
   # validation
   validates :title, presence: true
+  validates :permalink, presence: true, uniqueness: true
   
   # translation
   extend Mobility

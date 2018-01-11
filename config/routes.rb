@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|zh-TW/ do
     resources :categories, :products, :news, only: [:index, :show]
     root "pages#homepage"
-
   end
 
   #admin
   namespace :admin, path: 'corp' do
-    # resources :categories, :products, :news, except: :show
+    resources :translations, :news, :categories, :products,  except: :show
     # get 'dashboard', to: 'admin#dashboard', as: :root
-    resources :translations, :news
   end
 end
