@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   def find_category
     @category = Category.find_by(permalink: params[:id])
     if @category.blank?
-      redirect_to categories_index_path
+      redirect_to categories_path
       flash[:notice] = "Page Not Found"
     end
   end

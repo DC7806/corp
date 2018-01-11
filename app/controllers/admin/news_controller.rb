@@ -1,4 +1,5 @@
-class Admin::NewsController < ApplicationController
+class Admin::NewsController < AdminController
+  
   before_action :find_news, only: [:edit, :update, :destroy]
 
   def index
@@ -43,7 +44,7 @@ class Admin::NewsController < ApplicationController
   end
 
   def news_params
-    params.require(:admin_news).permit(:title, :content, :permalink, :title_en, :content_en, :"title_zh_tw", :"content_zh_tw")
+    params.require(:admin_news).permit(:title, :content, :permalink, :title_en, :content_en, :title_zh_tw, :content_zh_tw)
   end
 
 end

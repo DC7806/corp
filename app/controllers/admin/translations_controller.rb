@@ -1,4 +1,4 @@
-class Admin::TranslationsController < ApplicationController
+class Admin::TranslationsController < AdminController
 
   def index
     @indexing = Admin::Translation.where(locale: "zh-TW")

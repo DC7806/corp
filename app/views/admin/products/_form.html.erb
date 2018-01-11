@@ -1,0 +1,32 @@
+<%= form_for admin_product do |f| %>
+  <% I18n.available_locales.each do |locale| %>
+    <div>
+      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
+      <% feature = "feature_#{Mobility.normalize_locale(locale)}" %>
+      <% specification = "specification_#{Mobility.normalize_locale(locale)}" %>
+      <% dimensions = "dimensions_#{Mobility.normalize_locale(locale)}" %>
+      <% description = "description_#{Mobility.normalize_locale(locale)}" %>
+      <%= f.label name %>
+      <%= f.text_field name %>
+      <%= f.label feature %>
+      <%= f.text_area feature %>
+      <%= f.label dimensions %>
+      <%= f.text_area dimensions %>
+      <%= f.label specification %>
+      <%= f.text_area specification %>
+      <%= f.label description %>
+      <%= f.text_area description %>
+    </div>
+  <% end %>
+  <%= f.label :image, "Image" %>
+  <%= f.text_field :image %>
+  <%= f.label :model, "Model" %>
+  <%= f.text_field :model %>
+  <%= f.label :country, "Country" %>
+  <%= f.text_field :country %>
+  <%= f.label :document, "Document" %>
+  <%= f.text_field :document %>
+  <%= f.label :permalink, "Permalink" %>
+  <%= f.text_field :permalink %>
+  <%= f.submit %>
+<% end %>

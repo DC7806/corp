@@ -1,0 +1,8 @@
+<h1>Products List</h1>
+
+<% @products.each do |product| %>
+<div class="col-xs-12 col-sm-6">
+  <p><%= product.name %></p>
+  <p><%= product.permalink %></p>
+</div>
+<% end %>

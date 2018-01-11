@@ -1,5 +1,5 @@
-class Admin::CategoriesController < ApplicationController
-
+class Admin::CategoriesController < AdminController
+  
   before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
@@ -44,7 +44,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:admin_category).permit(:name, :permalink, :name_en, :"name_zh_tw")
+    params.require(:admin_category).permit(:name, :permalink, :name_en, :name_zh_tw)
   end
 
 end
