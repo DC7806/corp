@@ -4,8 +4,8 @@ class Category < ApplicationRecord
   validates :permalink, presence: true, uniqueness: true
 
   # association
-  has_many :product_relations
-  has_many :products, through: :product_relations
+  has_many :category_product_relations
+  has_many :products, through: :category_product_relations
 
   # translation
   extend Mobility

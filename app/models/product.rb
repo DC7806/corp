@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   validates :permalink, uniqueness: true
 
   # association
-  has_many :product_relations
-  has_many :categories, through: :product_relations
+  has_many :category_product_relations
+  has_many :categories, through: :category_product_relations
   has_many :certificate_product_relations
   has_many :certificates, through: :certificate_product_relations
 
