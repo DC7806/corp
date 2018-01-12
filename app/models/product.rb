@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   # association
   has_many :product_relations
   has_many :categories, through: :product_relations
+  has_many :certificate_product_relations
+  has_many :certificates, through: :certificate_product_relations
 
   # translation
   extend Mobility

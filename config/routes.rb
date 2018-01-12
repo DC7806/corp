@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   #admin
   namespace :admin, path: 'corp' do
-    resources :translations, :news, :categories, :products,  except: :show
+    resources :translations, :news, :categories, :products, :certificates,  except: :show
     # get 'dashboard', to: 'admin#dashboard', as: :root
   end
 end

@@ -32,7 +32,8 @@
 
   <%#= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
   <!-- or use custom hepler -->
-  <%= categories_collection %>
+  <%= categories_collection(Category) %>
+  <%= categories_collection(Certificate) %>
 
 
   <%= f.submit %>

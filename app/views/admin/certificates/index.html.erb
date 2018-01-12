@@ -1,0 +1,24 @@
+<h1>Certificates List</h1>
+
+<h2><%= link_to "Add Certificate", new_admin_certificate_path, class: "btn btn-default" %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Permalink</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_certificates.each do |certificate| %>
+    <tr>
+      <td><%= certificate.image %></td>
+      <td><%= certificate.name %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_certificate_path(certificate) %>
+        <%= link_to "Delete", admin_certificate_path(certificate), method: "delete", data: { confirm: "Sure?" } %>  
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

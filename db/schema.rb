@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112075154) do
+ActiveRecord::Schema.define(version: 20180112181949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,22 @@ ActiveRecord::Schema.define(version: 20180112075154) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "permalink"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "certificate_product_relations", force: :cascade do |t|
+    t.bigint "certificate_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["certificate_id"], name: "index_certificate_product_relations_on_certificate_id"
+    t.index ["product_id"], name: "index_certificate_product_relations_on_product_id"
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.string "image"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,6 +107,8 @@ ActiveRecord::Schema.define(version: 20180112075154) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "certificate_product_relations", "certificates"
+  add_foreign_key "certificate_product_relations", "products"
   add_foreign_key "product_relations", "categories"
   add_foreign_key "product_relations", "products"
 end
