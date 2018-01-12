@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
-    # validation
+  # validation
   validates :name, :image, :model, :country, :permalink, presence: true 
-  validates :name, :permalink, uniqueness: true
+  validates :permalink, uniqueness: true
+
+  # association
+  has_many :product_relations
+  has_many :categories, through: :product_relations
 
   # translation
   extend Mobility

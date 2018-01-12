@@ -46,6 +46,7 @@ class Admin::ProductsController < AdminController
   def product_params
     params.require(:admin_product).permit(:name, :image, :model, :country, :document, :inquiry, :permalink, :feature, :specification, :dimensions, :description,
                                           :name_en, :feature_en, :specification_en, :dimensions_en, :description_en,
-                                          :name_zh_tw, :feature_zh_tw, :specification_zh_tw, :dimensions_zh_tw, :description_zh_tw)
+                                          :name_zh_tw, :feature_zh_tw, :specification_zh_tw, :dimensions_zh_tw, :description_zh_tw,
+                                          {category_ids: []})
   end
 end

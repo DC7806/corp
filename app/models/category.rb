@@ -3,6 +3,10 @@ class Category < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :permalink, presence: true, uniqueness: true
 
+  # association
+  has_many :product_relations
+  has_many :products, through: :product_relations
+
   # translation
   extend Mobility
   translates :name, type: :string,  locale_accessors: [:en, :"zh-TW"]
