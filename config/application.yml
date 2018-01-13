@@ -1,0 +1,12 @@
+defaults: &defaults
+  admin_secret_path: "corp"
+  host_name:
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults 

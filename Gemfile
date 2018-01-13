@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Translation
+gem 'settingslogic'
 gem 'i18n-active_record', require: 'i18n/active_record'
 gem 'mobility', '~> 0.3.6'
 gem 'jquery-rails'
