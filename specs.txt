@@ -18,3 +18,8 @@ Users
 3. Users can search for products by all product, category, and product under one category
 
 4. Users can send messages to Admin on Contact page
+
+
+To Ask
+
+1. Product.certificate cant not be generated during create action but edit?

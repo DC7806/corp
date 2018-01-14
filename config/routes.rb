@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
     resources :categories, :products, :news, only: [:index, :show]

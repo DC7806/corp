@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  image_alt: MyString
+  sort: 1
+  imagable: one
+  imagable_type: Imagable
+
+two:
+  image: MyString
+  image_alt: MyString
+  sort: 1
+  imagable: two
+  imagable_type: Imagable

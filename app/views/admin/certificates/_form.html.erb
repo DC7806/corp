@@ -1,6 +1,6 @@
 <%= form_for admin_certificate do |f| %>
   <%= f.label :image, "Image" %>
-  <%= f.text_field :image %>
+  <%= f.file_field :image %>
   <% I18n.available_locales.each do |locale| %>
     <div>
       <% name = "name_#{Mobility.normalize_locale(locale)}" %>

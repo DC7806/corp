@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112184658) do
+ActiveRecord::Schema.define(version: 20180114093818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,31 @@ ActiveRecord::Schema.define(version: 20180112184658) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "image"
+    t.string "image_alt"
+    t.integer "sort"
+    t.string "imagable_type"
+    t.bigint "imagable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imagable_type", "imagable_id"], name: "index_images_on_imagable_type_and_imagable_id"
+  end
+
+  create_table "meta", force: :cascade do |t|
+    t.string "page_name"
+    t.string "title"
+    t.string "meta_description"
+    t.string "og_title"
+    t.string "og_description"
+    t.string "og_image"
+    t.string "metable_type"
+    t.bigint "metable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["metable_type", "metable_id"], name: "index_meta_on_metable_type_and_metable_id"
+  end
+
   create_table "mobility_string_translations", force: :cascade do |t|
     t.string "locale"
     t.string "key"
@@ -74,7 +99,6 @@ ActiveRecord::Schema.define(version: 20180112184658) do
 
   create_table "news", force: :cascade do |t|
     t.string "title"
-    t.string "image"
     t.text "content"
     t.string "permalink"
     t.datetime "created_at", null: false
@@ -83,7 +107,6 @@ ActiveRecord::Schema.define(version: 20180112184658) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "image"
     t.string "model"
     t.string "country"
     t.string "document"

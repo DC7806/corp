@@ -8,6 +8,8 @@ class Admin::ProductsController < AdminController
 
   def new
     @admin_product = Admin::Product.new
+    @admin_product.build_image
+    @admin_product.build_metum
   end
 
   def create
@@ -44,9 +46,14 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.require(:admin_product).permit(:name, :image, :model, :country, :document, :inquiry, :permalink, :feature, :specification, :dimensions, :description,
+    params.require(:admin_product).permit(:name, :model, :country, :document, :inquiry, :permalink, :feature, :specification, :dimensions, :description,
                                           :name_en, :feature_en, :specification_en, :dimensions_en, :description_en,
                                           :name_zh_tw, :feature_zh_tw, :specification_zh_tw, :dimensions_zh_tw, :description_zh_tw,
-                                          {category_ids: []}, {certificate_ids: []})
+                                          {category_ids: []}, 
+                                          {certificate_ids: []}, 
+                                          {image_attributes: [:id, :image, :image_alt, :sort]},
+                                          {metum_attributes: [:title, :meta_description, :og_title, :og_description, :og_image,
+                                                              :title_en, :meta_description_en, :og_title_en, :og_description_en,
+                                                              :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw]})
   end
 end

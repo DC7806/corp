@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   before_action :find_product, only: :show
 
   def index
@@ -17,4 +18,5 @@ class ProductsController < ApplicationController
       flash[:notice] = "Page Not Found"
     end
   end
+  
 end

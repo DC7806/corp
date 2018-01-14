@@ -19,8 +19,6 @@
     </div>
   <% end %>
 
-  <%= f.label :image, "Image" %>
-  <%= f.text_field :image %>
   <%= f.label :model, "Model" %>
   <%= f.text_field :model %>
   <%= f.label :country, "Country" %>
@@ -34,15 +32,57 @@
   <!-- or use custom hepler -->
   <%= product_collection_checkbox(Category) %>
   <%= product_collection_checkbox(Certificate) %>
+  
+  <%= f.fields_for :image do |img| %>
+  <div class="form_group">
+    <%= img.label :image %>
+    <%= img.file_field :image, "data-default-file": @admin_product.image.image %>    
+  </div>
+  <div class="form_group">
+    <%= img.label :image_alt %>
+    <%= img.text_field :image_alt %>  
+  </div>
+  <% end %>
+  <%= f.fields_for :metum do |meta| %>
+  <div class="form_group">
+    <%= meta.label :og_image %>
+    <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image %>  
+  </div>
+  <% end %>
 
+  <%= f.fields_for :metum do |meta| %>
+  <% I18n.available_locales.each do |locale| %>
+    <div>
+      <% title = "title_#{Mobility.normalize_locale(locale)}" %>
+      <% meta_description = "meta_description_#{Mobility.normalize_locale(locale)}" %>
+      <% og_title = "og_title_#{Mobility.normalize_locale(locale)}" %>
+      <% og_description = "og_description_#{Mobility.normalize_locale(locale)}" %>
+      <%# og_image = "og_image_#{Mobility.normalize_locale(locale)}" %>
+      <!-- <div class="form_group">
+        <%#= meta.label og_image %>
+        <%#= meta.file_field og_image %>  
+      </div> -->
+      <div class="form_group">
+        <%= meta.label title %>
+        <%= meta.text_field title %>  
+      </div>
+      <div class="form_group">
+        <%= meta.label meta_description %>
+        <%= meta.text_field meta_description %>  
+      </div>
+      <div class="form_group">
+        <%= meta.label og_title %>
+        <%= meta.text_field og_title %>  
+      </div>
+      <div class="form_group">
+        <%= meta.label og_description %>
+        <%= meta.text_field og_description %>  
+      </div>
+      
+    </div>
+  <% end %>
+
+  <% end %>
 
   <%= f.submit %>
 <% end %>
-
-<!--  .form-group
-    =f.label :industry_interest
-    =f.collection_check_boxes :industry_interest, Industry.all, :id, :name do |cb|
-      .form-check
-        =cb.label class: 'form-check-label' do
-          =cb.check_box class: 'form-check-input'
-          =cb.text  -->
