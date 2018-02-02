@@ -10,7 +10,7 @@ class Metum < ApplicationRecord
 
   # translation
   extend Mobility
-  translates :title, :meta_description, :og_title, :og_description, type: :string, fallbacks: { en: :"zh-TW"}, locale_accessors: [:en, :"zh-TW"]
+  translates :title, :meta_description, :og_title, :og_description, type: :string, locale_accessors: [:en, :"zh-TW"]
 
 end
 

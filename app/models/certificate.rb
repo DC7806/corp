@@ -12,6 +12,6 @@ class Certificate < ApplicationRecord
 
   # translation
   extend Mobility
-  translates :name, type: :string,  locale_accessors: [:en, :"zh-TW"]
+  translates :name, type: :string, locale_accessors: [:en, :"zh-TW"]
   
 end

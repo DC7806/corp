@@ -1,2 +1,96 @@
 <%= link_to "Cancel", admin_products_path, class: "btn btn-default"%>
-<%= render "form", admin_product: @admin_product %>
+<%#= render "form", admin_product: @admin_product %>
+
+<%= form_for @admin_product do |f| %>
+  <% I18n.available_locales.each do |locale| %>
+    <h2>Basic Info</h2>
+    <div class="form-group">
+      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
+      <% feature = "feature_#{Mobility.normalize_locale(locale)}" %>
+      <% specification = "specification_#{Mobility.normalize_locale(locale)}" %>
+      <% dimensions = "dimensions_#{Mobility.normalize_locale(locale)}" %>
+      <% description = "description_#{Mobility.normalize_locale(locale)}" %>
+      <%= f.label name %>
+      <%= f.text_field name %>
+      <%= f.label feature %>
+      <%= f.text_area feature %>
+      <%= f.label dimensions %>
+      <%= f.text_area dimensions %>
+      <%= f.label specification %>
+      <%= f.text_area specification %>
+      <%= f.label description %>
+      <%= f.text_area description %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :model, "Model" %>
+    <%= f.text_field :model %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country, "Country" %>
+    <%= f.text_field :country %>
+  </div>
+  <div class="form-group">
+    <%= f.label :document, "Document" %>
+    <%= f.text_field :document %>
+  </div>
+  <div class="form-group">
+    <%= f.label :permalink, "Permalink" %>
+    <%= f.text_field :permalink %>
+  </div>
+  <div class="form-group">
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <%= f.collection_check_boxes :certificate_ids, Certificate.all, :id, :name %>
+  </div>
+  
+  <!-- or use custom hepler -->
+  <%#= product_collection_checkbox(Category) %>
+  <%#= product_collection_checkbox(Certificate) %>
+
+  <div class="form-group">
+    <h4>Image EN</h4>
+    <input type="file" name="admin_product[images_attributes][0][src]" id="admin_product_images_attributes_0_src">
+  </div>
+
+  <div class="form-group">
+    <h4>Image TW</h4>
+    <input type="file" name="admin_product[images_attributes][1][src]" id="admin_product_images_attributes_1_src">
+  </div>
+
+  <%= f.fields_for :metum do |meta| %>
+    <div class="form-group">
+      <%= meta.label :og_image %>
+      <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image %>  
+    </div>
+  <% end %>
+
+  <%= f.fields_for :metum do |meta| %>
+    <% I18n.available_locales.each do |locale| %>
+      <div>
+        <% title = "title_#{Mobility.normalize_locale(locale)}" %>
+        <% meta_description = "meta_description_#{Mobility.normalize_locale(locale)}" %>
+        <% og_title = "og_title_#{Mobility.normalize_locale(locale)}" %>
+        <% og_description = "og_description_#{Mobility.normalize_locale(locale)}" %>
+        <div class="form-group">
+          <%= meta.label title %>
+          <%= meta.text_field title %>  
+        </div>
+        <div class="form-group">
+          <%= meta.label meta_description %>
+          <%= meta.text_field meta_description %>  
+        </div>
+        <div class="form-group">
+          <%= meta.label og_title %>
+          <%= meta.text_field og_title %>  
+        </div>
+        <div class="form-group">
+          <%= meta.label og_description %>
+          <%= meta.text_field og_description %>  
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

@@ -3,7 +3,7 @@ class Image < ApplicationRecord
   belongs_to :imagable, polymorphic: true, optional: true
 
   # carrierwave
-  mount_uploader :image, ImageUploader 
+  mount_uploader :src, ImageUploader 
 end
 
 # t.string "image"

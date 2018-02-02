@@ -8,7 +8,7 @@ Admin
 
 4. admin can update translations, eg, nav and footer hyperlink texts 
 
-5. admin can update Home, About, History, Contact, Location, Support, and FAQ page
+5. admin can update Home, About, History, Contact, Location, and Support page
 
 Users
 1. Users have access to multi lang website

@@ -44,7 +44,15 @@ class Admin::NewsController < AdminController
   end
 
   def news_params
-    params.require(:admin_news).permit(:title, :content, :permalink, :title_en, :content_en, :title_zh_tw, :content_zh_tw)
+    params.require(:admin_news).permit(:title, :content, :permalink, :title_en, :content_en, :title_zh_tw, :content_zh_tw,
+                                        image_attributes: [
+                                                            :image, :image_alt
+                                                          ],
+                                        metum_attributes: [
+                                                            :title, :meta_description, :og_title, :og_description, :og_image,
+                                                            :title_en, :meta_description_en, :og_title_en, :og_description_en,
+                                                            :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw
+                                                          ])
   end
 
 end

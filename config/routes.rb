@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :translations, :news, :categories, :products, :certificates,  except: :show
     # get 'dashboard', to: 'admin#dashboard', as: :root
   end
+  
 end

@@ -9,6 +9,12 @@
       <%= f.text_area content %>
     </div>
   <% end %>
+  <%= f.fields_for :image do |img| %>
+    <div class="form-group">
+      <%= img.label :image, "封面圖片" %>
+      <%= img.file_field :image %>
+    </div>
+  <% end %>
   <%= f.label :permalink, "Permalink" %>
   <%= f.text_field :permalink %>
   <%= f.submit %>
