@@ -1,2 +1,12 @@
 <h1><%= @product.name %></h1>
 <h2><%= @product.model %></h2>
+<div>
+  <% @product.categories.each do |cat| %>
+  <li><%= cat.name %></li>
+  <% end %>        
+</div>
+<div>
+  <% @product.certificates.each do |cert| %>
+  <li><%= cert.name %></li>
+  <% end %>        
+</div>

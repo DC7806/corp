@@ -1,0 +1,23 @@
+---
+hq_zh:
+  address: hq_address_zh
+  number: hq_number_zh
+  fax: hq_fax_sh
+  email: hq_email
+hq_en:
+  address: hq_address
+  number: hq_number_zh
+  fax: hq_fax_sh
+  email: hq_email
+north:
+  name: north_name
+  number: north_number
+  email: north_email
+central:
+  name: central_name
+  number: central_number
+  email: central_email
+south:
+  name: south_name
+  number: south_number
+  email: south_email

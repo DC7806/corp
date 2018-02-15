@@ -1,0 +1,8 @@
+<% @contacts.each do |k1, v1| %>
+<h3><%= k1 %></h3>
+<% v1.each do |k2, v2| %>
+<div>
+  <span><%= k2 %>: </span><span><%= v2 %></span>
+</div>
+<% end %>
+<% end %>

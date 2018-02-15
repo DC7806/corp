@@ -1,0 +1,11 @@
+<%= form_for(:contacts, url: admin_contacts_path) do |f| %>
+  <% @admin_contacts.each do |k1, v1| %>
+      <% v1.each do |k2, v2| %>
+        <div>
+          <%= f.label k2 %>
+          <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2 %>
+        </div>
+      <% end %>
+  <% end %>
+  <%= f.submit "Confirm", class: "btn btn-primary" %>
+<% end %>

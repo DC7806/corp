@@ -1,7 +1,7 @@
 class Certificate < ApplicationRecord
   
   # validation
-  validates :name, :image, presence: true 
+  # validates :name, :image, presence: true 
 
   # association
   has_many :certificate_product_relations
