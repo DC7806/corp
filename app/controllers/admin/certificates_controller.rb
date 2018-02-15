@@ -1,4 +1,4 @@
-class Admin::CertificatesController < ApplicationController
+class Admin::CertificatesController < AdminController
 
   before_action :find_certificate, only: [:edit, :update, :destroy]
 

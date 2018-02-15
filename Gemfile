@@ -31,6 +31,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
+gem "font-ionicons-rails"
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'simple_form'
