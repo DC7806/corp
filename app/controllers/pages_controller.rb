@@ -10,4 +10,9 @@ class PagesController < ApplicationController
     @contacts_regions = @contacts.except('hq_zh', 'hq_en')
   end
 
+  def faq
+    @faq_en = Faq.where(lang: 'en').order(created_at: :desc)
+    @faq_zh = Faq.where(lang: 'zh-TW').order(created_at: :desc)
+  end
+
 end

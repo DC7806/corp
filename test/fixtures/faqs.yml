@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lang: MyString
+  question: MyText
+  answer: MyText
+  sort: MyString
+
+two:
+  lang: MyString
+  question: MyText
+  answer: MyText
+  sort: MyString
