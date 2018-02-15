@@ -1,4 +1,10 @@
 en:
+  views:
+    pagination:
+      previous: "<"
+      next: ">"
+      first: "|<"
+      last: ">|"
   admin:
     translations:
       index:

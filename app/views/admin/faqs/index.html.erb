@@ -1,1 +1,66 @@
-<h1>hello</h1>
+<%= link_to "新增FAQ", new_admin_faq_path, class: "btn btn-default btn-add-new my-xs-20"%>
+
+<ul class="nav nav-pills my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#faq_zh" data-toggle="tab">中文</a></li>
+  <li ><a role="tab" href="#faq_en" data-toggle="tab">英文</a></li>
+</ul>
+<div class="tab-content mt-xs-20">
+<!-- FAQ_ZH Panel -->
+  <div role="tabpanel" class="tab-pane active" id="faq_zh">
+    <table class="table xs-transform">
+      <thead class="hidden-xs">
+        <tr>
+          <td class="col-sm-2">建立日期</td>
+          <td class="col-sm-4">問題</td>
+          <td class="col-sm-5">答案</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admin_faqs.where(lang: "zh-TW").each do |faq|%>
+        <tr>
+          <td class="col-sm-2"><%= faq.created_at.to_date %></td>
+          <td class="col-sm-4"><%= faq.question %></td>
+          <td class="col-sm-5"><%= faq.answer %></td>
+          <td class="col-sm-1 text-center">
+            <%= link_to edit_admin_faq_path(faq), class: "btn btn-primary" do %>
+              <i class="fa fa-pencil fa-fw"></i>
+            <% end %> 
+            <%= link_to admin_faq_path(faq), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do%>
+              <i class="fa fa-trash fa-fw"></i>
+            <% end %>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+  <!-- FAQ_EN Panel-->
+  <div role="tabpanel" class="tab-pane fade mt-xs-20" id="faq_en">
+    <table class="table xs-transform">
+      <thead class="hidden-xs">
+        <tr>
+          <td class="col-sm-2">建立日期</td>
+          <td class="col-sm-4">問題</td>
+          <td class="col-sm-5">答案</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admin_faqs.where(lang: "en").each do |faq|%>
+        <tr>
+          <td class="col-sm-2"><%= faq.created_at.to_date %></td>
+          <td class="col-sm-4"><%= faq.question %></td>
+          <td class="col-sm-5"><%= faq.answer %></td>
+          <td class="col-sm-1 text-center">
+            <%= link_to edit_admin_faq_path(faq), class: "btn btn-primary" do %>
+              <i class="fa fa-pencil fa-fw"></i>
+            <% end %> 
+            <%= link_to admin_faq_path(faq), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do%>
+              <i class="fa fa-trash fa-fw"></i>
+            <% end %>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

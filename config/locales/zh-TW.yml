@@ -1,4 +1,10 @@
-en:
+zh-TW:
+  views:
+    pagination:
+      previous: "<"
+      next: ">"
+      first: "|<"
+      last: ">|"
   admin:
     translations:
       index:

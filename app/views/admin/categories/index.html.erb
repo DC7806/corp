@@ -16,7 +16,7 @@
       <td><%= cat.permalink %></td>
       <td>
         <%= link_to "Edit", edit_admin_category_path(cat) %>
-        <%= link_to "Delete", admin_category_path(cat), method: "delete", data: { confirm: "Sure?" } %>  
+        <%= link_to "Delete", admin_category_path(cat), method: "delete", data: { confirm: "確定刪除?" } %>  
       </td>
     </tr>
     <% end %>

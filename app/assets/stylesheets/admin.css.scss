@@ -8,3 +8,42 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+tbody > tr:hover {
+    background: #fff
+  }
+td {
+	vertical-align: middle!important
+}
+.wt-100{
+	width:100%
+}
+.text-area{
+	min-height:160px
+}
+.cke_contents{
+	height:300px !important
+}
+
+
+@media only screen and (max-width: 767px){
+	.btn-add-new, .btn-cancel{
+		width: 100%;
+	}
+	.xs-transform tbody > tr {
+      display: block;
+      background: #e7e7e7;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .xs-transform > tbody > tr > td{
+      display: block;
+      border-top: none;
+      text-align: center;
+    }
+}
+
+.nav > li > a {
+    padding: 6px 12px;
+}
