@@ -1,24 +1,25 @@
-<h1>Categories List</h1>
-
-<h2><%= link_to "Add Category", new_admin_category_path, class: "btn btn-default" %></h2>
-
-<table>
-  <thead>
+<%= link_to "新增", new_admin_category_path, class: "btn btn-default btn-add-new" %>
+<table class="table xs-transform mt-xs-20">
+  <thead class="hidden-xs">
     <tr>
-      <td>Name</td>
-      <td>Permalink</td>
+      <td class="col-sm-5">建立日期</td>
+      <td class="col-sm-5">認證名稱</td>
     </tr>
   </thead>
   <tbody>
-    <% @admin_categories.each do |cat| %>
+    <% @admin_categories.each do |cat|%>
     <tr>
-      <td><%= cat.name %></td>
-      <td><%= cat.permalink %></td>
-      <td>
-        <%= link_to "Edit", edit_admin_category_path(cat) %>
-        <%= link_to "Delete", admin_category_path(cat), method: "delete", data: { confirm: "確定刪除?" } %>  
+      <td class="col-sm-5"><%= cat.created_at.to_date %></td>
+      <td class="col-sm-5"><%= cat.name %></td>
+      <td class="col-sm-2 text-center">
+        <%= link_to edit_admin_category_path(cat), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil fa-fw"></i>
+        <% end %> 
+        <%= link_to admin_category_path(cat), method: "delete", data: { confirm: "確認刪除?" }, class: "btn btn-danger" do%>
+          <i class="fa fa-trash fa-fw"></i>
+        <% end %>
       </td>
     </tr>
-    <% end %>
+    <%end%>
   </tbody>
 </table>

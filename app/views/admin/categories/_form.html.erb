@@ -1,12 +1,16 @@
+
 <%= form_for admin_category do |f| %>
-  <% I18n.available_locales.each do |locale| %>
-    <div>
-      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
-      <%= f.label name %>
-      <%= f.text_field name %>
-    </div>
-  <% end %>
-  <%= f.label :permalink, "Permalink" %>
-  <%= f.text_field :permalink %>
-  <%= f.submit %>
+  <div class="form-group mt-xs-20">
+    <%= f.label :name_zh_tw, "分類名稱_中文" %>
+    <%= f.text_field :name_zh_tw, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name_en, "分類名稱_英文" %>
+    <%= f.text_field :name_en, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :permalink, "分類網址" %>
+    <%= f.text_field :permalink, placeholder: "預設為「英文」分類名稱", class: "form-control" %>
+  </div>
+  <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
 <% end %>
