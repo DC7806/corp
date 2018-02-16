@@ -1,11 +1,42 @@
 <%= form_for(:contacts, url: admin_contacts_path) do |f| %>
-  <% @admin_contacts.each do |k1, v1| %>
-      <% v1.each do |k2, v2| %>
-        <div>
-          <%= f.label k2 %>
-          <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2 %>
-        </div>
-      <% end %>
+<ul class="nav nav-pills my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#contacts_zh" data-toggle="tab">中文</a></li>
+  <li ><a role="tab" href="#contacts_en" data-toggle="tab">英文</a></li>
+</ul>
+<div class="tab-content mt-xs-20">
+<!-- Contacts_ZH Panel -->
+  <div role="tabpanel" class="tab-pane active" id="contacts_zh">
+    <h3>HQ</h3>
+  <% @admin_contacts_hq_zh.each do |k1, v1| %>
+  <% v1.each do |k2, v2| %>
+    <div>
+      <%= f.label k2 %>
+      <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+    </div>
   <% end %>
-  <%= f.submit "Confirm", class: "btn btn-primary" %>
+  <% end %>
+    <h3>Regions</h3>
+  <% @admin_contacts_regions.each do |k1, v1| %>
+  <% v1.each do |k2, v2| %>
+    <div>
+      <%= f.label k2 %>
+      <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+  <!-- Contacts_EN Panel-->
+  <div role="tabpanel" class="tab-pane fade mt-xs-20" id="contacts_en">
+    <h3>HQ</h3>
+  <% @admin_contacts_hq_en.each do |k1, v1| %>
+  <% v1.each do |k2, v2| %>
+    <div>
+      <%= f.label k2 %>
+      <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>  
+<%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
 <% end %>

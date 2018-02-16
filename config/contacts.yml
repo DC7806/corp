@@ -2,13 +2,13 @@
 hq_zh:
   address: hq_address_zh
   number: hq_number_zh
-  fax: hq_fax_sh
-  email: hq_email
+  fax: hq_fax_zh
+  email: hq_email_zh
 hq_en:
-  address: hq_address
-  number: hq_number_zh
-  fax: hq_fax_sh
-  email: hq_email
+  address: hq_address_en
+  number: hq_number_en
+  fax: hq_fax_en
+  email: hq_email_en
 north:
   name: north_name
   number: north_number

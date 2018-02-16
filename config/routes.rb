@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
     root "pages#homepage"

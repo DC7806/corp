@@ -1,15 +1,17 @@
+<% if I18n.locale == :en %>
+----EN----
 <% @faq_en.each do |f| %>
 <div>
   <h3><%= f.question %></h3>
-  <p><%= f.answer %></p>
+  <div><%= f.answer.html_safe %></div>
 </div>
 <% end %>
-
----------
-
+<% else %>
+----CH----
 <% @faq_zh.each do |f| %>
 <div>
   <h3><%= f.question %></h3>
-  <p><%= f.answer %></p>
+  <div><%= f.answer.html_safe %></div>
 </div>
+<% end %>
 <% end %>

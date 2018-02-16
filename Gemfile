@@ -35,6 +35,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'simple_form'
 gem 'kaminari'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 
 

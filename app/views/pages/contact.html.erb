@@ -1,8 +1,27 @@
-<% @contacts.each do |k1, v1| %>
-<h3><%= k1 %></h3>
-<% v1.each do |k2, v2| %>
-<div>
-  <span><%= k2 %>: </span><span><%= v2 %></span>
-</div>
-<% end %>
+<% if I18n.locale == :en %> 
+  <% @contacts_hq_en.each do |k1, v1| %>
+  <h3><%= k1 %></h3>
+  <% v1.each do |k2, v2| %>
+  <div>
+    <span><%= k2 %>: </span><span><%= v2 %></span>
+  </div>
+  <% end %>
+  <% end %>
+<% else %>
+  <% @contacts_hq_zh.each do |k1, v1| %>
+  <h3><%= k1 %></h3>
+  <% v1.each do |k2, v2| %>
+  <div>
+    <span><%= k2 %>: </span><span><%= v2 %></span>
+  </div>
+  <% end %>
+  <% end %>
+  <% @contacts_regions.each do |k1, v1| %>
+  <h3><%= k1 %></h3>
+  <% v1.each do |k2, v2| %>
+  <div>
+    <span><%= k2 %>: </span><span><%= v2 %></span>
+  </div>
+  <% end %>
+  <% end %>
 <% end %>

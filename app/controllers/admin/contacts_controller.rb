@@ -3,6 +3,9 @@ class Admin::ContactsController < AdminController
   require 'yaml'
 
   def index
+    @admin_contacts_hq_en = @admin_contacts.slice('hq_en')
+    @admin_contacts_hq_zh = @admin_contacts.slice('hq_zh')
+    @admin_contacts_regions = @admin_contacts.except('hq_zh', 'hq_en')
   end
 
   def create
