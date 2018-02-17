@@ -1,6 +1,7 @@
 class Admin::ProductsController < AdminController
   
   before_action :find_product, only: [:edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
     @admin_products = Admin::Product.order(created_at: :desc).page(params[:page]).per(10)
@@ -27,6 +28,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @admin_product.update(product_params)
+      byebug
       redirect_to admin_products_path, notice: "Product updated"
     else
       flash[:alert] = "Somthing Went Wrong: "
@@ -54,6 +56,7 @@ class Admin::ProductsController < AdminController
                                           {images_attributes: [:id, :lang, :src, :alt, :_destroy]},
                                           {metum_attributes: [:title, :meta_description, :og_title, :og_description, :og_image,
                                                               :title_en, :meta_description_en, :og_title_en, :og_description_en,
-                                                              :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw]})
+                                                              :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw,
+                                                              :_destroy]})
   end
 end

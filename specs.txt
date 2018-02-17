@@ -21,5 +21,3 @@ Users
 
 
 To Ask
-
-1. Product.certificate cant not be generated during create action but edit?

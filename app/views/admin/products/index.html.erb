@@ -1,29 +1,35 @@
-<h1>Products List</h1>
-
-<h2><%= link_to "Add Product", new_admin_product_path, class: "btn btn-default btn-add-new" %></h2>
-
-<table>
-  <thead>
+<%= link_to "Add Product", new_admin_product_path, class: "btn btn-default btn-add-new" %>
+<table class="table xs-transform mt-xs-20">
+  <thead class="hidden-xs">
     <tr>
-      <td>Name</td>
-      <td>Permalink</td>
+      <td class="col-sm-3">產品分類</td>
+      <td class="col-sm-3">產品名稱</td>
+      <td class="col-sm-3">產品型號</td>
+      <td class="col-sm-2">產品圖片</td>
     </tr>
   </thead>
   <tbody>
-    <% @admin_products.each do |product| %>
+    <% @admin_products.each do |product|%>
     <tr>
-      <td><%= product.name %></td>
-      <td><%= product.model %></td>
+      <td class="col-sm-3">
       <% product.categories.each do |cat| %>
-      <td><%= cat.name %></td>
-      <% end %>
-      <td>
-        <%= link_to "Edit", edit_admin_product_path(product) %>
-        <%= link_to "Delete", admin_product_path(product), method: "delete", data: { confirm: "Sure?" } %>  
+        <span><%= cat.name %></span>
+      <% end %>  
+      </td>
+      <td class="col-sm-3"><%= product.name %></td>
+      <td class="col-sm-3"><%= product.model %></td>
+      <td class="col-sm-2"><% if product.images.where(lang: "zh-TW").first.src.present? %><%= image_tag product.images.where(lang: "zh-TW").first.src.url, style: "width:100%" %><% end %></td>
+      <td class="col-sm-1 text-center">
+        <%= link_to edit_admin_product_path(product), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil fa-fw"></i>
+        <% end %> 
+        <%= link_to admin_product_path(product), method: "delete",
+            data: { confirm: "確認刪除?" }, class: "btn btn-danger" do %>
+          <i class="fa fa-trash fa-fw"></i>
+        <% end %>
       </td>
     </tr>
-    <% end %>
+    <%end%>
   </tbody>
 </table>
-
 <%= paginate @admin_products %>

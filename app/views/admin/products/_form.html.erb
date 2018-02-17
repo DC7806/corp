@@ -42,7 +42,7 @@
   <!-- or use custom hepler -->
   <%#= product_collection_checkbox(Category) %>
   <%#= product_collection_checkbox(Certificate) %>
-  
+  <% if action_name == 'new' %>
   <%= f.fields_for :images do |img| %>
     <div class="form-group">
       <%= img.text_field :lang, value: "en", hidden: true%>    
@@ -71,19 +71,20 @@
     </div>
   <% end %>
 
-  <!-- or use plain inputs -->
+  <% elsif action_name == 'edit' %>
 
-  <!-- <div class="form-group">
-    <h4>Image EN</h4>
-    <input type="text" name="admin_product[images_attributes][0][lang]" id="admin_product_images_attributes_0_lang" value="en" hidden="true">
-    <input type="file" name="admin_product[images_attributes][0][src]" id="admin_product_images_attributes_0_src">
-  </div>
+   <%= f.fields_for :images, admin_product.images.where(lang: "zh-TW") do |img| %>
+    <div class="form-group">
+      <%= img.label :image_src%>
+      <%= img.file_field :src %>    
+    </div>
+    <div class="form-group">
+      <%= img.label :image_alt %>
+      <%= img.text_field :alt %>  
+    </div>
+  <% end %>
 
-  <div class="form-group">
-    <h4>Image TW</h4>
-    <input type="text" name="admin_product[images_attributes][1][lang]" id="admin_product_images_attributes_1_lang" value="zh-TW" hidden="true">
-    <input type="file" name="admin_product[images_attributes][1][src]" id="admin_product_images_attributes_1_src">
-  </div> -->
+  <% end %>
 
   <%= f.fields_for :metum do |meta| %>
     <div class="form-group">
