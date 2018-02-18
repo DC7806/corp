@@ -1,7 +1,6 @@
 class Admin::ProductsController < AdminController
   
   before_action :find_product, only: [:edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
     @admin_products = Admin::Product.order(created_at: :desc).page(params[:page]).per(10)
@@ -28,7 +27,6 @@ class Admin::ProductsController < AdminController
 
   def update
     if @admin_product.update(product_params)
-      byebug
       redirect_to admin_products_path, notice: "Product updated"
     else
       flash[:alert] = "Somthing Went Wrong: "

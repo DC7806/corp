@@ -1,124 +1,194 @@
 <%= form_for admin_product do |f| %>
-  <% I18n.available_locales.each do |locale| %>
-    <div class="form-group">
-      <% name = "name_#{Mobility.normalize_locale(locale)}" %>
-      <% feature = "feature_#{Mobility.normalize_locale(locale)}" %>
-      <% specification = "specification_#{Mobility.normalize_locale(locale)}" %>
-      <% dimensions = "dimensions_#{Mobility.normalize_locale(locale)}" %>
-      <% description = "description_#{Mobility.normalize_locale(locale)}" %>
-      <%= f.label name %>
-      <%= f.text_field name %>
-      <%= f.label feature %>
-      <%= f.text_area feature %>
-      <%= f.label dimensions %>
-      <%= f.text_area dimensions %>
-      <%= f.label specification %>
-      <%= f.text_area specification %>
-      <%= f.label description %>
-      <%= f.text_area description %>
+  <ul class="nav nav nav-tabs nav-justified my-xs-20" role="tablist">
+    <li class="active"><a role="tab" href="#basic_info" data-toggle="tab">基本資料</a></li>
+    <li ><a role="tab" href="#image" data-toggle="tab">圖片</a></li>
+    <li ><a role="tab" href="#content" data-toggle="tab">內容</a></li>
+    <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
+  </ul>
+  <div class="tab-content mt-xs-20">
+    <div role="tabpanel" class="tab-pane active" id="basic_info">
+      <div class="form-group">
+        <%= f.label :name_zh_tw, "品名_中文" %>
+        <%= f.text_field :name_zh_tw, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name_en, "品名_英文" %>
+        <%= f.text_field :name_en, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :model, "型號" %>
+        <%= f.text_field :model, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :country, "產地" %>
+        <%= f.text_field :country, placeholder: "預設為『台灣』", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+        <%= f.collection_check_boxes :certificate_ids, Certificate.all, :id, :name %>
+        <!-- or use custom hepler -->
+        <%#= product_collection_checkbox(Category) %>
+        <%#= product_collection_checkbox(Certificate) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :permalink, "網址" %>
+        <%= f.text_field :permalink, placeholder: "預設為產品型號", class: "form-control" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :model, "Model" %>
-    <%= f.text_field :model %>
-  </div>
-  <div class="form-group">
-    <%= f.label :country, "Country" %>
-    <%= f.text_field :country %>
-  </div>
-  <div class="form-group">
-    <%= f.label :document, "Document" %>
-    <%= f.text_field :document %>
-  </div>
-  <div class="form-group">
-    <%= f.label :permalink, "Permalink" %>
-    <%= f.text_field :permalink %>
-  </div>
-  <div class="form-group">
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-    <%= f.collection_check_boxes :certificate_ids, Certificate.all, :id, :name %>
-  </div>
-  <!-- or use custom hepler -->
-  <%#= product_collection_checkbox(Category) %>
-  <%#= product_collection_checkbox(Certificate) %>
-  <% if action_name == 'new' %>
-  <%= f.fields_for :images do |img| %>
-    <div class="form-group">
-      <%= img.text_field :lang, value: "en", hidden: true%>    
-    </div>
-    <div class="form-group">
-      <%= img.label :image_src_en %>
-      <%= img.file_field :src %>    
-    </div>
-    <div class="form-group">
-      <%= img.label :image_alt %>
-      <%= img.text_field :alt %>  
-    </div>
-  <% end %>
-
-  <%= f.fields_for :images do |img| %>
-    <div class="form-group">
-      <%= img.text_field :lang, value: "zh-TW", hidden: true%>    
-    </div>
-    <div class="form-group">
-      <%= img.label :image_src_tw%>
-      <%= img.file_field :src %>    
-    </div>
-    <div class="form-group">
-      <%= img.label :image_alt %>
-      <%= img.text_field :alt %>  
-    </div>
-  <% end %>
-
-  <% elsif action_name == 'edit' %>
-
-   <%= f.fields_for :images, admin_product.images.where(lang: "zh-TW") do |img| %>
-    <div class="form-group">
-      <%= img.label :image_src%>
-      <%= img.file_field :src %>    
-    </div>
-    <div class="form-group">
-      <%= img.label :image_alt %>
-      <%= img.text_field :alt %>  
-    </div>
-  <% end %>
-
-  <% end %>
-
-  <%= f.fields_for :metum do |meta| %>
-    <div class="form-group">
-      <%= meta.label :og_image %>
-      <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image %>  
-    </div>
-  <% end %>
-
-  <%= f.fields_for :metum do |meta| %>
-    <% I18n.available_locales.each do |locale| %>
-      <div>
-        <% title = "title_#{Mobility.normalize_locale(locale)}" %>
-        <% meta_description = "meta_description_#{Mobility.normalize_locale(locale)}" %>
-        <% og_title = "og_title_#{Mobility.normalize_locale(locale)}" %>
-        <% og_description = "og_description_#{Mobility.normalize_locale(locale)}" %>
+    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="image">
+    <% if action_name == 'new' %>
+      <%= f.fields_for :images do |img| %>
         <div class="form-group">
-          <%= meta.label title %>
-          <%= meta.text_field title %>  
+          <%= img.text_field :lang, value: "en", hidden: true%>    
         </div>
         <div class="form-group">
-          <%= meta.label meta_description %>
-          <%= meta.text_field meta_description %>  
+          <%= img.label :image_src_en %>
+          <%= img.file_field :src %>    
         </div>
         <div class="form-group">
-          <%= meta.label og_title %>
-          <%= meta.text_field og_title %>  
+          <%= img.label :image_alt %>
+          <%= img.text_field :alt %>  
+        </div>
+      <% end %>
+      <%= f.fields_for :images do |img| %>
+        <div class="form-group">
+          <%= img.text_field :lang, value: "zh-TW", hidden: true%>    
         </div>
         <div class="form-group">
-          <%= meta.label og_description %>
-          <%= meta.text_field og_description %>  
+          <%= img.label :image_src_tw%>
+          <%= img.file_field :src %>    
+        </div>
+        <div class="form-group">
+          <%= img.label :image_alt %>
+          <%= img.text_field :alt %>  
+        </div>
+      <% end %>
+      <% elsif action_name == 'edit' %>
+      <%= f.fields_for :images, admin_product.images.where(lang: "zh-TW") do |img| %> 
+        <div class="form-group">
+          <%= img.label :image_src, "產品圖片_中文"%>
+          <%= img.file_field :src %>    
+        </div>
+        <div class="form-group">
+          <%= img.label :image_alt, "圖片說明文字_中文" %>
+          <%= img.text_field :alt, placeholder: "預設為品名", class: "form-control" %> 
+        </div>
+      <% end %>
+      <%= f.fields_for :images, admin_product.images.where(lang: "en") do |img| %>
+        <div class="form-group">
+          <%= img.label :image_src, "產品圖片_英文" %>
+          <%= img.file_field :src %>    
+        </div>
+        <div class="form-group">
+          <%= img.label :image_alt, "圖片說明文字_英文" %>
+          <%= img.text_field :alt, placeholder: "預設為品名", class: "form-control" %>  
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="content">
+      <ul class="nav nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#content_zh" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#content_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <div role="tabpanel" class="tab-pane active" id="content_zh">
+          <div class="form-group">
+            <%= f.label :description_zh_tw, "敘述" %>
+            <%= f.cktext_area :description_zh_tw %>
+          </div>
+          <div class="form-group">
+            <%= f.label :feature_zh_tw, "特色" %>
+            <%= f.cktext_area :feature_zh_tw %>
+          </div>
+          <div class="form-group">
+            <%= f.label :dimensions_zh_tw, "尺寸" %>
+            <%= f.cktext_area :dimensions_zh_tw %>
+          </div>
+          <div class="form-group">
+            <%= f.label :specification_zh_tw, "規格" %>
+            <%= f.cktext_area :specification_zh_tw %>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="content_en">
+          <div class="form-group">
+            <%= f.label :description_en, "敘述" %>
+            <%= f.cktext_area :description_en %>
+          </div>
+          <div class="form-group">
+            <%= f.label :feature_en, "特色" %>
+            <%= f.cktext_area :feature_en %>
+          </div>
+          <div class="form-group">
+            <%= f.label :dimensions_en, "尺寸" %>
+            <%= f.cktext_area :dimensions_en %>
+          </div>
+          <div class="form-group">
+            <%= f.label :specification_en, "規格" %>
+            <%= f.cktext_area :specification_en %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :document, "Document" %>
+          <%= f.text_field :document %>
         </div>
       </div>
-    <% end %>
-  <% end %>
-
-  <%= f.submit %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="seo">
+      <ul class="nav nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#seo_zh" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <div role="tabpanel" class="tab-pane active" id="seo_zh">
+          <%= f.fields_for :metum do |meta| %>
+            <div class="form-group">
+              <%= meta.label :title_zh_tw, "網頁標題" %>
+              <%= meta.text_field :title_zh_tw, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :meta_description_zh_tw, "網頁說明" %>
+              <%= meta.text_field :meta_description_zh_tw, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :og_title_zh_tw, "FB_網頁標題" %>
+              <%= meta.text_field :og_title_zh_tw, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :og_description_zh_tw, "FB_網頁說明" %>
+              <%= meta.text_field :og_description_zh_tw, class: "form-control" %>  
+            </div>
+          <% end %>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="seo_en">
+          <%= f.fields_for :metum do |meta| %>
+            <div class="form-group">
+              <%= meta.label :title_en, "網頁標題" %>
+              <%= meta.text_field :title_en, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :meta_description_en, "網頁說明" %>
+              <%= meta.text_field :meta_description_en, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :og_title_en, "FB_網頁標題" %>
+              <%= meta.text_field :og_title_en, class: "form-control" %>  
+            </div>
+            <div class="form-group">
+              <%= meta.label :og_description_en, "FB_網頁說明" %>
+              <%= meta.text_field :og_description_en, class: "form-control" %>  
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= f.fields_for :metum do |meta| %>
+        <div class="form-group">
+          <%= meta.label :og_image, "FB_圖片" %>
+          <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image %>  
+        </div>
+      <% end %>
+      </div>
+  </div>
+  <%= f.submit "確認送出", class: "btn btn-primary form-control" %>
+  <%= link_to "取消", admin_products_path, class: "btn btn-default form-control mt-xs-20" %>
 <% end %>
