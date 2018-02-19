@@ -39,35 +39,35 @@
     <% if action_name == 'new' %>
       <%= f.fields_for :images do |img| %>
         <div class="form-group">
-          <%= img.text_field :lang, value: "en", hidden: true%>    
+          <%= img.text_field :lang, value: "zh-TW", hidden: true%>    
         </div>
         <div class="form-group">
-          <%= img.label :image_src_en %>
-          <%= img.file_field :src %>    
+          <%= img.label :image_src_tw, "產品圖片_中文" %>
+          <%= img.file_field :src, class: "dropify" %>    
         </div>
         <div class="form-group">
-          <%= img.label :image_alt %>
-          <%= img.text_field :alt %>  
+          <%= img.label :image_alt, "圖片說明文字_中文" %>
+          <%= img.text_field :alt, class: "form-control" %>  
         </div>
       <% end %>
       <%= f.fields_for :images do |img| %>
         <div class="form-group">
-          <%= img.text_field :lang, value: "zh-TW", hidden: true%>    
+          <%= img.text_field :lang, value: "en", hidden: true%>    
         </div>
         <div class="form-group">
-          <%= img.label :image_src_tw%>
-          <%= img.file_field :src %>    
+          <%= img.label :image_src_en, "產品圖片_英文" %>
+          <%= img.file_field :src, class: "dropify" %>    
         </div>
         <div class="form-group">
-          <%= img.label :image_alt %>
-          <%= img.text_field :alt %>  
+          <%= img.label :image_alt, "圖片說明文字_英文" %>
+          <%= img.text_field :alt, class: "form-control" %>  
         </div>
       <% end %>
       <% elsif action_name == 'edit' %>
       <%= f.fields_for :images, admin_product.images.where(lang: "zh-TW") do |img| %> 
         <div class="form-group">
           <%= img.label :image_src, "產品圖片_中文"%>
-          <%= img.file_field :src %>    
+          <%= img.file_field :src, "data-default-file": admin_product.images.where(lang: "zh-TW").first.src.url, class: "dropify" %>    
         </div>
         <div class="form-group">
           <%= img.label :image_alt, "圖片說明文字_中文" %>
@@ -77,7 +77,7 @@
       <%= f.fields_for :images, admin_product.images.where(lang: "en") do |img| %>
         <div class="form-group">
           <%= img.label :image_src, "產品圖片_英文" %>
-          <%= img.file_field :src %>    
+          <%= img.file_field :src, "data-default-file": admin_product.images.where(lang: "en").first.src.url, class: "dropify" %>    
         </div>
         <div class="form-group">
           <%= img.label :image_alt, "圖片說明文字_英文" %>
@@ -184,7 +184,7 @@
       <%= f.fields_for :metum do |meta| %>
         <div class="form-group">
           <%= meta.label :og_image, "FB_圖片" %>
-          <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image %>  
+          <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image, class: "dropify" %>
         </div>
       <% end %>
       </div>
@@ -192,3 +192,16 @@
   <%= f.submit "確認送出", class: "btn btn-primary form-control" %>
   <%= link_to "取消", admin_products_path, class: "btn btn-default form-control mt-xs-20" %>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('.dropify').dropify({
+    messages: {
+      default: '拖曳圖片至此或點擊上傳',
+      replace: '拖曳圖片至此或點擊取代',
+      remove:  '刪除',
+      // error:   'Désolé, le fichier trop volumineux'
+              }
+  });
+})
+</script>
