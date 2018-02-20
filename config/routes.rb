@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   mount Ckeditor::Engine => '/ckeditor'
+  
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
     root "pages#homepage"
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   #admin
   namespace :admin, path: Settings.admin_secret_path do
-    resources :news, :categories, :products, :certificates, :faqs, except: :show
+    resources :news, :categories, :products, :certificates, :faqs, :milestones, except: :show
     resources :translations, only: [:index, :edit, :update]
     resources :contacts, only: [:index, :create]
     # get 'dashboard', to: 'admin#dashboard', as: :root

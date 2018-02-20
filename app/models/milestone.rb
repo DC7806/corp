@@ -1,8 +1,8 @@
-class Faq < ApplicationRecord
-  
+class Milestone < ApplicationRecord
+
   before_save :convert_lang
 
-  validates :lang, :question, :answer, presence: true
+  validates :lang, :year, :content, presence: true
   
   def default_lang
     if self.lang == 'en'

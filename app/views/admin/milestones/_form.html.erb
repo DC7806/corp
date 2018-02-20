@@ -1,0 +1,18 @@
+<%= form_for admin_milestone do |f| %>
+<div class="form-group mt-xs-20">
+  <%= f.label :lang, '語言' %>
+  <%= f.select :lang, options_for_select([['中文'],['英文']], admin_milestone.default_lang), {include_blank: " - 選擇語言 - "}, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :year, '年份' %>
+  <%= f.text_field :year, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :content, '歷程碑' %>
+  <%= f.text_area :content, class: "text-area form-control" %>
+</div>
+<div class="form-group">
+  <%= f.submit "確認送出", class: "btn btn-primary form-control" %>
+  <%= link_to "取消", admin_milestones_path, class: "btn btn-default form-control mt-xs-20" %>
+</div>
+<% end %>

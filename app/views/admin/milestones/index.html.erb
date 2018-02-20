@@ -1,0 +1,36 @@
+<%= link_to "新增", new_admin_milestone_path, class: "btn btn-default btn-add-new my-xs-20"%>
+
+<ul class="nav nav-pills my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#milestone_zh-TW" data-toggle="tab">中文</a></li>
+  <li ><a role="tab" href="#milestone_en" data-toggle="tab">英文</a></li>
+</ul>
+<div class="tab-content mt-xs-20">
+  <% {'zh-TW': 'active', en: 'fade'}.each do |key, value| %>
+  <div role="tabpanel" class="tab-pane <%= value %>" id=<%= "milestone_#{key}" %>>
+    <table class="table xs-transform">
+      <thead class="hidden-xs">
+        <tr>
+          <td class="col-sm-5">年份</td>
+          <td class="col-sm-5">里程碑</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admin_milestones.where(lang: key).each do |milestone|%>
+        <tr>
+          <td class="col-sm-5"><%= milestone.year %></td>
+          <td class="col-sm-5"><%= milestone.content %></td>
+          <td class="col-sm-2 text-center">
+            <%= link_to edit_admin_milestone_path(milestone), class: "btn btn-primary" do %>
+              <i class="fa fa-pencil fa-fw"></i>
+            <% end %> 
+            <%= link_to admin_milestone_path(milestone), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do%>
+              <i class="fa fa-trash fa-fw"></i>
+            <% end %>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>
