@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
-  
+  before_validation :set_default_values
+  before_save :set_default_alt
+
   # validation
   validates :name, :model, :country, :permalink, presence: true 
   validates :permalink, uniqueness: true
@@ -17,7 +19,27 @@ class Product < ApplicationRecord
 
   # translation
   extend Mobility
-  translates :name, type: :string, locale_accessors: [:en, :"zh-TW"]
+  translates :name, :country, type: :string, locale_accessors: [:en, :"zh-TW"]
   translates :feature, :specification, :dimensions, :description, type: :text, locale_accessors: [:en, :"zh-TW"]
+
+  # Carrierwave
+  mount_uploader :document, AttachmentUploader
+
+  private
+
+  def set_default_values
+    self.country_zh_tw = "台灣" if self.country_zh_tw.blank?
+    self.country_en = "Taiwan" if self.country_en.blank?
+    self.permalink = model if self.permalink.blank?
+    self.metum.title_zh_tw = name_zh_tw if self.metum.title_zh_tw.blank?
+    self.metum.title_en = name_en if self.metum.title_en.blank?
+    self.metum.og_title_zh_tw = name_zh_tw if self.metum.og_title_zh_tw.blank?
+    self.metum.og_title_en = name_en if self.metum.og_title_en.blank?
+  end
+
+  ## not working
+  def set_default_alt
+    self.images.where(lang: "zh-TW").first.alt = model if self.images.where(lang: "zh-TW").first.alt.blank?
+  end
 
 end

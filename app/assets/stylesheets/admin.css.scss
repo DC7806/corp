@@ -48,3 +48,16 @@ td {
 .nav > li > a {
     padding: 6px 12px;
 }
+
+// checkbox
+.btn-checkbox:not(:first-of-type) {
+  margin-left: 10px;
+}
+.btn-checkbox > span {
+  margin-left: 5px
+}
+
+// text_field
+.text-area {
+  min-height: 100px;
+}

@@ -1,5 +1,5 @@
 class Admin::NewsController < AdminController
-  
+    
   before_action :find_news, only: [:edit, :update, :destroy]
 
   def index
@@ -8,6 +8,8 @@ class Admin::NewsController < AdminController
 
   def new
     @admin_news = Admin::News.new
+    @admin_news.build_image
+    @admin_news.build_metum
   end
 
   def create
@@ -45,13 +47,12 @@ class Admin::NewsController < AdminController
 
   def news_params
     params.require(:admin_news).permit(:title, :content, :permalink, :title_en, :content_en, :title_zh_tw, :content_zh_tw,
-                                        image_attributes: [
-                                                            :image, :image_alt
-                                                          ],
+                                        image_attributes: [:id, :lang, :src, :alt, :_destroy],
                                         metum_attributes: [
                                                             :title, :meta_description, :og_title, :og_description, :og_image,
                                                             :title_en, :meta_description_en, :og_title_en, :og_description_en,
-                                                            :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw
+                                                            :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw,
+                                                            :_destroy
                                                           ])
   end
 

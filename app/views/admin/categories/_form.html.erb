@@ -1,16 +1,65 @@
-
 <%= form_for admin_category do |f| %>
-  <div class="form-group mt-xs-20">
-    <%= f.label :name_zh_tw, "分類名稱_中文" %>
-    <%= f.text_field :name_zh_tw, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name_en, "分類名稱_英文" %>
-    <%= f.text_field :name_en, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :permalink, "分類網址" %>
-    <%= f.text_field :permalink, placeholder: "預設為「英文」分類名稱", class: "form-control" %>
+  <ul class="nav nav-tabs nav-justified my-xs-20" role="tablist">
+      <li class="active"><a role="tab" href="#basics" data-toggle="tab">基本資料</a></li>
+      <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
+  </ul>
+  <div class="tab-content mt-xs-20">
+    <div role="tabpanel" class="tab-pane active" id="basics">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#basics_zh_tw" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#basics_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <% {zh_tw: 'active', en: 'fade'}.each do |key, value| %>
+        <div role="tabpanel" class="tab-pane <%= value %>" id="basics_<%= key %>">
+          <div class="form-group">
+            <%= f.label "name_#{key}", "分類名稱" %>
+            <%= f.text_field "name_#{key}", class: "form-control" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :permalink, "分類網址" %>
+        <%= f.text_field :permalink, placeholder: "預設：英文分類名稱", class: "form-control" %>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="seo">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#seo_zh_tw" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <%= f.fields_for :metum do |mt| %>
+        <% {zh_tw: 'active', en: 'fade'}.each do |key, value| %>
+        <div role="tabpanel" class="tab-pane <%= value %>" id="seo_<%= key %>">
+          <div class="form-group">
+            <%= mt.label "title_#{key}", "網頁標題" %>
+            <%= mt.text_field "title_#{key}", class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label "meta_description_#{key}", "網頁說明" %>
+            <%= mt.text_area "meta_description_#{key}", class: "form-control text-area" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label "og_title_#{key}", "FB_網頁標題" %>
+            <%= mt.text_field "og_title_#{key}", class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label "og_description_#{key}", "FB_網頁說明" %>
+            <%= mt.text_area "og_description_#{key}", class: "form-control text-area" %>  
+          </div>
+        </div>
+        <% end %>
+        <div class="form-group">
+          <%= mt.label :og_image, "FB_圖片" %>
+          <%= mt.file_field :og_image, "data-default-file": admin_category.metum.og_image.url,class: "dropify" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
   <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
+  <%= link_to "取消", admin_categories_path, class: "btn btn-default form-control mt-xs-20" %>
 <% end %>
+<%= render 'layouts/dropify' %>

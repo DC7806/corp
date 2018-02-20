@@ -1,23 +1,23 @@
 ---
-hq_zh:
-  address: hq_address_zh
-  number: hq_number_zh
-  fax: hq_fax_zh
+總公司:
+  地址: hq_address_zh
+  電話: hq_number_zh
+  傳真: hq_fax_zh
   email: hq_email_zh
 hq_en:
   address: hq_address_en
   number: hq_number_en
   fax: hq_fax_en
   email: hq_email_en
-north:
-  name: north_name
-  number: north_number
+北區:
+  聯絡人: north_name
+  電話: north_number
   email: north_email
-central:
-  name: central_name
-  number: central_number
+中區:
+  聯絡人: central_name
+  電話: central_number
   email: central_email
-south:
-  name: south_name
-  number: south_number
+南區:
+  聯絡人: south_name
+  電話: south_number
   email: south_email

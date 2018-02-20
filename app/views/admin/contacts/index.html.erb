@@ -4,38 +4,29 @@
   <li ><a role="tab" href="#contacts_en" data-toggle="tab">英文</a></li>
 </ul>
 <div class="tab-content mt-xs-20">
-<!-- Contacts_ZH Panel -->
+  <!-- Contacts_zh Panel -->
   <div role="tabpanel" class="tab-pane active" id="contacts_zh">
-    <h3>HQ</h3>
-  <% @admin_contacts_hq_zh.each do |k1, v1| %>
-  <% v1.each do |k2, v2| %>
-    <div>
+    <% @admin_contacts_zh.each do |k1, v1| %>
+    <h4><%= k1 %></h4>
+    <% v1.each do |k2, v2| %>
+    <div class="form-group">
       <%= f.label k2 %>
       <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
     </div>
-  <% end %>
-  <% end %>
-    <h3>Regions</h3>
-  <% @admin_contacts_regions.each do |k1, v1| %>
-  <% v1.each do |k2, v2| %>
-    <div>
-      <%= f.label k2 %>
-      <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
-    </div>
-  <% end %>
-  <% end %>
+    <% end %>
+    <% end %>
   </div>
-  <!-- Contacts_EN Panel-->
+  <!-- Contacts_en Panel-->
   <div role="tabpanel" class="tab-pane fade mt-xs-20" id="contacts_en">
-    <h3>HQ</h3>
-  <% @admin_contacts_hq_en.each do |k1, v1| %>
-  <% v1.each do |k2, v2| %>
-    <div>
+    <% @admin_contacts_en.each do |k1, v1| %>
+    <h4>總公司</h4>
+    <% v1.each do |k2, v2| %>
+    <div class="form-group">
       <%= f.label k2 %>
       <%= f.text_field v2, name: "contacts[#{k1}][#{k2}]", value: v2, class: "form-control" %>
     </div>
-  <% end %>
-  <% end %>
+    <% end %>
+    <% end %>
   </div>
 </div>  
 <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>

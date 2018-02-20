@@ -9,46 +9,109 @@
       <%#= f.text_area content %>
     </div> -->
   <%# end %> 
-<ul class="nav nav-pills my-xs-20" role="tablist">
-  <li class="active"><a role="tab" href="#news_zh" data-toggle="tab">中文</a></li>
-  <li ><a role="tab" href="#news_en" data-toggle="tab">英文</a></li>
+<ul class="nav nav-tabs nav-justified my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#content" data-toggle="tab">內容</a></li>
+  <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
 </ul>
 <div class="tab-content mt-xs-20">
-  <!-- News_ZH Panel -->
-  <div role="tabpanel" class="tab-pane active" id="news_zh">
-    <div class="form-group">
-      <%= f.label :title_zh_tw, '標題' %>
-      <%= f.text_field :title_zh_tw, class: "form-control"%>
+  <!-- content panel -->
+  <div role="tabpanel" class="tab-pane active" id="content">
+    <ul class="nav nav nav-pills my-xs-20" role="tablist">
+      <li class="active"><a role="tab" href="#content_zh" data-toggle="tab">中文</a></li>
+      <li ><a role="tab" href="#content_en" data-toggle="tab">英文</a></li>
+    </ul>
+    <div class="form-group mt-xs-20">
+      <%= f.fields_for :image do |img| %>
+      <div class="form-group">
+        <%= img.label :src, "封面圖片" %>
+        <%= img.file_field :src, "data-default-file": admin_news.image.src.url, class: "dropify" %>
+      </div>
+      <% end %>
     </div>
-    <div class="form-group">  
-      <%= f.label :content_zh_tw, '內容' %>
-      <%= f.cktext_area :content_zh_tw%>
-    </div>
-  </div>    
-  <!-- News_EN Panel-->
-  <div role="tabpanel" class="tab-pane fade mt-xs-20" id="news_en">
-    <div class="form-group">
-      <%= f.label :title_en, '標題' %>
-      <%= f.text_field :title_en, class: "form-control"%>
-    </div>
-    <div class="form-group">
-      <%= f.label :content_en, '內容' %>
-      <%= f.cktext_area :content_en%>
+    <div class="tab-content mt-xs-20">
+      <!-- content_zh panel -->
+      <div role="tabpanel" class="tab-pane active" id="content_zh">
+        <div class="form-group">
+          <%= f.label :title_zh_tw, '標題' %>
+          <%= f.text_field :title_zh_tw, class: "form-control"%>
+        </div>
+        <div class="form-group">  
+          <%= f.label :content_zh_tw, '內容' %>
+          <%= f.cktext_area :content_zh_tw%>
+        </div>
+      </div>
+      <!-- content_en panel -->
+      <div role="tabpanel" class="tab-pane fade" id="content_en">
+        <div class="form-group">
+          <%= f.label :title_en, '標題' %>
+          <%= f.text_field :title_en, class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%= f.label :content_en, '內容' %>
+          <%= f.cktext_area :content_en%>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="form-group">
-  <%= f.fields_for :image do |img| %>
-  <div class="form-group">
-    <%= img.label :image, "封面圖片" %>
-    <%= img.file_field :image %>
+  <!-- seo panel -->
+  <div role="tabpanel" class="tab-pane fade" id="seo">
+    <ul class="nav nav-pills my-xs-20" role="tablist">
+      <li class="active"><a role="tab" href="#seo_zh" data-toggle="tab">中文</a></li>
+      <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
+    </ul>
+    <div class="form-group mt-xs-20">
+      <%= f.label :permalink, "自訂網址" %>
+      <%= f.text_field :permalink, placeholder: "預設：英文標題，限英數字元", class: "form-control" %>
+    </div>
+    <div class="tab-content mt-xs-20">
+      <!-- seo_zh panel -->
+      <%= f.fields_for :metum do |mt| %>
+      <div role="tabpanel" class="tab-pane active" id="seo_zh">
+        <div class="form-group">
+          <%= mt.label :title_zh_tw, "網頁標題" %>
+          <%= mt.text_field :title_zh_tw, class: "form-control" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :meta_description_zh_tw, "網頁說明" %>
+          <%= mt.text_area :meta_description_zh_tw, class: "form-control text-area" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :og_title_zh_tw, "FB_網頁標題" %>
+          <%= mt.text_field :og_title_zh_tw, class: "form-control" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :og_description_zh_tw, "FB_網頁說明" %>
+          <%= mt.text_area :og_description_zh_tw, class: "form-control text-area" %>  
+        </div>
+      </div>
+      <!-- seo_en panel -->
+      <div role="tabpanel" class="tab-pane fade" id="seo_en">
+        <div class="form-group">
+          <%= mt.label :title_en, "網頁標題" %>
+          <%= mt.text_field :title_en, class: "form-control" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :meta_description_en, "網頁說明" %>
+          <%= mt.text_area :meta_description_en, class: "form-control text-area" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :og_title_en, "FB_網頁標題" %>
+          <%= mt.text_field :og_title_en, class: "form-control" %>  
+        </div>
+        <div class="form-group">
+          <%= mt.label :og_description_en, "FB_網頁說明" %>
+          <%= mt.text_area :og_description_en, class: "form-control text-area" %>  
+        </div>
+      </div>
+      <div class="form-group">
+        <%= mt.label :og_image, "FB_圖片" %>
+        <%= mt.file_field :og_image, "data-default-file": admin_news.metum.og_image.url,class: "dropify" %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-</div>
-<div class="form-group">
-  <%= f.label :permalink, "網址" %>
-  <%= f.text_field :permalink, class: "form-control" %>
 </div>
 <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
-<%= link_to "取消", "admin_news_index_path", class: "btn btn-default form-control mt-xs-20" %>
+<%= link_to "取消", admin_news_index_path, class: "btn btn-default form-control mt-xs-20" %>
 <% end %>
+<%= render 'layouts/dropify' %>

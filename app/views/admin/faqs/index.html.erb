@@ -10,18 +10,16 @@
     <table class="table xs-transform">
       <thead class="hidden-xs">
         <tr>
-          <td class="col-sm-2">建立日期</td>
-          <td class="col-sm-4">問題</td>
-          <td class="col-sm-5">答案</td>
+          <td class="col-sm-5">建立日期</td>
+          <td class="col-sm-5">問題</td>
         </tr>
       </thead>
       <tbody>
         <% @admin_faqs.where(lang: "zh-TW").each do |faq|%>
         <tr>
-          <td class="col-sm-2"><%= faq.created_at.to_date %></td>
-          <td class="col-sm-4"><%= faq.question %></td>
-          <td class="col-sm-5"><%= faq.answer %></td>
-          <td class="col-sm-1 text-center">
+          <td class="col-sm-5"><%= faq.created_at.to_date %></td>
+          <td class="col-sm-5"><%= faq.question %></td>
+          <td class="col-sm-2 text-center">
             <%= link_to edit_admin_faq_path(faq), class: "btn btn-primary" do %>
               <i class="fa fa-pencil fa-fw"></i>
             <% end %> 
@@ -39,18 +37,16 @@
     <table class="table xs-transform">
       <thead class="hidden-xs">
         <tr>
-          <td class="col-sm-2">建立日期</td>
-          <td class="col-sm-4">問題</td>
-          <td class="col-sm-5">答案</td>
+          <td class="col-sm-5">建立日期</td>
+          <td class="col-sm-5">問題</td>
         </tr>
       </thead>
       <tbody>
         <% @admin_faqs.where(lang: "en").each do |faq|%>
         <tr>
-          <td class="col-sm-2"><%= faq.created_at.to_date %></td>
-          <td class="col-sm-4"><%= faq.question %></td>
-          <td class="col-sm-5"><%= faq.answer %></td>
-          <td class="col-sm-1 text-center">
+          <td class="col-sm-5"><%= faq.created_at.to_date %></td>
+          <td class="col-sm-5"><%= faq.question %></td>
+          <td class="col-sm-2 text-center">
             <%= link_to edit_admin_faq_path(faq), class: "btn btn-primary" do %>
               <i class="fa fa-pencil fa-fw"></i>
             <% end %> 

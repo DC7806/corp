@@ -1,93 +1,55 @@
 <%= form_for admin_product do |f| %>
-  <ul class="nav nav nav-tabs nav-justified my-xs-20" role="tablist">
-    <li class="active"><a role="tab" href="#basic_info" data-toggle="tab">基本資料</a></li>
-    <li ><a role="tab" href="#image" data-toggle="tab">圖片</a></li>
+  <ul class="nav nav-tabs nav-justified my-xs-20" role="tablist">
+    <li class="active"><a role="tab" href="#basics" data-toggle="tab">基本資料</a></li>
     <li ><a role="tab" href="#content" data-toggle="tab">內容</a></li>
+    <li ><a role="tab" href="#support" data-toggle="tab">技術文件</a></li>
     <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
   </ul>
   <div class="tab-content mt-xs-20">
-    <div role="tabpanel" class="tab-pane active" id="basic_info">
-      <div class="form-group">
-        <%= f.label :name_zh_tw, "品名_中文" %>
-        <%= f.text_field :name_zh_tw, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :name_en, "品名_英文" %>
-        <%= f.text_field :name_en, class: "form-control" %>
+    <div role="tabpanel" class="tab-pane active" id="basics">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#basics_zh" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#basics_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <div role="tabpanel" class="tab-pane active" id="basics_zh">
+          <div class="form-group">
+            <%= f.label :name_zh_tw, "品名" %>
+            <%= f.text_field :name_zh_tw, class: "form-control" %>
+          </div>
+          <%= product_image(f,"zh-TW", admin_product) %>
+          <div class="form-group">
+            <%= f.label :country, "產地" %>
+            <%= f.text_field :country_zh_tw, placeholder: "預設：台灣", class: "form-control" %>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="basics_en">
+          <div class="form-group">
+            <%= f.label :name_en, "品名" %>
+            <%= f.text_field :name_en, class: "form-control" %>
+          </div>
+          <%= product_image(f,"en", admin_product) %>
+          <div class="form-group">
+            <%= f.label :country, "產地" %>
+            <%= f.text_field :country_en, placeholder: "預設：Taiwan", class: "form-control" %>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <%= f.label :model, "型號" %>
         <%= f.text_field :model, class: "form-control" %>
+      </div>  
+      <div class="form-group">
+        <div><%= f.label "產品分類" %></div>  
+        <%= checkbox Category %>
       </div>
       <div class="form-group">
-        <%= f.label :country, "產地" %>
-        <%= f.text_field :country, placeholder: "預設為『台灣』", class: "form-control" %>
+        <div><%= f.label "產品認證" %></div>
+        <%= checkbox Certificate %>
       </div>
-      <div class="form-group">
-        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-        <%= f.collection_check_boxes :certificate_ids, Certificate.all, :id, :name %>
-        <!-- or use custom hepler -->
-        <%#= product_collection_checkbox(Category) %>
-        <%#= product_collection_checkbox(Certificate) %>
-      </div>
-      <div class="form-group">
-        <%= f.label :permalink, "網址" %>
-        <%= f.text_field :permalink, placeholder: "預設為產品型號", class: "form-control" %>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="image">
-    <% if action_name == 'new' %>
-      <%= f.fields_for :images do |img| %>
-        <div class="form-group">
-          <%= img.text_field :lang, value: "zh-TW", hidden: true%>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_src_tw, "產品圖片_中文" %>
-          <%= img.file_field :src, class: "dropify" %>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_alt, "圖片說明文字_中文" %>
-          <%= img.text_field :alt, class: "form-control" %>  
-        </div>
-      <% end %>
-      <%= f.fields_for :images do |img| %>
-        <div class="form-group">
-          <%= img.text_field :lang, value: "en", hidden: true%>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_src_en, "產品圖片_英文" %>
-          <%= img.file_field :src, class: "dropify" %>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_alt, "圖片說明文字_英文" %>
-          <%= img.text_field :alt, class: "form-control" %>  
-        </div>
-      <% end %>
-      <% elsif action_name == 'edit' %>
-      <%= f.fields_for :images, admin_product.images.where(lang: "zh-TW") do |img| %> 
-        <div class="form-group">
-          <%= img.label :image_src, "產品圖片_中文"%>
-          <%= img.file_field :src, "data-default-file": admin_product.images.where(lang: "zh-TW").first.src.url, class: "dropify" %>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_alt, "圖片說明文字_中文" %>
-          <%= img.text_field :alt, placeholder: "預設為品名", class: "form-control" %> 
-        </div>
-      <% end %>
-      <%= f.fields_for :images, admin_product.images.where(lang: "en") do |img| %>
-        <div class="form-group">
-          <%= img.label :image_src, "產品圖片_英文" %>
-          <%= img.file_field :src, "data-default-file": admin_product.images.where(lang: "en").first.src.url, class: "dropify" %>    
-        </div>
-        <div class="form-group">
-          <%= img.label :image_alt, "圖片說明文字_英文" %>
-          <%= img.text_field :alt, placeholder: "預設為品名", class: "form-control" %>  
-        </div>
-      <% end %>
-    <% end %>
     </div>
     <div role="tabpanel" class="tab-pane fade mt-xs-20" id="content">
-      <ul class="nav nav nav-pills my-xs-20" role="tablist">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
         <li class="active"><a role="tab" href="#content_zh" data-toggle="tab">中文</a></li>
         <li ><a role="tab" href="#content_en" data-toggle="tab">英文</a></li>
       </ul>
@@ -128,80 +90,71 @@
             <%= f.cktext_area :specification_en %>
           </div>
         </div>
-        <div class="form-group">
-          <%= f.label :document, "Document" %>
-          <%= f.text_field :document %>
-        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="support">
+      <div class="form-group">
+        <%= f.label :document, "技術文件" %>
+        <%= f.file_field :document, "data-default-file": admin_product.document, class: "dropify" %>
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade mt-xs-20" id="seo">
-      <ul class="nav nav nav-pills my-xs-20" role="tablist">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
         <li class="active"><a role="tab" href="#seo_zh" data-toggle="tab">中文</a></li>
         <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
       </ul>
-      <div class="tab-content mt-xs-20">
+      <div class="form-group mt-xs-20">
+        <%= f.label :permalink, "自訂網址" %>
+        <%= f.text_field :permalink, placeholder: "預設：產品型號，限英數字元", class: "form-control" %>
+      </div>
+      <div class="tab-content mt-xs-15">
+        <%= f.fields_for :metum do |mt| %>
         <div role="tabpanel" class="tab-pane active" id="seo_zh">
-          <%= f.fields_for :metum do |meta| %>
-            <div class="form-group">
-              <%= meta.label :title_zh_tw, "網頁標題" %>
-              <%= meta.text_field :title_zh_tw, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :meta_description_zh_tw, "網頁說明" %>
-              <%= meta.text_field :meta_description_zh_tw, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :og_title_zh_tw, "FB_網頁標題" %>
-              <%= meta.text_field :og_title_zh_tw, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :og_description_zh_tw, "FB_網頁說明" %>
-              <%= meta.text_field :og_description_zh_tw, class: "form-control" %>  
-            </div>
-          <% end %>
+          <div class="form-group">
+            <%= mt.label :title_zh_tw, "網頁標題" %>
+            <%= mt.text_field :title_zh_tw, class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :meta_description_zh_tw, "網頁說明" %>
+            <%= mt.text_area :meta_description_zh_tw, class: "form-control text-area" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :og_title_zh_tw, "FB_網頁標題" %>
+            <%= mt.text_field :og_title_zh_tw, class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :og_description_zh_tw, "FB_網頁說明" %>
+            <%= mt.text_area :og_description_zh_tw, class: "form-control text-area" %>  
+          </div>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="seo_en">
-          <%= f.fields_for :metum do |meta| %>
-            <div class="form-group">
-              <%= meta.label :title_en, "網頁標題" %>
-              <%= meta.text_field :title_en, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :meta_description_en, "網頁說明" %>
-              <%= meta.text_field :meta_description_en, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :og_title_en, "FB_網頁標題" %>
-              <%= meta.text_field :og_title_en, class: "form-control" %>  
-            </div>
-            <div class="form-group">
-              <%= meta.label :og_description_en, "FB_網頁說明" %>
-              <%= meta.text_field :og_description_en, class: "form-control" %>  
-            </div>
-          <% end %>
+          <div class="form-group">
+            <%= mt.label :title_en, "網頁標題" %>
+            <%= mt.text_field :title_en, class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :meta_description_en, "網頁說明" %>
+            <%= mt.text_area :meta_description_en, class: "form-control text-area" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :og_title_en, "FB_網頁標題" %>
+            <%= mt.text_field :og_title_en, class: "form-control" %>  
+          </div>
+          <div class="form-group">
+            <%= mt.label :og_description_en, "FB_網頁說明" %>
+            <%= mt.text_area :og_description_en, class: "form-control text-area" %>  
+          </div>
         </div>
       </div>
-      <%= f.fields_for :metum do |meta| %>
-        <div class="form-group">
-          <%= meta.label :og_image, "FB_圖片" %>
-          <%= meta.file_field :og_image, "data-default-file": @admin_product.metum.og_image, class: "dropify" %>
-        </div>
+      <div class="form-group">
+        <%= mt.label :og_image, "FB_圖片" %>
+        <%= mt.file_field :og_image, "data-default-file": @admin_product.metum.og_image, class: "dropify" %>
+      </div>
       <% end %>
-      </div>
+    </div>
   </div>
   <%= f.submit "確認送出", class: "btn btn-primary form-control" %>
   <%= link_to "取消", admin_products_path, class: "btn btn-default form-control mt-xs-20" %>
 <% end %>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-  $('.dropify').dropify({
-    messages: {
-      default: '拖曳圖片至此或點擊上傳',
-      replace: '拖曳圖片至此或點擊取代',
-      remove:  '刪除',
-      // error:   'Désolé, le fichier trop volumineux'
-              }
-  });
-})
-</script>
+<%= render 'layouts/dropify' %>
