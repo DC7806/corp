@@ -1,0 +1,34 @@
+<%= form_for(:about, url: admin_about_index_path) do |f| %>
+<ul class="nav nav-pills my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#about_zh" data-toggle="tab">中文</a></li>
+  <li ><a role="tab" href="#about_en" data-toggle="tab">英文</a></li>
+</ul>
+<div class="tab-content mt-xs-20">
+  <!-- about_zh Panel -->
+  <div role="tabpanel" class="tab-pane active" id="about_zh">
+    <% @admin_about_zh.each do |k1, v1| %>
+    <% v1.each do |k2, v2| %>
+    <div class="form-group">
+      <%= f.label k2 %>
+      <input id=<%= "about[#{k1}][#{k2}]" %> value="<%= v2 %>" type="hidden" name=<%= "about[#{k1}][#{k2}]" %>>
+      <trix-editor input=<%= "about[#{k1}][#{k2}]" %>></trix-editor>
+    </div>
+    <% end %>
+    <% end %>    
+  </div>
+  <!-- about_en Panel-->
+  <div role="tabpanel" class="tab-pane fade mt-xs-20" id="about_en">
+    <% @admin_about_en.each do |k1, v1| %>
+    <% v1.each do |k2, v2| %>
+    <div class="form-group">
+      <%= f.label k2 %>
+      <input id=<%= "about[#{k1}][#{k2}]" %> value="<%= v2 %>" type="hidden" name=<%= "about[#{k1}][#{k2}]" %>>
+      <trix-editor input=<%= "about[#{k1}][#{k2}]" %>></trix-editor>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+</div>
+<%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
+<% end %>

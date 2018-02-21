@@ -5,6 +5,7 @@
 *= require AdminLTE
 *= require skin-black
 *= require dropify
+*= require trix
 *= require_self
 */
 @import "bootstrap-sprockets";
@@ -60,4 +61,9 @@ td {
 // text_field
 .text-area {
   min-height: 100px;
+}
+
+// trix-editor
+trix-editor {
+  background-color: #fff;
 }

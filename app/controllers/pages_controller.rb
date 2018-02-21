@@ -15,4 +15,10 @@ class PagesController < ApplicationController
     @faq_zh = Faq.where(lang: 'zh-TW').order(created_at: :desc)
   end
 
+  def about
+    @about = YAML::load_file("#{Rails.root}/config/about.yml")
+    @about_zh = @about.slice('zh')
+    @about_en = @about.slice('en')
+  end
+
 end
