@@ -9,4 +9,8 @@ class AdminController < ApplicationController
     { locale: I18n.default_locale }
   end
 
+  def inquiries
+    @inquiries = Inquiry.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
 end

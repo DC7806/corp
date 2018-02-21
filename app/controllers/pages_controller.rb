@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @contacts_hq_zh = @contacts.slice('hq_zh')
     @contacts_hq_en = @contacts.slice('hq_en')
     @contacts_regions = @contacts.except('hq_zh', 'hq_en')
+    @inquiry = Inquiry.new
   end
 
   def faq

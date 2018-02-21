@@ -40,7 +40,13 @@ module Admin::ProductsHelper
       end
     end
   end
-  
+
+  def index_product_image(product)
+    if product.images.where(lang: "zh-TW").first.src.present?
+      image_tag product.images.where(lang: "zh-TW").first.src.url, style: "width:100%" 
+    end
+  end
+
 end
 
 # <% if action_name == 'new' %>

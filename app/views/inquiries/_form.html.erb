@@ -1,0 +1,12 @@
+<%= form_for inquiry do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, class: "form-control" %>
+<%= f.label :number %>
+<%= f.text_field :number, class: "form-control" %>
+<%= f.label :email %>
+<%= f.text_field :email, class: "form-control" %>
+<%= f.label :content %>
+<%= f.text_area :content, class: "text-area form-control" %>
+<%= recaptcha_tags %>
+<%= f.submit '確認送出', class: "btn btn-primary form-control" %>
+<% end %>

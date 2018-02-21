@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'contact', to: 'pages#contact'
     get 'faq', to: 'pages#faq'
     get 'documents', to: 'pages#documents'
+    resources :inquiries, only: [:new, :create]
     resources :categories, :products, :news, only: [:index, :show]
   end
 
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     resources :news, :categories, :products, :certificates, :faqs, :milestones, except: :show
     resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, only: [:index, :create]
+    get 'inquiries'
     # get 'dashboard', to: 'admin#dashboard', as: :root
   end
   

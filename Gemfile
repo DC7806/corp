@@ -36,6 +36,7 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'kaminari'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem "recaptcha", require: "recaptcha/rails"
 
 
 group :development, :test do

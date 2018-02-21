@@ -1,3 +1,5 @@
+<%= render "inquiries/form", inquiry: @inquiry %>
+
 <% if I18n.locale == :en %> 
   <% @contacts_hq_en.each do |k1, v1| %>
   <h3><%= k1 %></h3>
