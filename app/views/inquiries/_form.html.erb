@@ -1,6 +1,10 @@
 <%= form_for inquiry do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name, class: "form-control" %>
+<%= f.label :prefix %>
+<%= f.select :prefix, options_for_select([['先生'],['女士']]), {include_blank: " - 選擇稱謂 - "}, class: "form-control" %>
+<%= f.label :first_name %>
+<%= f.text_field :first_name, class: "form-control" %>
+<%= f.label :last_name %>
+<%= f.text_field :last_name, class: "form-control" %>
 <%= f.label :number %>
 <%= f.text_field :number, class: "form-control" %>
 <%= f.label :email %>

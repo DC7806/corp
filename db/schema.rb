@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221144610) do
+ActiveRecord::Schema.define(version: 20180222175029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20180221144610) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "faqs", force: :cascade do |t|
     t.string "lang"
     t.text "question"
@@ -81,12 +96,14 @@ ActiveRecord::Schema.define(version: 20180221144610) do
   end
 
   create_table "inquiries", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
     t.string "number"
     t.string "email"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "prefix"
   end
 
   create_table "meta", force: :cascade do |t|

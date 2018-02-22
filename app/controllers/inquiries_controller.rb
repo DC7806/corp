@@ -5,18 +5,17 @@ class InquiriesController < ApplicationController
   end
 
   def create
-    # for render template
-    @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
-    @contacts_hq_zh = @contacts.slice('hq_zh')
-    @contacts_hq_en = @contacts.slice('hq_en')
-    
     @inquiry = Inquiry.new(inquiry_params)
     if verify_recaptcha(model: @inquiry) && @inquiry.save
       # send mail
-      InquiryMailer.inquiry_notification(@inquiry).deliver_now
+      InquiryMailer.delay.inquiry_auto_reply(@inquiry)
+      InquiryMailer.delay(run_at: 1.minute.from_now).inquiry_notification(@inquiry)
       redirect_back(fallback_location: request.referrer)
-      InquiryMailer.inquiry_auto_reply(@inquiry).deliver_now
     else
+      # for render template
+      @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
+      @contacts_hq_zh = @contacts.slice('hq_zh')
+      @contacts_hq_en = @contacts.slice('hq_en')
       flash[:alert] = 'something went wrong'
       render template: 'pages/contact'
       ## to do: front end error messages
@@ -26,7 +25,7 @@ class InquiriesController < ApplicationController
   private
 
   def inquiry_params
-    params.require(:inquiry).permit(:name, :number, :email, :content)
+    params.require(:inquiry).permit(:prefix, :first_name, :last_name, :number, :email, :content)
   end
 
 end

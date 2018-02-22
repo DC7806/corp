@@ -2,7 +2,8 @@
   <thead class="hidden-xs">
     <tr>
       <td class="col-sm-1">日期</td>
-      <td class="col-sm-2">姓名</td>
+      <td class="col-sm-1">稱謂</td>
+      <td class="col-sm-1">姓</td>
       <td class="col-sm-2">電話</td>
       <td class="col-sm-2">Email</td>
       <td class="col-sm-5">內容</td>
@@ -12,7 +13,8 @@
     <% @inquiries.each do |inquiry| %>
     <tr>
       <td class="col-sm-1"><%= inquiry.created_at.to_date %></td>
-      <td class="col-sm-2"><%= inquiry.name %></td>
+      <td class="col-sm-1"><%= inquiry.prefix %></td>
+      <td class="col-sm-1"><%= inquiry.last_name %></td>
       <td class="col-sm-2"><%= inquiry.number %></td>
       <td class="col-sm-2"><%= inquiry.email %></td>
       <td class="col-sm-5"><%= inquiry.content %></td>

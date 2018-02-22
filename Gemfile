@@ -37,7 +37,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem "recaptcha", require: "recaptcha/rails"
-
+gem 'delayed_job_active_record'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
