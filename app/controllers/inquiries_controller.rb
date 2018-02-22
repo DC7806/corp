@@ -5,16 +5,21 @@ class InquiriesController < ApplicationController
   end
 
   def create
+    # for render template
+    @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
+    @contacts_hq_zh = @contacts.slice('hq_zh')
+    @contacts_hq_en = @contacts.slice('hq_en')
+    
     @inquiry = Inquiry.new(inquiry_params)
     if verify_recaptcha(model: @inquiry) && @inquiry.save
       # send mail
+      InquiryMailer.inquiry_notification(@inquiry).deliver_now
       redirect_back(fallback_location: request.referrer)
+      InquiryMailer.inquiry_auto_reply(@inquiry).deliver_now
     else
-      ## how to kept input info acting like render :new??
       flash[:alert] = 'something went wrong'
+      render template: 'pages/contact'
       ## to do: front end error messages
-      redirect_back(fallback_location: request.referrer)
-
     end
   end
 
