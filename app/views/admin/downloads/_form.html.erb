@@ -1,0 +1,20 @@
+<%= form_for admin_download do |f| %>
+  <div class="form-group mt-xs-20">
+    <%= f.label :lang, "語言" %>
+    <%= f.select :lang, options_for_select([['中文'],['英文']], admin_download.default_lang), {include_blank: " - 選擇語言 - "}, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, "文件名稱" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <%= f.fields_for :document do |doc| %>
+  <div class="form-group">
+    <%= doc.label :src, "檔案" %>
+    <%= doc.file_field :src, 'data-default-file': admin_download.document.src.url , class: "dropify" %>
+  </div>
+  <% end %>
+  <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
+  <%= link_to "取消", admin_downloads_path, class: "btn btn-default form-control mt-xs-20" %>
+<% end %>
+
+<%= render 'layouts/dropify' %>

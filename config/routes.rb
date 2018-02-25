@@ -8,14 +8,14 @@ Rails.application.routes.draw do
     get 'about', to: 'pages#about'
     get 'contact', to: 'pages#contact'
     get 'faq', to: 'pages#faq'
-    get 'documents', to: 'pages#documents'
+    get 'download', to: 'pages#download'
     resources :inquiries, only: [:new, :create]
-    resources :categories, :products, :news, only: [:index, :show]
+    resources :categories, :news, :products, only: [:index, :show]
   end
 
   #admin
   namespace :admin, path: Settings.admin_secret_path do
-    resources :news, :categories, :products, :certificates, :faqs, :milestones, except: :show
+    resources :categories, :certificates, :downloads, :faqs, :milestones, :news, :products, except: :show
     resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, :system, only: [:index, :create]
     get 'inquiries'

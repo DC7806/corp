@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @admin_faqs.where(lang: "zh-TW").each do |faq|%>
+        <% @admin_faqs.lang_query('zh-TW').each do |faq|%>
         <tr>
           <td class="col-sm-5"><%= faq.created_at.to_date %></td>
           <td class="col-sm-5"><%= faq.question %></td>
@@ -42,7 +42,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @admin_faqs.where(lang: "en").each do |faq|%>
+        <% @admin_faqs.lang_query('en').each do |faq|%>
         <tr>
           <td class="col-sm-5"><%= faq.created_at.to_date %></td>
           <td class="col-sm-5"><%= faq.question %></td>
