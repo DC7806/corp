@@ -1,0 +1,63 @@
+<%= form_for(:system, url: admin_system_index_path) do |f| %>
+  <ul class="nav nav-pills my-xs-20" role="tablist">
+    <li class="active"><a role="tab" href="#system_zh" data-toggle="tab">中文</a></li>
+    <li ><a role="tab" href="#system_en" data-toggle="tab">英文</a></li>
+  </ul>
+  <div class="tab-content mt-xs-20">
+     <!-- content_zh panel -->
+    <div role="tabpanel" class="tab-pane active" id="system_zh">
+      <% @admin_system_site_name.each do |k1, v1| %>
+      <% v1.each do |k2, v2| %>
+      <% if k2 == 'zh' %>
+      <div class="form-group">
+        <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% @admin_system_logo.each do |k1, v1| %>
+      <% v1.each do |k2, v2| %>
+      <% if k2 == 'zh' %>
+      <div class="form-group">
+        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, class: "dropify" %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <!-- content_en panel -->
+    <div role="tabpanel" class="tab-pane fade" id="system_en">
+      <% @admin_system_site_name.each do |k1, v1| %>
+      <% v1.each do |k2, v2| %>
+      <% if k2 == 'en' %>
+      <div class="form-group">
+        <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% @admin_system_logo.each do |k1, v1| %>
+      <% v1.each do |k2, v2| %>
+      <% if k2 == 'en' %>
+      <div class="form-group">
+        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, class: "dropify" %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% @admin_system_tracking.each do |k1, v1| %>
+  <% v1.each do |k2, v2| %>
+  <div class="form-group">
+    <%= f.label k2, k2 %>
+    <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+  </div>
+  <% end %>
+  <% end %>
+
+  <%= f.submit '確認送出', class: 'btn btn-primary form-control mt-xs-20' %>
+<% end %>
+
+<%= render 'layouts/dropify' %>
