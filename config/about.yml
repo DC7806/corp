@@ -1,11 +1,11 @@
 ---
 zh:
-  summary: "<div>blah</div><div>&lt;div&gt;hello&lt;/div&gt;</div>"
-  mission: "<div>zh</div>"
-  feature: "<div>zh</div>"
-  service: "<div>zh</div>"
+  summary: "<p>1234</p>\r\n\r\n<p>1234</p>\r\n"
+  mission: ''
+  feature: ''
+  service: "<p>123</p>\r\n\r\n<p>123</p>\r\n"
 en:
-  summary: "<div>sdfasdfsadfsadf</div><div>&lt;div&gt;hello&lt;/div&gt;</div><div><br></div>"
-  mission: "<div>en</div>"
-  feature: "<div>en</div>"
+  summary: "<p>en</p>\r\n\r\n<p>en</p>\r\n\r\n<p>en</p>\r\n\r\n<p>en</p>\r\n"
+  mission: ''
+  feature: ''
   service: ''
