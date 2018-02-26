@@ -3,8 +3,6 @@ class Admin::FaqsController < AdminController
 
   def index
     @admin_faqs = Admin::Faq.order(created_at: :desc)
-    @admin_faqs_en = Admin::Faq.where(lang: 'en').order(created_at: :desc)
-    @admin_faqs_zh = Admin::Faq.where(lang: 'zh-TW').order(created_at: :desc)
   end
 
   def new

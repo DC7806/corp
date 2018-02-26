@@ -1,0 +1,38 @@
+<%= form_for admin_metum do |f| %>
+  <ul class="nav nav-pills my-xs-20" role="tablist">
+    <li class="active"><a role="tab" href="#metum_zh_tw" data-toggle="tab">中文</a></li>
+    <li ><a role="tab" href="#metum_en" data-toggle="tab">英文</a></li>
+  </ul>
+  <div class="tab-content mt-xs-20">
+    <!-- metum_zh panel -->
+    <% {'zh_tw': 'active', 'en': 'fade'}.each do |locale, status| %>
+    <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "metum_#{locale}" %> >
+      <div class="form-group">
+        <%= f.label "title_#{locale}", "網頁標題" %>
+        <%= f.text_field "title_#{locale}", class: "form-control" %>  
+      </div>
+      <div class="form-group">
+        <%= f.label "meta_description_#{locale}", "網頁說明" %>
+        <%= f.text_area "meta_description_#{locale}", class: "form-control text-area" %>  
+      </div>
+      <div class="form-group">
+        <%= f.label "og_title_#{locale}", "FB_網頁標題" %>
+        <%= f.text_field "og_title_#{locale}", class: "form-control" %>  
+      </div>
+      <div class="form-group">
+        <%= f.label "og_description_#{locale}", "FB_網頁說明" %>
+        <%= f.text_area "og_description_#{locale}", class: "form-control text-area" %>  
+      </div>
+    </div>
+    <% end %>
+    <!-- og image -->
+    <div class="form-group">
+      <%= f.label :og_image, "FB_圖片" %>
+      <%= f.file_field :og_image, "data-default-file": admin_metum.og_image.url, class: "dropify" %>
+    </div>
+  </div>
+  <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
+  <%= link_to "取消", admin_meta_path, class: "btn btn-default form-control mt-xs-20" %>
+<% end %>
+
+<%= render 'layouts/dropify' %>

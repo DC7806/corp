@@ -1,0 +1,29 @@
+<%# byebug %>
+<table class="table xs-transform mt-xs-20">
+  <thead class="hidden-xs">
+    <tr>
+      <td class="col-sm-1">圖片</td>
+      <td class="col-sm-2">頁面</td>
+      <td class="col-sm-2">標題</td>
+      <td class="col-sm-5">敘述</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_meta.each do |metum|%>
+    <tr>
+      <td class="col-sm-1"><%= admin_index_image metum %></td>
+      <td class="col-sm-2"><%= metum.page_name %></td>
+      <td class="col-sm-2"><%= metum.title_zh_tw %></td>
+      <td class="col-sm-5"><%= metum.meta_description_zh_tw %></td>
+      <td class="col-sm-2 text-center">
+        <%= link_to edit_admin_metum_path(metum), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil fa-fw"></i>
+        <% end %> 
+        <%= link_to admin_metum_path(metum), method: "delete", data: { confirm: "確認刪除?" }, class: "btn btn-danger" do%>
+          <i class="fa fa-trash fa-fw"></i>
+        <% end %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   #admin
   namespace :admin, path: Settings.admin_secret_path do
-    resources :categories, :certificates, :downloads, :faqs, :milestones, :news, :products, except: :show
+    resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, :news, :products, except: :show
     resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, :system, only: [:index, :create]
     get 'inquiries'

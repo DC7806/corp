@@ -1,6 +1,6 @@
 <% if I18n.locale == :en %>
 ----EN----
-<% @faq_en.each do |f| %>
+<% @faqs.lang_query('en').each do |f| %>
 <div>
   <h3><%= f.question %></h3>
   <div><%= f.answer.html_safe %></div>
@@ -8,7 +8,7 @@
 <% end %>
 <% else %>
 ----CH----
-<% @faq_zh.each do |f| %>
+<% @faqs.lang_query('zh-TW').each do |f| %>
 <div>
   <h3><%= f.question %></h3>
   <div><%= f.answer.html_safe %></div>

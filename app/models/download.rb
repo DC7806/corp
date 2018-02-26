@@ -1,6 +1,6 @@
 class Download < ApplicationRecord
 
-  include LangDefaultSettings
+  include LangDefaultValues
     
   before_save :convert_lang
 

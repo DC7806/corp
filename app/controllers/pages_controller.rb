@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  def homepage
+  def home
   end
 
   def contact
@@ -12,8 +12,8 @@ class PagesController < ApplicationController
   end
 
   def faq
-    @faq_en = Faq.where(lang: 'en').order(created_at: :desc)
-    @faq_zh = Faq.where(lang: 'zh-TW').order(created_at: :desc)
+    @faqs = Faq.order(created_at: :desc)
+    @faq_zh = Faq.lang_query('zh-TW').order(created_at: :desc)
   end
 
   def about

@@ -5,9 +5,9 @@
   <li ><a role="tab" href="#download_en" data-toggle="tab">英文</a></li>
 </ul>
 <div class="tab-content mt-xs-20">
-  <% {'zh-TW': 'active', 'en': 'fade'}.each do |key, value| %>
-  <!-- download_<%= key %> panel -->
-  <div role="tabpanel" class="tab-pane <%= value %>" id=<%= "download_#{key}" %>>
+  <% {'zh-TW': 'active', 'en': 'fade'}.each do |locale, status| %>
+  <!-- download_<%= locale %> panel -->
+  <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "download_#{locale}" %>>
     <table class="table xs-transform">
       <thead class="hidden-xs">
         <tr>
@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @admin_downloads.where(lang: key).each do |download|%>
+        <% @admin_downloads.lang_query(locale).each do |download|%>
         <tr>
           <td class="col-sm-5"><%= download.created_at.to_date %></td>
           <td class="col-sm-5"><%= download.title %></td>
