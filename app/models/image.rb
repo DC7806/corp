@@ -5,7 +5,3 @@ class Image < ApplicationRecord
   # carrierwave
   mount_uploader :src, ImageUploader 
 end
-
-# t.string "image"
-# t.string "image_alt"
-# t.integer "sort"

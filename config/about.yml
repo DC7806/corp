@@ -1,7 +1,7 @@
 ---
 zh:
   summary: "<p>1234</p>\r\n\r\n<p>1234</p>\r\n"
-  mission: ''
+  mission: "<p>1234</p>\r\n"
   feature: ''
   service: "<p>123</p>\r\n\r\n<p>123</p>\r\n"
 en:

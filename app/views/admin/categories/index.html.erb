@@ -2,15 +2,15 @@
 <table class="table xs-transform mt-xs-20">
   <thead class="hidden-xs">
     <tr>
-      <td class="col-sm-5">建立日期</td>
-      <td class="col-sm-5">認證名稱</td>
+      <td class="col-sm-5">分類名稱</td>
+      <td class="col-sm-5">分類網址</td>
     </tr>
   </thead>
   <tbody>
     <% @admin_categories.each do |cat|%>
     <tr>
-      <td class="col-sm-5"><%= cat.created_at.to_date %></td>
       <td class="col-sm-5"><%= cat.name %></td>
+      <td class="col-sm-5"><%= cat.permalink %></td>
       <td class="col-sm-2 text-center">
         <%= link_to edit_admin_category_path(cat), class: "btn btn-primary" do %>
           <i class="fa fa-pencil fa-fw"></i>

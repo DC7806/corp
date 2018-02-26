@@ -47,7 +47,7 @@ class Admin::CategoriesController < AdminController
   def category_params
     params.require(:admin_category).permit(:name, :permalink, :name_en, :name_zh_tw,
                                             metum_attributes: [
-                                                              :title, :meta_description, :og_title, :og_description, :og_image,
+                                                              :id, :title, :meta_description, :og_title, :og_description, :og_image,
                                                               :title_en, :meta_description_en, :og_title_en, :og_description_en,
                                                               :title_zh_tw, :meta_description_zh_tw, :og_title_zh_tw, :og_description_zh_tw,
                                                               :_destroy

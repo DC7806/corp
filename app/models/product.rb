@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   before_validation :set_default_values
-  before_save :set_default_alt
+  # after_save :set_default_alt
 
   # validation
   validates :name, :model, :country, :permalink, presence: true 
@@ -14,6 +14,8 @@ class Product < ApplicationRecord
   
   has_many  :images, as: :imagable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
+  has_many  :documents, as: :documentable, dependent: :destroy
+  accepts_nested_attributes_for :documents, allow_destroy: true
   has_one  :metum, as: :metable, dependent: :destroy
   accepts_nested_attributes_for :metum, allow_destroy: true
 
@@ -38,8 +40,8 @@ class Product < ApplicationRecord
   end
 
   ## not working
-  def set_default_alt
-    self.images.where(lang: "zh-TW").first.alt = model if self.images.where(lang: "zh-TW").first.alt.blank?
-  end
+  # def set_default_alt
+  #   self.images.where(lang: "zh-TW").first.alt = model if self.images.where(lang: "zh-TW").first.alt.blank?
+  # end
 
 end

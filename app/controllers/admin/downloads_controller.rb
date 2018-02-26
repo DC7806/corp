@@ -46,7 +46,7 @@ class Admin::DownloadsController < AdminController
   end
 
   def download_params
-    params.require(:admin_download).permit(:lang, :title, document_attributes: [:lang, :src, :_destroy])
+    params.require(:admin_download).permit(:lang, :title, document_attributes: [:id, :lang, :src, :_destroy])
   end
 
 end

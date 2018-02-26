@@ -2,38 +2,30 @@
   <ul class="nav nav-tabs nav-justified my-xs-20" role="tablist">
     <li class="active"><a role="tab" href="#basics" data-toggle="tab">基本資料</a></li>
     <li ><a role="tab" href="#content" data-toggle="tab">內容</a></li>
-    <li ><a role="tab" href="#support" data-toggle="tab">技術文件</a></li>
+    <li ><a role="tab" href="#document" data-toggle="tab">技術文件</a></li>
     <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
   </ul>
   <div class="tab-content mt-xs-20">
     <div role="tabpanel" class="tab-pane active" id="basics">
       <ul class="nav nav-pills my-xs-20" role="tablist">
-        <li class="active"><a role="tab" href="#basics_zh" data-toggle="tab">中文</a></li>
+        <li class="active"><a role="tab" href="#basics_zh-TW" data-toggle="tab">中文</a></li>
         <li ><a role="tab" href="#basics_en" data-toggle="tab">英文</a></li>
       </ul>
       <div class="tab-content mt-xs-20">
-        <div role="tabpanel" class="tab-pane active" id="basics_zh">
+        <% {'zh-TW': 'active', 'en': 'fade'}.each do |locale, status| %>
+        <!-- basics_<%= locale %> panel-->
+        <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "basics_#{locale}" %> >
           <div class="form-group">
-            <%= f.label :name_zh_tw, "品名" %>
-            <%= f.text_field :name_zh_tw, class: "form-control" %>
+            <%= f.label "name_#{locale.to_s.downcase.underscore}", "品名" %>
+            <%= f.text_field "name_#{locale.to_s.downcase.underscore}", class: "form-control" %>
           </div>
-          <%= product_image(f,"zh-TW", admin_product) %>
+          <%= product_image(f,locale, admin_product) %>
           <div class="form-group">
-            <%= f.label :country, "產地" %>
-            <%= f.text_field :country_zh_tw, placeholder: "預設：台灣", class: "form-control" %>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="basics_en">
-          <div class="form-group">
-            <%= f.label :name_en, "品名" %>
-            <%= f.text_field :name_en, class: "form-control" %>
-          </div>
-          <%= product_image(f,"en", admin_product) %>
-          <div class="form-group">
-            <%= f.label :country, "產地" %>
-            <%= f.text_field :country_en, placeholder: "預設：Taiwan", class: "form-control" %>
+            <%= f.label "country_#{locale.to_s.downcase.underscore}", "產地" %>
+            <%= f.text_field "country_#{locale.to_s.downcase.underscore}", placeholder: "預設：台灣", class: "form-control" %>
           </div>
         </div>
+        <% end %>
       </div>
       <div class="form-group">
         <%= f.label :model, "型號" %>
@@ -50,53 +42,49 @@
     </div>
     <div role="tabpanel" class="tab-pane fade mt-xs-20" id="content">
       <ul class="nav nav-pills my-xs-20" role="tablist">
-        <li class="active"><a role="tab" href="#content_zh" data-toggle="tab">中文</a></li>
+        <li class="active"><a role="tab" href="#content_zh_tw" data-toggle="tab">中文</a></li>
         <li ><a role="tab" href="#content_en" data-toggle="tab">英文</a></li>
       </ul>
       <div class="tab-content mt-xs-20">
-        <div role="tabpanel" class="tab-pane active" id="content_zh">
+        <% {'zh_tw': 'active', 'en': 'fade'}.each do |locale, status| %>
+        <!-- content_<%= locale %> panel-->
+        <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "content_#{locale}"%> > 
           <div class="form-group">
-            <%= f.label :description_zh_tw, "敘述" %>
-            <%= f.cktext_area :description_zh_tw %>
+            <%= f.label "description_#{locale}", "敘述" %>
+            <%= f.cktext_area "description_#{locale}" %>
           </div>
           <div class="form-group">
-            <%= f.label :feature_zh_tw, "特色" %>
-            <%= f.cktext_area :feature_zh_tw %>
+            <%= f.label "feature_#{locale}", "特色" %>
+            <%= f.cktext_area "feature_#{locale}" %>
           </div>
           <div class="form-group">
-            <%= f.label :dimensions_zh_tw, "尺寸" %>
-            <%= f.cktext_area :dimensions_zh_tw %>
+            <%= f.label "dimensions_#{locale}", "尺寸" %>
+            <%= f.cktext_area "dimensions_#{locale}" %>
           </div>
           <div class="form-group">
-            <%= f.label :specification_zh_tw, "規格" %>
-            <%= f.cktext_area :specification_zh_tw %>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="content_en">
-          <div class="form-group">
-            <%= f.label :description_en, "敘述" %>
-            <%= f.cktext_area :description_en %>
-          </div>
-          <div class="form-group">
-            <%= f.label :feature_en, "特色" %>
-            <%= f.cktext_area :feature_en %>
-          </div>
-          <div class="form-group">
-            <%= f.label :dimensions_en, "尺寸" %>
-            <%= f.cktext_area :dimensions_en %>
-          </div>
-          <div class="form-group">
-            <%= f.label :specification_en, "規格" %>
-            <%= f.cktext_area :specification_en %>
+            <%= f.label "specification_#{locale}", "規格" %>
+            <%= f.cktext_area "specification_#{locale}" %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="support">
-      <div class="form-group">
-        <%= f.label :document, "技術文件" %>
-        <%= f.file_field :document, "data-default-file": admin_product.document, class: "dropify" %>
+    <div role="tabpanel" class="tab-pane fade mt-xs-20" id="document">
+      <ul class="nav nav-pills my-xs-20" role="tablist">
+        <li class="active"><a role="tab" href="#document_zh-TW" data-toggle="tab">中文</a></li>
+        <li ><a role="tab" href="#document_en" data-toggle="tab">英文</a></li>
+      </ul>
+      <div class="tab-content mt-xs-20">
+        <% {'zh-TW': 'active', 'en': 'fade'}.each do |locale, status| %>
+        <!-- document_<%= locale %> panel-->
+        <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "document_#{locale}"%> > 
+          <div class="form-group">
+            <%= product_document(f,locale, admin_product) %>
+          </div>
+        </div>
+        <% end %>
       </div>
+
     </div>
     <div role="tabpanel" class="tab-pane fade mt-xs-20" id="seo">
       <ul class="nav nav-pills my-xs-20" role="tablist">
