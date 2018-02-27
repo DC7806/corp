@@ -1,4 +1,5 @@
 module AdminHelper
+  
   def admin_index_image(instance)
     case instance.class.name
     when 'Admin::Product'
@@ -7,4 +8,13 @@ module AdminHelper
       image_tag instance.og_image, style: "width:100%" if instance.og_image.present?
     end
   end
+
+  def admin_session
+    if admin_signed_in?
+      link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn btn-default btn-flat form-control"
+    else
+      link_to 'Login', new_admin_session_path, class: "btn btn-default btn-flat form-control"
+    end
+  end
+
 end

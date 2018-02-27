@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :admins
   mount Ckeditor::Engine => '/ckeditor'
   
   #user
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, :system, only: [:index, :create]
     get 'inquiries'
+    root 'products#index'
     # get 'dashboard', to: 'admin#dashboard', as: :root
   end
   
