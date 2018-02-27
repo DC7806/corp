@@ -12,6 +12,7 @@ class Admin::SystemController < AdminController
   def create
     # load
     # @admin_system = YAML::load_file("#{Rails.root}/config/system.yml")
+    
     # write
     data = params[:system].except('logo')
     data.each do |k1, v1|

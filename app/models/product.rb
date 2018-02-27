@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   before_validation :set_default_values
-  # after_save :set_default_alt
+  after_save :set_default_alt
 
   # validation
   validates :name, :model, :country, :permalink, presence: true 
@@ -39,9 +39,12 @@ class Product < ApplicationRecord
     self.metum.og_title_en = name_en if self.metum.og_title_en.blank?
   end
 
-  ## not working
-  # def set_default_alt
-  #   self.images.where(lang: "zh-TW").first.alt = model if self.images.where(lang: "zh-TW").first.alt.blank?
-  # end
+  # assign associated :images.alt default value 
+  def set_default_alt
+    {'zh-TW': name_zh_tw, 'en': name_en}.each do |locale, value|
+      img = self.images.where(lang: locale).first
+      img.update(alt: value) if img.alt.blank?
+    end
+  end
 
 end

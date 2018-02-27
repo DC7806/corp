@@ -1,11 +1,11 @@
 /*
 *= require font-awesome
 *= require ionicons
-*= require ./share/spacing
 *= require AdminLTE
 *= require skin-black
 *= require dropify
 *= require_self
+*= require ./share/spacing
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";

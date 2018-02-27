@@ -84,61 +84,23 @@
         </div>
         <% end %>
       </div>
-
     </div>
     <div role="tabpanel" class="tab-pane fade mt-xs-20" id="seo">
       <ul class="nav nav-pills my-xs-20" role="tablist">
-        <li class="active"><a role="tab" href="#seo_zh" data-toggle="tab">中文</a></li>
+        <li class="active"><a role="tab" href="#seo_zh_tw" data-toggle="tab">中文</a></li>
         <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
       </ul>
       <div class="form-group mt-xs-20">
         <%= f.label :permalink, "自訂網址" %>
         <%= f.text_field :permalink, placeholder: "預設：產品型號，限英數字元", class: "form-control" %>
       </div>
-      <div class="tab-content mt-xs-15">
-        <%= f.fields_for :metum do |mt| %>
-        <div role="tabpanel" class="tab-pane active" id="seo_zh">
-          <div class="form-group">
-            <%= mt.label :title_zh_tw, "網頁標題" %>
-            <%= mt.text_field :title_zh_tw, class: "form-control" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :meta_description_zh_tw, "網頁說明" %>
-            <%= mt.text_area :meta_description_zh_tw, class: "form-control text-area" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :og_title_zh_tw, "FB_網頁標題" %>
-            <%= mt.text_field :og_title_zh_tw, class: "form-control" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :og_description_zh_tw, "FB_網頁說明" %>
-            <%= mt.text_area :og_description_zh_tw, class: "form-control text-area" %>  
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="seo_en">
-          <div class="form-group">
-            <%= mt.label :title_en, "網頁標題" %>
-            <%= mt.text_field :title_en, class: "form-control" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :meta_description_en, "網頁說明" %>
-            <%= mt.text_area :meta_description_en, class: "form-control text-area" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :og_title_en, "FB_網頁標題" %>
-            <%= mt.text_field :og_title_en, class: "form-control" %>  
-          </div>
-          <div class="form-group">
-            <%= mt.label :og_description_en, "FB_網頁說明" %>
-            <%= mt.text_area :og_description_en, class: "form-control text-area" %>  
-          </div>
-        </div>
-      </div>
+      <%= render 'layouts/admin/seo', f: f %>
       <div class="form-group">
-        <%= mt.label :og_image, "FB_圖片" %>
-        <%= mt.file_field :og_image, "data-default-file": @admin_product.metum.og_image, class: "dropify" %>
+        <%= f.fields_for :metum do |mt| %>  
+          <%= mt.label :og_image, "FB_圖片" %>
+          <%= mt.file_field :og_image, "data-default-file": @admin_product.metum.og_image, class: "dropify" %>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
   <%= f.submit "確認送出", class: "btn btn-primary form-control" %>

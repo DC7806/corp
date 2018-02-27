@@ -1,0 +1,25 @@
+<div class="tab-content mt-xs-20">
+  <% {'zh_tw': 'active', 'en': 'fade'}.each do |locale, status| %>
+  <!-- seo_<%= locale %> panel-->
+  <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "seo_#{locale}"%> >
+  <%= f.fields_for :metum do |mt| %>
+    <div class="form-group">
+      <%= mt.label "title_#{locale}", "網頁標題" %>
+      <%= mt.text_field "title_#{locale}", class: "form-control" %>  
+    </div>
+    <div class="form-group">
+      <%= mt.label "meta_description_#{locale}", "網頁說明" %>
+      <%= mt.text_area "meta_description_#{locale}", class: "form-control text-area" %>  
+    </div>
+    <div class="form-group">
+      <%= mt.label "og_title_#{locale}", "FB_網頁標題" %>
+      <%= mt.text_field "og_title_#{locale}", class: "form-control" %>  
+    </div>
+    <div class="form-group">
+      <%= mt.label "og_description_#{locale}", "FB_網頁說明" %>
+      <%= mt.text_area "og_description_#{locale}", class: "form-control text-area" %>  
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>

@@ -17,7 +17,7 @@
   <!-- content panel -->
   <div role="tabpanel" class="tab-pane active" id="content">
     <ul class="nav nav nav-pills my-xs-20" role="tablist">
-      <li class="active"><a role="tab" href="#content_zh" data-toggle="tab">中文</a></li>
+      <li class="active"><a role="tab" href="#content_zh_tw" data-toggle="tab">中文</a></li>
       <li ><a role="tab" href="#content_en" data-toggle="tab">英文</a></li>
     </ul>
     <div class="form-group mt-xs-20">
@@ -29,84 +29,36 @@
       <% end %>
     </div>
     <div class="tab-content mt-xs-20">
-      <!-- content_zh panel -->
-      <div role="tabpanel" class="tab-pane active" id="content_zh">
+      <% {'zh_tw': 'active', 'en': 'fade'}.each do |locale, status| %>
+      <!-- content_<%= locale %> panel -->
+      <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "content_#{locale}" %>>
         <div class="form-group">
-          <%= f.label :title_zh_tw, '標題' %>
-          <%= f.text_field :title_zh_tw, class: "form-control"%>
+          <%= f.label "title_#{locale}", '標題' %>
+          <%= f.text_field "title_#{locale}", class: "form-control"%>
         </div>
         <div class="form-group">  
-          <%= f.label :content_zh_tw, '內容' %>
-          <%= f.cktext_area :content_zh_tw%>
+          <%= f.label "content_#{locale}", '內容' %>
+          <%= f.cktext_area "content_#{locale}"%>
         </div>
       </div>
-      <!-- content_en panel -->
-      <div role="tabpanel" class="tab-pane fade" id="content_en">
-        <div class="form-group">
-          <%= f.label :title_en, '標題' %>
-          <%= f.text_field :title_en, class: "form-control"%>
-        </div>
-        <div class="form-group">
-          <%= f.label :content_en, '內容' %>
-          <%= f.cktext_area :content_en%>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
   <!-- seo panel -->
   <div role="tabpanel" class="tab-pane fade" id="seo">
     <ul class="nav nav-pills my-xs-20" role="tablist">
-      <li class="active"><a role="tab" href="#seo_zh" data-toggle="tab">中文</a></li>
+      <li class="active"><a role="tab" href="#seo_zh_tw" data-toggle="tab">中文</a></li>
       <li ><a role="tab" href="#seo_en" data-toggle="tab">英文</a></li>
     </ul>
     <div class="form-group mt-xs-20">
       <%= f.label :permalink, "自訂網址" %>
       <%= f.text_field :permalink, placeholder: "預設：英文標題，限英數字元", class: "form-control" %>
     </div>
-    <div class="tab-content mt-xs-20">
-      <!-- seo_zh panel -->
-      <%= f.fields_for :metum do |mt| %>
-      <div role="tabpanel" class="tab-pane active" id="seo_zh">
-        <div class="form-group">
-          <%= mt.label :title_zh_tw, "網頁標題" %>
-          <%= mt.text_field :title_zh_tw, class: "form-control" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :meta_description_zh_tw, "網頁說明" %>
-          <%= mt.text_area :meta_description_zh_tw, class: "form-control text-area" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :og_title_zh_tw, "FB_網頁標題" %>
-          <%= mt.text_field :og_title_zh_tw, class: "form-control" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :og_description_zh_tw, "FB_網頁說明" %>
-          <%= mt.text_area :og_description_zh_tw, class: "form-control text-area" %>  
-        </div>
-      </div>
-      <!-- seo_en panel -->
-      <div role="tabpanel" class="tab-pane fade" id="seo_en">
-        <div class="form-group">
-          <%= mt.label :title_en, "網頁標題" %>
-          <%= mt.text_field :title_en, class: "form-control" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :meta_description_en, "網頁說明" %>
-          <%= mt.text_area :meta_description_en, class: "form-control text-area" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :og_title_en, "FB_網頁標題" %>
-          <%= mt.text_field :og_title_en, class: "form-control" %>  
-        </div>
-        <div class="form-group">
-          <%= mt.label :og_description_en, "FB_網頁說明" %>
-          <%= mt.text_area :og_description_en, class: "form-control text-area" %>  
-        </div>
-      </div>
-      <div class="form-group">
+    <%= render 'layouts/admin/seo', f: f %>
+    <div class="form-group">
+      <%= f.fields_for :metum do |mt|%>
         <%= mt.label :og_image, "FB_圖片" %>
         <%= mt.file_field :og_image, "data-default-file": admin_news.metum.og_image.url,class: "dropify" %>
-      </div>
       <% end %>
     </div>
   </div>

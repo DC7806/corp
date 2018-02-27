@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
 
-  before_action :set_locale
- 
+  before_action :set_locale, :site_name
+  
   def default_url_options(options = {})
     { locale: I18n.locale }
   end
@@ -35,6 +35,16 @@ class ApplicationController < ActionController::Base
       :"zh-TW"
     else
       :en
+    end
+  end
+
+  def site_name
+    system_settings = YAML::load_file("#{Rails.root}/config/system.yml")
+    case I18n.locale
+    when :'zh-TW'
+      @site_name = system_settings['site_name']['zh']
+    when :en
+      @site_name = system_settings['site_name']['en']
     end
   end
   
