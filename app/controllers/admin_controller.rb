@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :set_locale, :default_url_options, :authenticate_admin!
+  before_action :authenticate_admin!, :set_locale, :default_url_options
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 

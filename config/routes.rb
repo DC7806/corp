@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  devise_for :admins
+
   mount Ckeditor::Engine => '/ckeditor'
   
   #user
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   #admin
+  devise_for :admins
+  
   namespace :admin, path: Settings.admin_secret_path do
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, :news, :products, except: :show
     resources :translations, only: [:index, :edit, :update]
