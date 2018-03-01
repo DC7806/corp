@@ -45,9 +45,11 @@ td {
     }
 }
 
-.nav > li > a {
-    padding: 6px 12px;
+// nav pill buttons
+.nav-pills > li > a {
+  padding: 6px 12px;
 }
+
 
 // checkbox
 .btn-checkbox:not(:first-of-type) {
@@ -59,5 +61,5 @@ td {
 
 // text_field
 .text-area {
-  min-height: 100px;
+  min-height: 140px;
 }

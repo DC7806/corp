@@ -1,23 +1,23 @@
 ---
-總公司:
-  地址: hq_address_zh
-  電話: hq_number_zh
-  傳真: hq_fax_zh
-  email: hq_email_zh
+hq_zh:
+  電話: 99-9999
+  傳真: 00-0000000
+  EMAIL: hq@mail.com
+  地址: 成績日期的說韓國質量就在
 hq_en:
-  address: hq_address_en
   number: hq_number_en
   fax: hq_fax_en
-  email: hq_email_en
+  EMAIL: hq_email_en
+  address: hq_address_en
 北區:
-  聯絡人: north_name
-  電話: north_number
-  email: north_email
+  聯絡人: 開發顯 得基
+  電話: 01-1111111
+  EMAIL: north@mail.com
 中區:
-  聯絡人: central_name
-  電話: central_number
-  email: central_email
+  聯絡人: 開發顯 得基
+  電話: 01-1111111
+  EMAIL: central@mail.com
 南區:
-  聯絡人: south_name
-  電話: south_number
-  email: south_email
+  聯絡人: 開發顯 得基
+  電話: 01-1111111
+  EMAIL: south@mail.com

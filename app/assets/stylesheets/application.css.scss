@@ -1,5 +1,10 @@
 /*
+*= require_self
 *= require ./share/spacing
+*= require font-awesome
+*= require main
+*= require responsive
+
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
