@@ -2,17 +2,8 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
 
-  before_action :set_locale, :default_url_options, :site_name
+  before_action :set_locale, :default_url_options, :site_settings
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-
-  protected
-
-  def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
-   devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
-   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_password])
-  end
 
   private
 
@@ -48,7 +39,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def site_name
+  def site_settings
     system_settings = YAML::load_file("#{Rails.root}/config/system.yml")
     case I18n.locale
     when :'zh-TW'
@@ -56,6 +47,16 @@ class ApplicationController < ActionController::Base
     when :en
       @site_name = system_settings['site_name']['en']
     end
+    @footer_site_name = system_settings['site_name']['en'].upcase
+    @fb_id = system_settings['tracking']['FB_id']
   end
   
+  protected
+
+  def configure_permitted_parameters
+   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+   devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
+   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_password])
+  end
+
 end

@@ -1,34 +1,34 @@
 <%= form_for inquiry do |f| %>
   <div class="form-inside col-md-10 col-md-offset-1 mt-sm-30">
-    <h2 class="text-center">聯絡我們</h2>
+    <h2 class="text-center"><%= t('frontend.contact.contact_us') %></h2>
     <div class="form-group col-sm-12 mt-sm-15">
-      <%= f.select :prefix, options_for_select([['先生'],['女士']]), {include_blank: " - 選擇稱謂 - "}, class: "form-control" %>
+      <%= f.select :prefix, options_for_select([[t('frontend.contact.mr')],[t('frontend.contact.ms')]]), {include_blank: " - #{t('frontend.contact.prefix')} - "}, class: "form-control" %>
     </div>
     <div class="form-group col-sm-6">
-      <%= f.label :first_name %>
+      <%= f.label :first_name, t('frontend.contact.first_name') %>
       <%= f.text_field :first_name, class: "form-control" %>
     </div>
     <div class="form-group col-sm-6">
-      <%= f.label :last_name %>
+      <%= f.label :last_name, t('frontend.contact.last_name') %>
       <%= f.text_field :last_name, class: "form-control" %>
     </div>
     <div class="form-group col-sm-6">
-      <%= f.label :number %>
+      <%= f.label :number, t('frontend.contact.number') %>
       <%= f.text_field :number, class: "form-control" %>      
     </div>
     <div class="form-group col-sm-6">
-      <%= f.label :email %>
+      <%= f.label :email, t('frontend.contact.email') %>
       <%= f.text_field :email, class: "form-control" %>      
     </div>
     <div class="form-group col-sm-12">
-      <%= f.label :content %>
+      <%= f.label :content, t('frontend.contact.message') %>
       <%= f.text_area :content, class: "text-area form-control" %>
     </div>
     <div class="form-group col-sm-6">
       <%= recaptcha_tags %>  
     </div>
     <div class="form-group col-sm-6">
-      <%= f.submit '確認送出', class: "btn btn-md btn-style-2 width-100" %>  
+      <%= f.submit t('frontend.button.submit'), class: "btn btn-md btn-style-2 width-100" %>  
     </div>
   </div>
   <!-- /form-inside -->

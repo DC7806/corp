@@ -1,6 +1,6 @@
 ---
 tracking:
-  FB_id: he
+  FB_id: Kerr.Huang
   GA_id: ha
   GTM_id: yo
 logo:
@@ -8,4 +8,4 @@ logo:
   en: "/images/system/logo_en.jpg"
 site_name:
   zh: site tw
-  en: hello en
+  en: EN sitename

@@ -12,3 +12,24 @@ zh-TW:
   pages:
     homepage:
       h1: "default en"
+  frontend:
+    button:
+      submit:
+    contact:
+      hq:
+      contact_us:
+      prefix:
+      mr:
+      ms:
+      first_name:
+      last_name:
+      number:
+      email:
+      message:
+    nav:
+      products:
+      news:
+      contact:
+      about:
+      faq:
+      download:

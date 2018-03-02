@@ -1,4 +1,4 @@
-/*---------------------------------------------------------------------------
+---------------------------------------------------------------------------
   Theme: EXORT
   Author: Theme_Nate
   Version: 1.1.9
@@ -8534,7 +8534,8 @@ footer .link-widget ul li a span {
 }
 
 footer .link-widget ul {
-    padding-left: 10px
+    padding-left: 10px;
+    margin: 0;
 }
 
 footer .link-widget ul li {
@@ -8709,7 +8710,7 @@ footer .contact-form-widget .footer-contact-btn:hover {
 
 .footer-bottom {
     background-color: #323232;
-    padding: 20px 0px
+    padding: 5px 0px
 }
 
 .footer-bottom-alt {
@@ -8727,7 +8728,7 @@ footer .contact-form-widget .footer-contact-btn:hover {
 .footer-bottom .copyright {
     color: #777;
     margin: auto;
-    margin-top: 15px;
+    line-height: 45px;
 	font-family: "Montserrat"
 }
 
@@ -8804,6 +8805,19 @@ label {
     display: flex;
 }
 
+/* Footer Partial */
+.link-widget > ul > li > a{
+    padding: 6px 12px;
+}
+@media only screen and (min-width: 768px){
+.link-widget > ul > li {
+    display: inline-block;
+}
+.link-widget > ul > li:not(:first-child) {
+    border-left: 1px solid;
+}
+}
+
 /*****************************************************
 ********************  31. Demo ***********************       
 *****************************************************/
@@ -8820,4 +8834,4 @@ label {
 
 .demo-item:hover img {
     opacity: 0.4
-} */
+} 

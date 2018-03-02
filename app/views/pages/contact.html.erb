@@ -4,7 +4,7 @@
     <div class="row">
       <div class="contact-form">
         <div class="col-md-10 col-md-offset-1 mt-sm-30">
-            <h2 class="text-center">總公司</h2>
+            <h2 class="text-center"><%= t('frontend.contact.hq') %></h2>
             <div class="row">
               <div id="google-map" class="map col-xs-12 mt-sm-20"></div>
               <div class="col-xs-12 mt-xs-20">
@@ -28,6 +28,6 @@
   <!-- /container -->
 </section>
 <!-- /Contact -->
-<%#= render 'layouts/footer' %>
+<%= render 'layouts/footer' %>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqRZdw23nabFTCp8uRZWHvwxRR0DgSoFc"></script>
 <%= render 'google-map' %>
