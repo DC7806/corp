@@ -14,22 +14,24 @@ zh-TW:
       h1: "default en"
   frontend:
     button:
-      submit:
+      submit: "確認送出"
     contact:
-      hq:
-      contact_us:
-      prefix:
-      mr:
-      ms:
-      first_name:
-      last_name:
-      number:
-      email:
-      message:
+      hq: "總公司"
+      contact_us: "聯絡我們"
+      prefix: "選擇稱謂"
+      mr: "先生"
+      ms: "女士"
+      first_name: "名"
+      last_name: "姓"
+      number: "電話"
+      email: "Email"
+      message: "訊息"
+    faq:
+      title: "常見問題"
     nav:
-      products:
-      news:
-      contact:
-      about:
-      faq:
-      download:
+      products: "所有產品"
+      news: "最新消息"
+      contact: "聯絡我們"
+      about: "關於我們"
+      faq: "常見問題"
+      download: "技術支援"

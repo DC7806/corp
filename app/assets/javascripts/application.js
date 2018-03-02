@@ -11,8 +11,17 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
 //= require bootstrap
 //= require turbolinks
 //= require main
-//= require_tree .
+//= require front_end
+//= require_self
+
+// not working
+// $( document ).on('turbolinks:load', function() {
+//   $('#faq .faq-item a').on('click', function(event){
+//   $(this).children('i').toggleClass('down');
+//   $(this).siblings().fadeToggle(300);
+//   event.preventDefault();
+//   })
+// })

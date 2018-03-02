@@ -4,14 +4,7 @@
     <div class="form-group col-sm-12 mt-sm-15">
       <%= f.select :prefix, options_for_select([[t('frontend.contact.mr')],[t('frontend.contact.ms')]]), {include_blank: " - #{t('frontend.contact.prefix')} - "}, class: "form-control" %>
     </div>
-    <div class="form-group col-sm-6">
-      <%= f.label :first_name, t('frontend.contact.first_name') %>
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-    <div class="form-group col-sm-6">
-      <%= f.label :last_name, t('frontend.contact.last_name') %>
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
+    <%= name_order f, I18n.locale %>
     <div class="form-group col-sm-6">
       <%= f.label :number, t('frontend.contact.number') %>
       <%= f.text_field :number, class: "form-control" %>      

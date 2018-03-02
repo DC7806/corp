@@ -1,17 +1,16 @@
-<% if I18n.locale == :en %>
-----EN----
-<% @faqs.lang_query('en').each do |f| %>
-<div>
-  <h3><%= f.question %></h3>
-  <div><%= f.answer.html_safe %></div>
-</div>
-<% end %>
-<% else %>
-----CH----
-<% @faqs.lang_query('zh-TW').each do |f| %>
-<div>
-  <h3><%= f.question %></h3>
-  <div><%= f.answer.html_safe %></div>
-</div>
-<% end %>
-<% end %>
+<section id="faq" class="section-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 mt-sm-30">
+          <h1 class="text-center"><%= t('frontend.faq.title') %></h1>
+          <div class="mt-sm-20">
+            <%= faq_list I18n.locale %>
+          </div>
+      </div>
+      <!-- /contact-item-wrapper -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</section>
+<!-- /Faq -->

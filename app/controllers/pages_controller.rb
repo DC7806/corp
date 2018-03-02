@@ -5,8 +5,6 @@ class PagesController < ApplicationController
 
   def contact
     @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
-    @contacts_hq_zh = @contacts.slice('hq_zh')
-    @contacts_hq_en = @contacts.slice('hq_en')
     @contacts_regions = @contacts.except('hq_zh', 'hq_en')
     @inquiry = Inquiry.new
   end

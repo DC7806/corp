@@ -8,11 +8,12 @@
             <div class="row">
               <div id="google-map" class="map col-xs-12 mt-sm-20"></div>
               <div class="col-xs-12 mt-xs-20">
-                <%= hq_contact_info @contacts_hq_en, @contacts_hq_zh %>
+                <%#= hq_contact_info @contacts_hq_en, @contacts_hq_zh %>
+                <%= contact_info_hq I18n.locale %>
               </div>
             </div>
             <div class="row mt-sm-20">
-              <%= regions_contact_info @contacts_regions %>
+              <%= contact_info_regions I18n.locale %>
             </div>
         </div>
         <!-- /contact-item-wrapper -->
@@ -28,6 +29,5 @@
   <!-- /container -->
 </section>
 <!-- /Contact -->
-<%= render 'layouts/footer' %>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqRZdw23nabFTCp8uRZWHvwxRR0DgSoFc"></script>
 <%= render 'google-map' %>

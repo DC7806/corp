@@ -11,4 +11,27 @@ en:
         table: "default"
   pages:
     homepage:
-      h1: "default en" 
+      h1: "default en"
+  frontend:
+    button:
+      submit: "SEND"
+    contact:
+      hq: "HEADQUARTERS"
+      contact_us: "CONTACT US"
+      prefix: "Prefix"
+      mr: "Mr."
+      ms: "Ms."
+      first_name: "first Name"
+      last_name: "last Name"
+      number: "number"
+      email: "email"
+      message: "message"
+    faq:
+      title: "FAQ"
+    nav:
+      products: "PRODUCTS"
+      news: "NEWS"
+      contact: "CONTACT"
+      about: "ABOUT"
+      faq: "FAQ"
+      download: "DOWNLOAD"

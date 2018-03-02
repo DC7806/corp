@@ -1,10 +1,3 @@
----------------------------------------------------------------------------
-  Theme: EXORT
-  Author: Theme_Nate
-  Version: 1.1.9
-----------------------------------------------------------------------------*/
-
-
 /*---------------------------------------------------------------------------
 [Table Of Contents]
 
@@ -8534,7 +8527,6 @@ footer .link-widget ul li a span {
 }
 
 footer .link-widget ul {
-    padding-left: 10px;
     margin: 0;
 }
 
@@ -8798,7 +8790,7 @@ label {
 }
 
 /*****************************************************
-********************  31. Custom *********************
+********************  31. shared *********************
 *****************************************************/
 
 .flex {
@@ -8812,11 +8804,46 @@ label {
 @media only screen and (min-width: 768px){
 .link-widget > ul > li {
     display: inline-block;
+    min-width: 90px;
 }
 .link-widget > ul > li:not(:first-child) {
     border-left: 1px solid;
 }
 }
+@media only screen and (min-width: 992px){
+.link-widget > ul > li {
+    min-width: 110px;
+}
+}
+/* rotate */
+.rotate-180{
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.rotate-180.down{
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+/*****************************************************
+********************  31. faq *********************
+*****************************************************/
+
+#faq .faq-item div {
+  display: none
+}
+#faq .faq-item h4 {
+  border-bottom: 1px solid #777;
+  padding-bottom: 10px;
+}
+#faq .faq-item i {
+  display: block;
+  font-size: 2.4rem
+}
+
 
 /*****************************************************
 ********************  31. Demo ***********************       
