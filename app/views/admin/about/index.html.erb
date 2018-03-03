@@ -1,20 +1,26 @@
 <%= form_for(:about, url: admin_about_index_path) do |f| %>
 <ul class="nav nav-pills my-xs-20" role="tablist">
-  <li class="active"><a role="tab" href="#about_zh" data-toggle="tab">中文</a></li>
+  <li class="active"><a role="tab" href="#about_zh_tw" data-toggle="tab">中文</a></li>
   <li ><a role="tab" href="#about_en" data-toggle="tab">英文</a></li>
 </ul>
 <div class="tab-content mt-xs-20">
-  <% {zh: 'active', en: 'fade'}.each do |key, value| %> 
-  <!-- content_<%= key %> panel -->
-  <div role="tabpanel" class="tab-pane <%= value %>" id="about_<%= key %>">
-    <% @admin_about.slice(key.to_s).each do |k1, v1| %>
-    <% v1.each do |k2, v2| %>
+  <% {zh_tw: 'active', en: 'fade'}.each do |locale, status| %> 
+  <!-- content_<%= locale %> panel -->
+  <div role="tabpanel" class="tab-pane <%= status %>" id="about_<%= locale %>">
+    <% @admin_about.slice(locale.to_s).each do |k1, v1| %>
+    <div class="form-group">
+      <%= f.label v1.key(v1['title']) %>
+      <%= f.text_field v1['title'], name: "about[#{locale}][title]", value: v1['title'], class: "form-control"%>
+    </div>
+    <% end %>
+    <% @admin_about.slice(locale.to_s).each do |k1, v1| %>
+    <% v1.except('title').each do |k2, v2| %>
     <div class="form-group">
       <%= f.label k2 %>
       <%= f.cktext_area v2, name: "about[#{k1}][#{k2}]", value: v2, class: "form-control", id: "about[#{k1}][#{k2}]"%>
     </div>
     <% end %>
-    <% end %>    
+    <% end %>
   </div>
   <% end %>
 </div>

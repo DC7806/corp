@@ -16,8 +16,6 @@ class PagesController < ApplicationController
 
   def about
     @about = YAML::load_file("#{Rails.root}/config/about.yml")
-    @about_zh = @about.slice('zh')
-    @about_en = @about.slice('en')
   end
 
 end

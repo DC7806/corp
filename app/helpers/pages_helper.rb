@@ -42,4 +42,14 @@ module PagesHelper
     end.inject(&:+)
   end
 
+  def about_sections(locale, section)
+    case locale
+      when :'zh-TW'
+        lang = 'zh_tw'
+      when :en
+        lang = 'en'
+    end
+    @about.slice(lang).values.first[section].html_safe
+  end
+
 end

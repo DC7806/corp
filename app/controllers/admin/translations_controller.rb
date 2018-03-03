@@ -2,7 +2,7 @@ class Admin::TranslationsController < AdminController
 
   def index
     @indexing = Admin::Translation.where(locale: "zh-TW")
-    @admin_translations = Admin::Translation.all      
+    @admin_translations = Admin::Translation.order(created_at: :desc)
   end
 
   def edit

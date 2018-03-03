@@ -3,8 +3,6 @@ class Admin::AboutController < AdminController
   require 'yaml'
 
   def index
-    @admin_about_en = @admin_about.slice('en')
-    @admin_about_zh = @admin_about.except('en')
   end
 
   def create

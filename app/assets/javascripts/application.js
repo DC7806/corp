@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap
 //= require turbolinks
+//= require owl_carousel
 //= require main
 //= require front_end
 //= require_self
