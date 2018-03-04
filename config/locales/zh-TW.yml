@@ -29,9 +29,19 @@ zh-TW:
     faq:
       title: "常見問題"
     nav:
+      categories: "產品分類"
       products: "所有產品"
       news: "最新消息"
       contact: "聯絡我們"
       about: "關於我們"
       faq: "常見問題"
       download: "技術支援"
+    product:
+      model: "型號"
+      country: "產地"
+      document: "資料下載"
+      certificates: "相關認證"
+      description: "產品介紹"
+      features: "產品特色"
+      dimensions: "尺寸外型"
+      specification: "技術規格"

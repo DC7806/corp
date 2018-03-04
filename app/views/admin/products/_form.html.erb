@@ -19,7 +19,7 @@
             <%= f.label "name_#{locale.to_s.downcase.underscore}", "品名" %>
             <%= f.text_field "name_#{locale.to_s.downcase.underscore}", class: "form-control" %>
           </div>
-          <%= product_image(f,locale, admin_product) %>
+          <%= admin_product_image(f,locale, admin_product) %>
           <div class="form-group">
             <%= f.label "country_#{locale.to_s.downcase.underscore}", "產地" %>
             <%= f.text_field "country_#{locale.to_s.downcase.underscore}", placeholder: "預設：台灣", class: "form-control" %>
@@ -79,7 +79,7 @@
         <!-- document_<%= locale %> panel-->
         <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "document_#{locale}"%> > 
           <div class="form-group">
-            <%= product_document(f,locale, admin_product) %>
+            <%= admin_product_document(f,locale, admin_product) %>
           </div>
         </div>
         <% end %>

@@ -1,15 +1,90 @@
-<h1><%= @product.name %></h1>
-<h2><%= @product.model %></h2>
-<div>
-  <% @product.categories.each do |cat| %>
-  <li><%= cat.name %></li>
-  <% end %>        
+<div class="container section-2">
+  <!-- Category side nav -->
+  <div id="category-side-nav" class="col-sm-3 hidden-xs">
+    <%= render 'layouts/category_side_nav' %>
+  </div>
+  <!-- /Category side nav -->
+  
+  <!-- Product wrapper -->
+  <div id="product-wrapper" class="col-xs-12 col-sm-9 px-xs-0">
+    <!-- Product Details -->
+    <section id="product-details" class="no-border no-padding-btm row">
+      <div class="col-sm-6 overflow-auto">
+        <div class="item col-xs-10 col-xs-offset-1">
+          <%= product_image I18n.locale %>
+        </div>
+        <!-- item -->
+      </div>
+      <!-- /column -->
+      <div class="col-sm-6 mt-xs-20 mt-sm-0">
+        <div class="border btm">
+          <h1 class="mt-sm-0"><%= @product.name %></h1>
+          <p><%= t('frontend.product.model') %>： <%= @product.model %></p>
+          <p><%= t('frontend.product.country') %>： <%= @product.country %></p>
+        </div>
+        <div class="border btm py-xs-10 overflow-auto">
+          <div class="col-xs-12 px-xs-0">
+            <h4 class="mt-xs-0"><%= t('frontend.product.certificates') %></h4>
+            <% @product.certificates.each do |cert| %>
+            <%= image_tag cert.image.url, alt: cert.name, class: 'col-xs-2 col-md-2 pl-xs-0 pr-xs-10' %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 px-xs-0">
+            <h4><%= t('frontend.product.document') %></h4>
+            <%= product_document I18n.locale %>    
+          </div>
+        </div>
+      </div>
+      <!-- /column -->
+    </section>
+    <!-- /Product Details -->
+    <!-- Product Details bottom -->
+    <section id="product-details-btm" class="section-4 no-border clear">
+      <ul class="nav custom-tabs tab-style-2 hidden-xs">
+        <li class="active"><a data-toggle="tab" href="#description"><%= t('frontend.product.description') %></a></li>
+        <li><a data-toggle="tab" href="#feature"><%= t('frontend.product.features') %></a></li>
+        <li><a data-toggle="tab" href="#dimensions"><%= t('frontend.product.dimensions') %></a></li>
+        <li><a data-toggle="tab" href="#specification"><%= t('frontend.product.specification') %></a></li>
+      </ul>
+      <!-- /custom-tabs -->
+      <div class="tab-content">
+        <a href="#description" class="product-tab text-center visible-xs-block">
+          <span class="block"><%= t('frontend.product.description') %></span>
+          <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
+        </a>
+        <div id="description" class="tab-pane fade active in border px-sm-30 py-xs-20 py-sm-40">
+          <%= @product.description.html_safe %>
+        </div>
+        <!-- /tab-pane -->
+        <a href="#feature" class="product-tab text-center visible-xs-block">
+          <span class="block"><%= t('frontend.product.features') %></span>
+          <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
+        </a>
+        <div id="feature" class="tab-pane fade border px-sm-30 py-xs-20 py-sm-40 hidden-xs">
+          <%= @product.feature.html_safe %>
+        </div>
+        <!-- /tab-pane -->
+        <a href="#dimensions" class="product-tab text-center visible-xs-block">
+          <span class="block"><%= t('frontend.product.dimensions') %></span>
+          <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
+        </a>
+        <div id="dimensions" class="tab-pane fade border px-sm-30 py-xs-20 py-sm-40 hidden-xs">
+          <%= @product.dimensions.html_safe %>
+        </div>
+        <!-- /tab-pane -->
+        <a href="#specification" class="product-tab text-center visible-xs-block">
+          <span class="block"><%= t('frontend.product.specification') %></span>
+          <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
+        </a>
+        <div id="specification" class="tab-pane fade border px-sm-30 py-xs-20 py-sm-40 hidden-xs">
+          <%= @product.specification.html_safe %>
+        </div>
+        <!-- /tab-pane -->
+      </div>
+      <!-- /tab-content -->
+    </section>
+    <!-- /Product Details bottom -->
+  </div>
+  <!-- /Product wrapper -->
 </div>
-<div>
-  <% @product.certificates.each do |cert| %>
-  <li><%= cert.name %></li>
-  <% end %>        
-</div>
-<div>
-  <%= link_to "下載", @product.document.url %>
-</div>
+<!-- /Container -->

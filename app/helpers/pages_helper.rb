@@ -35,7 +35,7 @@ module PagesHelper
       content_tag :div, class: 'faq-item mb-xs-20' do
         (content_tag :a, href: '#' do 
         (content_tag :h4, faq.question, class: 'my-xs-15')+
-        (content_tag :i, '', class: 'visible-block text-center fa fa-angle-down rotate-180 mb-xs-5')
+        (content_tag :i, '', class: 'text-center fa fa-angle-down rotate-180 mb-xs-5')
         end)+
         (content_tag :div, faq.answer.html_safe)
       end

@@ -9,7 +9,7 @@ module Admin::ProductsHelper
     end
   end
 
-  def product_image(f, locale, admin_product)
+  def admin_product_image(f, locale, admin_product)
     if action_name == 'new'
       f.fields_for :images do |img|
         ( content_tag :div, class: 'form-group' do
@@ -41,7 +41,7 @@ module Admin::ProductsHelper
     end
   end
 
-  def product_document(f, locale, admin_product)
+  def admin_product_document(f, locale, admin_product)
     if action_name == 'new'
       f.fields_for :documents do |doc|
         ( content_tag :div, class: 'form-group' do

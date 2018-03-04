@@ -4,7 +4,7 @@ module DeviseAdminLocale
     before_action :set_locale, :default_url_options
 
     def set_locale
-        I18n.locale = :'zh-TW'
+      I18n.default_locale
     end
 
     def default_url_options

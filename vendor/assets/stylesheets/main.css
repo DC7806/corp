@@ -8821,11 +8821,22 @@ label {
   -webkit-transition: all .5s linear;
   transition: all .5s linear;
 }
-
 .rotate-180.down{
   -moz-transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
   transform:rotate(180deg);
+}
+
+.clear {
+    clear: both;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+img {
+    max-width: 100%;
 }
 
 /*****************************************************
