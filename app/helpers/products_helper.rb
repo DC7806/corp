@@ -1,6 +1,6 @@
 module ProductsHelper
 
-  def product_image locale
+  def product_image locale, product
     # not working
     # if locale == 'en' 
     #   if @product.images.where(lang: 'en').first.src.present?  
@@ -14,9 +14,9 @@ module ProductsHelper
     #   image_tag @product.images.where(lang: 'zh-TW').first.src.url, 
     #   alt: @product.images.where(lang: 'zh-TW').first.alt
     # end
-    if @product.images.where(lang: locale).first.src.present?  
-      image_tag @product.images.where(lang: locale).first.src.url, 
-      alt: @product.images.where(lang: locale).first.alt
+    if product.images.where(lang: locale).first.src.present?  
+      image_tag product.images.where(lang: locale).first.src.url, 
+      alt: product.images.where(lang: locale).first.alt
     end
   end
 

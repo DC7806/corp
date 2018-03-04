@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   
   before_action :find_product, only: :show
+  before_action :find_categories
 
   def index
     @products = Product.order(created_at: :desc)
   end
 
   def show
-    @category = Category.all
   end
 
   private
@@ -20,4 +20,8 @@ class ProductsController < ApplicationController
     end
   end
   
+  def find_categories
+    @categories = Category.all
+  end
+
 end

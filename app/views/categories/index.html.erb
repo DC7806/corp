@@ -1,8 +1,42 @@
-<h1>Category List</h1>
-
-<% @categories.each do |cat| %>
-<div class="col-xs-12 col-sm-6">
-  <p><%= cat.name %></p>
-  <p><%= cat.permalink %></p>
+<div class="container">
+  <section id="categories" class="section-2 no-border row">
+    <div class="shop-sidebar col-sm-3 hidden-xs">
+      <div class="sidebar-inner">
+        <ul class="sidebar-menu" role="tablist">
+          <li class="tittle">
+            <span><b><%= t('frontend.nav.categories') %></b></span>
+          </li>
+          <!-- /tittle -->
+          <% @categories.each do |cat| %>
+          <li><a role="tab" data-toggle="tab" href= "#<%= cat.id.to_s %>" ><%= cat.name %></a></li>
+          <% end %>
+        </ul>
+        <!-- /sidebar-menu -->
+      </div>
+      <!-- /sidebar-inner -->
+    </div>
+    <!-- /side-nav -->
+    <div class="tab-content col-sm-9">
+      <% @categories.each do |cat| %>
+      <a href="#" class="dropdown-rotate text-center visible-xs-block">
+        <h4 class="block"><b><%= cat.name %></b></h4>
+        <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
+      </a>
+      <div id=<%= cat.id.to_s %> role="tabpanel" class="tab-pane fade border border-xs-0 py-xs-20 py-sm-40 hidden-xs overflow-auto">
+        <% cat.products.each do |product| %>
+        <div class="col-sm-3 border mb-xs-20 mx-sm-15 pt-xs-15 text-center">
+          <%= link_to product_path(product.permalink) do %>
+          <%= product_image I18n.locale, product %><
+          <h5><%= product.name %></h5>
+          <p><%= product.model %></p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    <!-- /tab-content -->
+  </section>
+  <!-- /Categories-wrapper -->
 </div>
-<% end %>
+<!-- Container -->

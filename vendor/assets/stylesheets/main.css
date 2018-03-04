@@ -8797,24 +8797,6 @@ label {
     display: flex;
 }
 
-/* Footer Partial */
-.link-widget > ul > li > a{
-    padding: 6px 12px;
-}
-@media only screen and (min-width: 768px){
-.link-widget > ul > li {
-    display: inline-block;
-    min-width: 90px;
-}
-.link-widget > ul > li:not(:first-child) {
-    border-left: 1px solid;
-}
-}
-@media only screen and (min-width: 992px){
-.link-widget > ul > li {
-    min-width: 110px;
-}
-}
 /* rotate */
 .rotate-180{
   -moz-transition: all .5s linear;
@@ -8835,9 +8817,15 @@ label {
     overflow: auto;
 }
 
+/* image max width */
 img {
     max-width: 100%;
 }
+
+@media only screen and (max-width: 767px){
+.border-xs-0 {
+  border: none!important;
+}}
 
 /*****************************************************
 ********************  31. faq *********************
@@ -8855,6 +8843,35 @@ img {
   font-size: 2.4rem
 }
 
+/*****************************************************
+*******************  31. Category ********************
+*****************************************************/
+@media only screen and (max-width: 767px){
+.border-xs-0 {
+  border: none!important;
+}}
+
+/*****************************************************
+********************  31. Footer *********************
+*****************************************************/
+
+/* Footer Partial */
+.link-widget > ul > li > a{
+    padding: 6px 12px;
+}
+@media only screen and (min-width: 768px){
+.link-widget > ul > li {
+    display: inline-block;
+    min-width: 90px;
+}
+.link-widget > ul > li:not(:first-child) {
+    border-left: 1px solid;
+}
+}
+@media only screen and (min-width: 992px){
+.link-widget > ul > li {
+    min-width: 110px;
+}}
 
 /*****************************************************
 ********************  31. Demo ***********************       
