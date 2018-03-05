@@ -190,7 +190,6 @@ h6 {
 
 p,
 span {
-    letter-spacing: 0.5px;
     line-height: 26px;
 }
 
@@ -7296,10 +7295,10 @@ button {
  =======  24.1 Blog Post  ======
 *===============================*/
 
-.blog-post {
+/* .blog-post {
     display: inline-block;
     width: 100%
-}
+} */
 
 .blog-post.grid .post-meta {
     height: 26px;
@@ -7316,10 +7315,6 @@ button {
     overflow: hidden
 }
 
-.blog-post .blog-wrapper {
-    margin-bottom: 60px;
-}
-
 .blog-post .post-tittle a {
     color: #3e3e3e;
     transition: all 0.4s ease-in-out;
@@ -7333,82 +7328,12 @@ button {
     margin-bottom: 25px;
 }
 
-.blog-post .post-content {
-    padding-right: 15px;
-    padding-top: 25px;
-}
 
 .blog-post .post-content .post-inner-content {
     font-size: 13px;
     font-weight: normal
 }
 
-.blog-post .post-date {
-    position: absolute;
-    background-color: #fff;
-    top: 15px;
-    right: 15px;
-    padding: 10px 20px;
-}
-
-.blog-post .post-date p {
-    line-height: 20px;
-    text-align: center;
-    font-size: 10px;
-    color: #3e3e3e;
-    font-weight: 400;
-}
-
-.blog-post .post-date p span {
-    font-size: 18px;
-    color: #3e3e3e;
-    letter-spacing: 2px;
-    display: block
-}
-
-.blog-post .post-bottom {
-    display: inline-block;
-    width: 100%
-}
-
-.blog-post .post-meta p,
-.blog-post .post-meta span {
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 11px;
-}
-
-.blog-post .post-meta,
-.blog-post .post-meta a {
-    color: #aeaeae;
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-}
-
-.blog-post .post-meta a:hover {
-    color: #3e3e3e
-}
-
-.blog-post .post-bottom .read-more {
-    float: left;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.blog-post .post-bottom .read-more a i {
-    position: absolute;
-    margin-left: -10px;
-    opacity: 0;
-    font-size: 12px;
-    padding-top: 3px;
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-}
-
-.blog-post .post-bottom .read-more a:hover i {
-    margin-left: 10px;
-    opacity: 1;
-}
 
 .blog-post .blog-img,
 .blog-post .blog-vid,
@@ -7538,9 +7463,6 @@ button {
     padding-bottom: 15px;
 }
 
-.blog-post.classic .post-bottom {
-    padding-top: 15px
-}
 
 .blog-post.classic .blog-vid .video-embed {
     min-height: 400px
@@ -8850,6 +8772,11 @@ img {
 .border-xs-0 {
   border: none!important;
 }}
+
+/*****************************************************
+*********************  31. News **********************
+*****************************************************/
+
 
 /*****************************************************
 ********************  31. Footer *********************

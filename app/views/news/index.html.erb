@@ -1,9 +1,45 @@
-<h1><%= t('.h1') %></h1>
+<!-- Blog Fullwidth -->
+<section id="news-index" class="section-2">
+  <div class="container">
+    <h1 class="text-center heading mb-xs-20"><%= t('frontend.news_index.title') %></h1>
+    <div class="row">
+      <div class="blog-post classic col-sm-8 col-sm-offset-2">
+        <% @news.each do |news| %>
+        <div class="blog-wrapper my-xs-15 my-sm-30">
+          <div class="blog-img">
+            <%= link_to news_path(news.permalink) do %>
+              <%= image_tag news.image.src %>
+            <% end %>
+          </div>
+          <!-- blog-img -->
+          <div class="post-content pt-xs-15">
+            <span><%= news.created_at.to_date %></span>
+            <h2><%= news.title %></h2>
+            <div class="post-inner-content mt-xs-15">
+              <%= news_summary I18n.locale, news.content %>
+            </div>
+            <div class="post-bottom">
+              <%= link_to news_path(news.permalink), class: 'btn btn-sm btn-style-4 mt-xs-5' do %>
+                <span class="read-more"><%= t('frontend.news_index.readmore') %></span>
+              <% end %>
+            </div>
+            <!-- /post-bottom -->
+          </div>
+          <!-- /post-content -->
+        </div>
+        <!-- blog-wrapper -->
+        <% end %>
+      </div>
+      <!-- /blog-post -->
 
-<% @news.each do |news| %>
-<div class="col-xs-12 col-sm-6">
-  <%= news.title %>
-  <%= news.image %>
-  <%= link_to "Enter", news_path(news) %>
-</div>
-<% end %>
+      <div class="text-center clear">
+        <ul class="pagination">
+          <%= paginate @news %>     
+        </ul>
+      </div>
+      <!-- /text-center -->
+    </div>
+  </div>
+  <!-- /container -->
+</section>
+<!-- /Blog Classic Fullwidth -->

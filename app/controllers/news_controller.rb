@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   before_action :find_news, only: :show
 
   def index
-    @news = News.order(created_at: :desc)
+    @news = News.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show

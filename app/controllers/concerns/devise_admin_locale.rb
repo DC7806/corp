@@ -8,7 +8,7 @@ module DeviseAdminLocale
     end
 
     def default_url_options
-      { locale: 'zh-TW' }
+      { locale: I18n.locale }
     end
     
   end
