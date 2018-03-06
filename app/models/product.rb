@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  
   before_validation :set_default_values
   after_save :set_default_alt
 

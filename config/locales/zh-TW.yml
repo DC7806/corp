@@ -45,3 +45,6 @@ zh-TW:
       features: "產品特色"
       dimensions: "尺寸外型"
       specification: "技術規格"
+    news_index:
+      title: "最新消息"
+      readmore: "點擊進入"

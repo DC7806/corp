@@ -18,7 +18,6 @@ $( document ).on('turbolinks:load', function() {
 $( document ).on('turbolinks:load', function() {
 	$('.dropdown-rotate').on('click', function(event){
     $(this).children('i').toggleClass('down');
-    
     $(this).next().removeClass('hidden-xs');
     $(this).next().addClass('active in');
     $(this).siblings('a').children('i').removeClass('down');
@@ -33,4 +32,9 @@ $( document ).on('turbolinks:load', function() {
   $('#categories .sidebar-menu li:nth-of-type(2)').addClass('active');
   $('#categories .tab-pane:first-of-type').addClass('active in');
   $('#categories .tab-pane:first-of-type').removeClass('hidden-xs');
+})
+
+$( document ).on('turbolinks:load', function() {
+  // make first product tab panes show
+  $('#product-details-btm li:first-child, #product-details-btm .tab-pane:first-of-type').addClass('active');
 })

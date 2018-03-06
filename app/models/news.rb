@@ -19,8 +19,7 @@ class News < ApplicationRecord
   private
 
   def set_default_values
-    # not working
-    # self.image.alt = title_en.parameterize
+    self.image.update(alt: title_en.parameterize)
     self.permalink = title_en.parameterize if self.permalink.blank?
     self.metum.title_zh_tw = title_zh_tw if self.metum.title_zh_tw.blank?
     self.metum.title_en = title_en if self.metum.title_en.blank?

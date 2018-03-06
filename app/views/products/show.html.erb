@@ -3,8 +3,7 @@
   <div id="category-side-nav" class="col-sm-3 hidden-xs">
     <%= render 'layouts/category_side_nav' %>
   </div>
-  <!-- /Category side nav -->
-  
+  <!-- /Category side nav -->  
   <!-- Product wrapper -->
   <div id="product-wrapper" class="col-xs-12 col-sm-9 px-xs-0">
     <!-- Product Details -->
@@ -41,44 +40,60 @@
     <!-- Product Details bottom -->
     <section id="product-details-btm" class="section-4 no-border clear">
       <ul class="nav custom-tabs tab-style-2 hidden-xs">
-        <li class="active"><a data-toggle="tab" href="#description"><%= t('frontend.product.description') %></a></li>
+        <% product_nav_tab @product.description do |description| %>
+        <li><a data-toggle="tab" href="#description"><%= t('frontend.product.description') %></a></li>
+        <% end %>
+        <% product_nav_tab @product.feature do |feature| %>
         <li><a data-toggle="tab" href="#feature"><%= t('frontend.product.features') %></a></li>
+        <% end %>
+        <% product_nav_tab @product.dimensions do |dimensions| %>
         <li><a data-toggle="tab" href="#dimensions"><%= t('frontend.product.dimensions') %></a></li>
+        <% end %>
+        <% product_nav_tab @product.specification do |specification| %>
         <li><a data-toggle="tab" href="#specification"><%= t('frontend.product.specification') %></a></li>
+        <% end %>
       </ul>
       <!-- /custom-tabs -->
       <div class="tab-content">
+        <% product_content @product.description do |description| %>
         <a href="#description" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.description') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
-        <div id="description" class="tab-pane fade active in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
-          <%= @product.description.html_safe %>
+        <div id="description" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
+          <%= description %>
         </div>
+        <% end %>
         <!-- /tab-pane -->
+        <% product_content @product.feature do |feature| %>
         <a href="#feature" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.features') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
-        <div id="feature" class="tab-pane fade border border-xs-0 px-sm-30 py-xs-20 py-sm-40 hidden-xs">
-          <%= @product.feature.html_safe %>
+        <div id="feature" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
+          <%= feature %>
         </div>
+        <% end %>
         <!-- /tab-pane -->
+        <% product_content @product.dimensions do |dimensions| %>
         <a href="#dimensions" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.dimensions') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
-        <div id="dimensions" class="tab-pane fade border border-xs-0 px-sm-30 py-xs-20 py-sm-40 hidden-xs">
-          <%= @product.dimensions.html_safe %>
+        <div id="dimensions" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
+          <%= dimensions %>
         </div>
+        <% end %>
         <!-- /tab-pane -->
+        <% product_content @product.specification do |specification| %>
         <a href="#specification" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.specification') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
-        <div id="specification" class="tab-pane fade border border-xs-0 px-sm-30 py-xs-20 py-sm-40 hidden-xs">
-          <%= @product.specification.html_safe %>
+        <div id="specification" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
+          <%= specification %>
         </div>
+        <% end %>
         <!-- /tab-pane -->
       </div>
       <!-- /tab-content -->

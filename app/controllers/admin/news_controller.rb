@@ -23,6 +23,7 @@ class Admin::NewsController < AdminController
   end
 
   def edit
+    
   end
 
   def update
