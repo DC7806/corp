@@ -1,3 +1,4 @@
+<%= content_for(:body_attributes) do %>data-turbolinks="false"<% end %>
 <section id="about">
   <section class="title text-center py-xs-20">
     <h1><%= about_sections I18n.locale, 'title' %></h1>
@@ -82,22 +83,15 @@
       <% Certificate.all.each do |cert| %>
         <div class="item"><%= image_tag cert.image, class: 'img-responsive' %></div>
       <% end %>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
-      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/300x300/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
+      <div class="item"><img class="img-responsive" src="http://fakeimg.pl/150x150/"></div>
     </div>
     <!-- clients-1 -->
   </div>
   <!-- container -->
 </section>
 <!-- /#certificates -->
-<script type="text/javascript">
- 
-    $(".owl-carousel").owlCarousel();
-    // not working
-    $(".owl-5").owlCarousel();
-
-</script>

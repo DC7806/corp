@@ -30,8 +30,8 @@ module PagesHelper
     end
   end
 
-  def faq_list(locale)
-    @faqs.lang_query(locale).map do |faq|
+  def faq_list(list, locale)
+    list.lang_query(locale).map do |faq|
       content_tag :div, class: 'faq-item mb-xs-20' do
         (content_tag :a, href: '#' do 
         (content_tag :h4, faq.question, class: 'my-xs-15')+
@@ -41,6 +41,22 @@ module PagesHelper
       end
     end.inject(&:+)
   end
+
+  def download_list(list, locale)
+    list.lang_query(locale).map do |download|
+      content_tag :div, class: 'clear mt-xs-20 border py-xs-15 overflow-auto' do
+        link_to download.document.src.url, target: '_blank' do 
+          (content_tag :span, download.created_at.to_date, class: 'col-sm-3 col-md-2')+
+          (content_tag :h4, download.title, class: 'col-sm-7 col-md-8 my-xs-0')+
+          (content_tag :div, class: 'block col-sm-2 text-center' do
+            content_tag :i, '', class: 'ti-download'
+          end)
+        end
+      end
+    end.inject(&:+)
+  end
+
+  # <i class="fal fa-arrow-to-bottom"></i>
 
   def about_sections(locale, section)
     case locale

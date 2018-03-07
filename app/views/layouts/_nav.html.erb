@@ -54,6 +54,11 @@
             <!-- /dropdown-menu -->
             <li><%= link_to t('frontend.nav.about'), about_path %></li>
             <li><%= link_to t('frontend.nav.download'), download_path %></li>
+            <li>
+            <%#= nav_locale '中文', :'zh-TW' %>
+            <%#= nav_locale '英文', :en %>
+            <%= nav_locale I18n.locale %>
+            </li>
           </li>
           <!-- /dropdown -->
         </ul>

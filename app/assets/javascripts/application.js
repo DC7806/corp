@@ -14,6 +14,10 @@
 //= require bootstrap
 //= require turbolinks
 //= require owl_carousel
+//= require wow
+//= require jquery_parallax
+//= require jquery_appear
+//= require jquery_magnific_popup
 //= require main
 //= require front_end
 //= require_self
