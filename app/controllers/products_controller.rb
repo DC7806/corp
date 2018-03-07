@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :find_categories
 
   def index
-    @products = Product.order(created_at: :desc)
+    @products = Product.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def show

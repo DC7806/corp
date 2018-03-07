@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
     when :en
       @site_name = system_settings['site_name']['en']
     end
+    @nav_categories = Category.all
     @footer_site_name = system_settings['site_name']['en'].upcase
     @fb_id = system_settings['tracking']['FB_id']
   end

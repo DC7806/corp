@@ -1,2 +1,28 @@
-<h1><%= @news.title %></h1>
-<div><%= @news.content.html_safe %></div>
+<!-- Blog Fullwidth -->
+<section id="news-detail" class="section-2">
+  <div class="container">
+    <h1 class="text-center heading mb-xs-20"><%= @news.title %></h1>
+    <div class="row">
+      <div class="blog-post classic col-sm-8 col-sm-offset-2">
+        <div class="blog-wrapper my-xs-15 my-sm-30">
+          <div class="blog-img">
+            <%= image_tag @news.image.src, alt: @news.image.alt %>
+          </div>
+          <!-- blog-img -->
+          <div class="post-content pt-xs-15">
+            <span><%= @news.created_at.to_date %></span>
+            <div class="post-inner-content mt-xs-15">
+              <%= @news.content.html_safe %>
+            </div>
+            <!-- /post-bottom -->
+          </div>
+          <!-- /post-content -->
+        </div>
+        <!-- blog-wrapper -->
+      </div>
+      <!-- /blog-post -->
+    </div>
+  </div>
+  <!-- /container -->
+</section>
+<!-- /Blog Classic Fullwidth -->

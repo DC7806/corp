@@ -26,7 +26,7 @@
         <% cat.products.each do |product| %>
         <div class="col-sm-3 border mb-xs-20 mx-sm-15 pt-xs-15 text-center">
           <%= link_to product_path(product.permalink) do %>
-          <%= product_image I18n.locale, product %><
+          <%= product_image I18n.locale, product %>
           <h5><%= product.name %></h5>
           <p><%= product.model %></p>
           <% end %>
