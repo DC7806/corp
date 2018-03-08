@@ -9,8 +9,8 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
             <div class="form-group">
-              <%= f.label :login, '使用者名稱' %>
-              <%= f.text_field :login, autofocus: true, class: 'form-control' %>
+              <%= f.label :name, '使用者名稱' %>
+              <%= f.text_field :name, autofocus: true, class: 'form-control' %>
             </div>  
             <div class="form-group">
               <%= f.label :email %>

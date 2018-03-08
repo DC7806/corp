@@ -1,1 +1,119 @@
-<h1><%= t('.h1') %></h1>
+<!-- Full Screen Image Parallax -->
+<header id="home">
+  <div class="fs-img-parallax parallax parallax-overlay-light" style="background-image:url(/images/home/title.jpg)">
+    <div class="hero-caption caption-center caption-height-center container">
+      <h1 class="hero-heading-alt"><%= @site_name %></h1>
+      <p class="hero-text-alt">
+        <%= raw_contents I18n.locale, @home, 'title'  %>
+      </p>
+    </div>
+    <!-- /hero-caption -->
+  </div>
+  <!-- /fs-img-parallax -->
+</header>
+<!--/#Full Screen Image Parallax -->
+
+<!-- Feature -->
+<section>
+  <div class="split-box">
+    <div class="image-container col-md-6 col-sm-3 parallax-overlay-light">
+      <div class="background-holder " style="background-image: url(/images/home/feature.jpg)">
+      </div>
+      <!-- /background-holder -->
+    </div>
+    <!-- column -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6 clearfix bg-gray">
+          <div class="content">
+            <h2 class="heading-left"><%= t('frontend.home.mission') %></h2>
+            <div class="mrg-top-50">
+              <%= raw_contents I18n.locale, @home, 'mission'  %>
+            </div>
+          </div>
+          <!-- /content -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container-fluid -->
+  </div>
+  <!-- /split-box -->
+</section>
+<!-- /Split Box -->
+
+<!-- services -->
+<section id="services" class="section-2">
+  <div class="container">
+    <h2 class="heading"><%= t('frontend.home.services') %></h2>
+    <div class="row mrg-top-75">
+      <% ['1', '2', '3'].each do |num| %>
+      <div class="col-sm-4">
+        <div class="infography-style-5">
+          <div class="overflow-auto">
+            <%= image_tag "/images/home/services_icon_#{num}.jpg", class: 'col-xs-6 col-xs-offset-3' %>
+          </div>
+          <!-- /infography-icon -->
+          <div class="clear">
+            <div class="mt-xs-15">
+              <%= raw_contents I18n.locale, @home, "service_#{num}"  %>
+            </div>
+          </div>
+          <!-- /inner-wrapper -->
+        </div>
+        <!-- /infography-style-5 -->
+      </div>
+      <!-- /column -->
+      <% end %>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</section>
+<!-- /#services -->
+
+<!-- News -->
+<section id="news" class="section-2 bg-gray">
+  <div class="container">
+    <h2 class="heading"><%= t('frontend.home.news') %></h2>
+    <div class="blog-post mrg-top-70">
+      <% @news.each do |news|%>
+      <div class="col-sm-4">
+        <div class="blog-wrapper">
+          <div class="blog-img">
+            <%= link_to news_path(news.permalink) do %>
+            <%= image_tag news.image.src, class: 'img-responsive' %>
+            <% end %>
+            <div class="post-date ">
+              <p class="no-margin"><%= news.created_at.to_date %></p>
+            </div>
+            <!-- post-date -->
+          </div>
+            <!-- blog-img -->
+          <div class="post-content">
+            <h3 class="post-tittle"><%= news.title %></h3>
+            <p class="post-inner-content mrg-vertical-15"><%= news_summary I18n.locale, news.content %></p>
+            <div class="post-bottom">
+              <span class="read-more">
+                <%= link_to news_path(news.permalink), class: 'btn no-padding' do %>
+                  <span><%= t('readmore') %></span><i class="ti-arrow-right"></i>
+                <% end %>
+              </span>
+            </div>
+            <!-- /post-bottom -->
+          </div>
+          <!-- /post-content -->
+        </div>
+        <!-- blog-wrapper -->
+      </div>
+      <!-- column -->
+      <% end %>
+    </div>
+    <!-- /blog-post -->
+  </div>
+  <!-- container -->
+</section>
+<!--/News -->
+<div id="google-map" class="map"></div>
+<%= render 'google-map' %>

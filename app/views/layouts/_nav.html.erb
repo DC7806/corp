@@ -1,12 +1,12 @@
 <!-- Navigation -->
-<nav class="main-nav menu-light">
-  <div class="container">
+<nav class="main-nav menu-light <%= nav_wrapper_class %>">
+  <div class="<%= nav_wrapper_inner_class %>">
     <div class="navbar">
 
       <div class="brand-logo">
-        <a class="navbar-brand" href="#">
-          <img src="http://fakeimg.pl/173x90/">
-        </a>
+        <%= link_to root_path do %>
+          <img src="http://fakeimg.pl/173x75/">
+        <% end %>
       </div>
       <!-- brand-logo -->
 

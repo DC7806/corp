@@ -8,6 +8,10 @@ en:
   frontend:
     button:
       submit: "SEND"
+    home:
+      mission: "Mission"
+      news: "NEWS"
+      services: "SERVICES"
     contact:
       hq: "HEADQUARTERS"
       contact_us: "CONTACT US"

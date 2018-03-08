@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   
-  def home
+  def homepage
+    @home = YAML::load_file("#{Rails.root}/config/home.yml")
+    @news = News.last(3)
   end
 
   def contact

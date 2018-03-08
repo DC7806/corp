@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
-    root "pages#homepage"
+    root 'pages#homepage'
     get 'about', to: 'pages#about'
     get 'contact', to: 'pages#contact'
     get 'faq', to: 'pages#faq'
@@ -18,12 +18,12 @@ Rails.application.routes.draw do
   #admin
 
   namespace :admin, path: Settings.admin_secret_path do
-    get Settings.admin_secret_path, to: "products#index", as: :admin_root
-    resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, :news, :products, except: :show
-    resources :translations, only: [:index, :edit, :update]
-    resources :about, :contacts, :system, only: [:index, :create]
+    get Settings.admin_secret_path, to: "homepage#index", as: :admin_root
     get 'inquiries'
-    root 'products#index'
+    resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 
+              :news, :products, except: :show
+    resources :translations, only: [:index, :edit, :update]
+    resources :about, :contacts, :homepage, :system, only: [:index, :create]
   end
   
 end

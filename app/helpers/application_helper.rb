@@ -8,4 +8,16 @@ module ApplicationHelper
     end
   end
 
+  def nav_wrapper_class
+    'op-nav menu-transparent js-transparent' if action_name == 'homepage'
+  end
+
+  def nav_wrapper_inner_class
+    if action_name == 'homepage'
+      'container-fluid'
+    else
+      'container'
+    end
+  end
+
 end

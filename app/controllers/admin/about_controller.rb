@@ -3,7 +3,6 @@ class Admin::AboutController < AdminController
   require 'yaml'
 
   def index
-
   end
 
   def create

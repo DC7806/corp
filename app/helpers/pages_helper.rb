@@ -56,14 +56,8 @@ module PagesHelper
     end.inject(&:+)
   end
 
-  def about_sections(locale, section)
-    case locale
-      when :'zh-TW'
-        lang = 'zh_tw'
-      when :en
-        lang = 'en'
-    end
-    @about.slice(lang).values.first[section].html_safe
+  def raw_contents locale, src, section
+    src.slice(locale.to_s).values.first[section].html_safe
   end
 
   def milestone_list(list, locale)

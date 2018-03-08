@@ -1,0 +1,37 @@
+<%= form_for(:home, url: admin_homepage_index_path) do |f| %>
+<ul class="nav nav-pills my-xs-20" role="tablist">
+  <li class="active"><a role="tab" href="#home_zh-TW" data-toggle="tab">中文</a></li>
+  <li ><a role="tab" href="#home_en" data-toggle="tab">英文</a></li>
+</ul>
+<div class="tab-content mt-xs-20">
+  <% {'zh-TW': 'active', en: 'fade'}.each do |locale, status| %> 
+  <!-- content_<%= locale %> panel -->
+  <div role="tabpanel" class="tab-pane <%= status %>" id="home_<%= locale %>">
+    <% @admin_home.slice(locale.to_s).each do |k1, v1| %>
+    <div class="form-group">
+      <%= f.label v1.key(v1['title']) %>
+      <%= f.text_field v1['title'], name: "home[#{locale}][title]", value: v1['title'], class: "form-control"%>
+    </div>
+    <% end %>
+    <% @admin_home.slice(locale.to_s).each do |k1, v1| %>
+    <% v1.except('title').each do |k2, v2| %>
+    <div class="form-group">
+      <%= f.label k2 %>
+      <%= f.cktext_area v2, name: "home[#{k1}][#{k2}]", value: v2, class: "form-control", id: "home[#{k1}][#{k2}]"%>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<% @admin_home.slice('images').each do |k1, v1| %>
+<% v1.each do |k2, v2| %>
+<div class="form-group mt-xs-20">
+  <%= f.label k2 %>
+  <%= f.file_field v2, name: "home[#{k1}][#{k2}]", value: v2, 'data-default-file': "/images/home/#{k2}.jpg", class: 'dropify' %>
+</div>
+<% end %>
+<% end %>
+<%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
+<% end %>
+<%= render 'layouts/dropify' %>

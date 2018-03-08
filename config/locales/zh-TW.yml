@@ -8,6 +8,10 @@ zh-TW:
   frontend:
     button:
       submit: "確認送出"
+    home:
+      mission: "公司願景"
+      news: "最新消息"
+      services: "服務範圍"
     contact:
       hq: "總公司"
       contact_us: "聯絡我們"
