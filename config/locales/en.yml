@@ -23,6 +23,8 @@ en:
       title: "FAQ"
     download:
       title: "SUPPORT DOCUMENTS" 
+    milestone:
+      title: "MILESTONES"
     nav:
       categories: "CATEGORY"
       products: "PRODUCTS"

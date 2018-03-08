@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @categories = Category.order(created_at: :desc)
   end
 
   private

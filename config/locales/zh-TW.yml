@@ -23,6 +23,8 @@ zh-TW:
       title: "常見問題"
     download:
       title: "資源下載" 
+    milestone:
+      title: "里程碑"
     nav:
       categories: "產品分類"
       products: "所有產品"

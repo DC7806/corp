@@ -22,7 +22,9 @@
 //= require front_end
 //= require_self
 
-// not working
+// turbolink disable not working
+
+// not working here but in other file
 // $( document ).on('turbolinks:load', function() {
 //   $('#faq .faq-item a').on('click', function(event){
 //   $(this).children('i').toggleClass('down');

@@ -56,8 +56,6 @@ module PagesHelper
     end.inject(&:+)
   end
 
-  # <i class="fal fa-arrow-to-bottom"></i>
-
   def about_sections(locale, section)
     case locale
       when :'zh-TW'
@@ -66,6 +64,15 @@ module PagesHelper
         lang = 'en'
     end
     @about.slice(lang).values.first[section].html_safe
+  end
+
+  def milestone_list(list, locale)
+    list.lang_query(locale).map do |milestone|
+      content_tag :div, class: 'clear mt-xs-20 border py-xs-15 overflow-auto' do
+        (content_tag :span, milestone.year, class: 'col-sm-2')+
+        (content_tag :h4, milestone.content, class: 'col-sm-10 my-xs-0')
+      end
+    end.inject(&:+)
   end
 
 end

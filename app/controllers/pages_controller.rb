@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     @downloads = Download.order(created_at: :desc)
   end
 
+  def milestone
+    @milestones = Milestone.order(created_at: :desc)
+  end
+
 end

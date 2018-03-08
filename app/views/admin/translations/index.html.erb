@@ -1,11 +1,21 @@
-<h1>Translation Table</h1>
-
-<% @indexing.each do |t| %>
-  <%= t.key %>
-  <% @admin_translations.select_key(t.key).each do |translate| %>
-    <%= form_for translate do |f| %>
-    <%= f.text_field :value %>
-    <%= f.submit %>
+<div class="col-sm-8 col-sm-offset-2">
+  <% @indexing.each do |t| %>
+    <%= t.key %>
+    <% @admin_translations.select_key(t.key).each do |translate| %>
+      <%= form_for translate do |f| %>
+      <%= f.text_field :value, class: 'form-control mt-xs-10' %>
+      <%= f.submit 'update', class: 'btn btn-primary form-control' %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  <% end %>    
+</div>
+
+<%# @indexing.each do |t| %>
+  <%#= t.key %>
+  <%# @admin_translations.select_key(t.key).each do |translate| %>
+    <%#= form_for translate do |f| %>
+    <%#= f.text_field :value, class: 'form-control ' %>
+    <%#= f.submit 'update', class: 'btn btn-primary form-control' %>
+    <%# end %>
+  <%# end %>
+<%# end %>    

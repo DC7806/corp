@@ -43,7 +43,8 @@
       <div class="custom-collapse navbar-collapse collapse inner-nav">
         <ul class="nav navbar-nav">
           <li><%= link_to t('frontend.nav.products'), products_path %></li>
-          <li class="dropdown classic-dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %> <i class="ti-angle-down"></i></a>
+          <li class="dropdown classic-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %> <i class="ti-angle-down"></i></a>
             <ul class="dropdown-menu">
               <% @nav_categories.each do |cat| %>
               <%= content_tag :li do %>
@@ -55,10 +56,11 @@
             <li><%= link_to t('frontend.nav.about'), about_path %></li>
             <li><%= link_to t('frontend.nav.download'), download_path %></li>
             <li>
-            <%#= nav_locale '中文', :'zh-TW' %>
-            <%#= nav_locale '英文', :en %>
-            <%= nav_locale I18n.locale %>
+              <%= link_to "https://www.facebook.com/"+@fb_id, target: '_blank' do %>
+                <i class="fa fa-facebook"></i>
+              <% end %>
             </li>
+            <li><%= nav_locale I18n.locale %></li>
           </li>
           <!-- /dropdown -->
         </ul>
