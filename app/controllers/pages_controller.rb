@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def about
     @about = YAML::load_file("#{Rails.root}/config/about.yml")
+    @certificates = Certificate.all
   end
 
   def download

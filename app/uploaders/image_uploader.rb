@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -45,5 +45,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  version :thumb_150, if: :is_cert? do
+    process resize_to_fill: [150, 150]
+  end
+
+  
+  private
+
+  def is_cert? picture
+    model.class.to_s == 'Admin::Certificate'
+  end
 
 end

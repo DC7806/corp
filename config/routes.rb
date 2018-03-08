@@ -15,13 +15,14 @@ Rails.application.routes.draw do
   end
 
   #admin
+
   namespace :admin, path: Settings.admin_secret_path do
+    get Settings.admin_secret_path, to: "products#index", as: :admin_root
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, :news, :products, except: :show
     resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, :system, only: [:index, :create]
     get 'inquiries'
     root 'products#index'
-    # get 'dashboard', to: 'admin#dashboard', as: :root
   end
   
 end

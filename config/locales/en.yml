@@ -5,13 +5,6 @@ en:
       next: ">"
       first: "|<"
       last: ">|"
-  admin:
-    translations:
-      index:
-        table: "default"
-  pages:
-    homepage:
-      h1: "default en"
   frontend:
     button:
       submit: "SEND"
@@ -28,10 +21,25 @@ en:
       message: "message"
     faq:
       title: "FAQ"
+    download:
+      title: "SUPPORT DOCUMENTS" 
     nav:
+      categories: "CATEGORY"
       products: "PRODUCTS"
       news: "NEWS"
       contact: "CONTACT"
       about: "ABOUT"
       faq: "FAQ"
       download: "DOWNLOAD"
+    product:
+      model: "Model"
+      country: "Made In"
+      document: "Download"
+      certificates: "Certificates"
+      description: "Description"
+      features: "Features"
+      dimensions: "Dimensions"
+      specification: "Specifications"
+    news_index:
+      title: "NEWS"
+      readmore: "READ MORE"

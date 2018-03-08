@@ -3,7 +3,7 @@ class Admin::AboutController < AdminController
   require 'yaml'
 
   def index
-    
+
   end
 
   def create
@@ -11,7 +11,7 @@ class Admin::AboutController < AdminController
     # @admin_about = YAML::load_file("#{Rails.root}/config/about.yml")
     
     # write
-    data = params[:about]
+    data = params[:about].except('images')
     data.each do |k1, v1|
       v1.each do |k2, v2|
         @admin_about[k1][k2] = v2
@@ -21,6 +21,11 @@ class Admin::AboutController < AdminController
     # store
     File.write("#{Rails.root}/config/about.yml", @admin_about.to_yaml)
 
+    @admin_about.slice('images').values.first.keys.each do |image|
+      upload(image)
+    end
+
+
     redirect_back(fallback_location: request.referrer)
   end
 
@@ -28,6 +33,18 @@ class Admin::AboutController < AdminController
   
   def find_about
     @admin_about = YAML::load_file("#{Rails.root}/config/about.yml")
+  end
+
+  # upload background images
+  def upload(image)
+    if params[:about][:images] && params[:about][:images][image.to_sym] != nil
+      uploaded_io = params[:about][:images][image.to_sym]
+      images_dir = 'public/images/about'
+      File.open(Rails.root.join(images_dir, uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+        File.rename(file, "#{images_dir}/#{image}.jpg")
+      end
+    end
   end
 
 end

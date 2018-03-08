@@ -5,13 +5,6 @@ zh-TW:
       next: ">"
       first: "|<"
       last: ">|"
-  admin:
-    translations:
-      index:
-        table: "default"
-  pages:
-    homepage:
-      h1: "default en"
   frontend:
     button:
       submit: "確認送出"
@@ -28,6 +21,8 @@ zh-TW:
       message: "訊息"
     faq:
       title: "常見問題"
+    download:
+      title: "資源下載" 
     nav:
       categories: "產品分類"
       products: "所有產品"

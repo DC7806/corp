@@ -24,5 +24,14 @@
   </div>
   <% end %>
 </div>
+<% @admin_about.slice('images').each do |k1, v1| %>
+<% v1.each do |k2, v2| %>
+<div class="form-group mt-xs-20">
+  <%= f.label k2 %>
+  <%= f.file_field v2, name: "about[#{k1}][#{k2}]", value: v2, 'data-default-file': "/images/about/#{k2}.jpg", class: 'dropify' %>
+</div>
+<% end %>
+<% end %>
 <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
 <% end %>
+<%= render 'layouts/dropify' %>
