@@ -1,21 +1,28 @@
-<div class="col-sm-8 col-sm-offset-2">
+<%= form_for :translations, url: update_all_admin_translations_path, html: {method: :put} do %>
   <% @indexing.each do |t| %>
-    <%= t.key %>
-    <% @admin_translations.select_key(t.key).each do |translate| %>
-      <%= form_for translate do |f| %>
-      <%= f.text_field :value, class: 'form-control mt-xs-10' %>
-      <%= f.submit 'update', class: 'btn btn-primary form-control' %>
+  <div class="form-group col-sm-4">
+    <span><%= t.key %></span>
+    <% @admin_translations.group_by_key(t.key).each do |translation| %>
+      <%= fields_for "admin_translation[]", translation do |f| %>
+      <%#= fields_for "admin_translation[#{translation.id}]", translation do |f| %>
+      <!-- index: option omitted -->
+        <%= f.text_field :value, class: 'form-control' %>
       <% end %>
     <% end %>
-  <% end %>    
-</div>
+  </div>
+  <% end %>
+  <%= submit_tag '確認送出', class: 'btn btn-primary form-control mt-xs-20' %>
+<% end %>
 
-<%# @indexing.each do |t| %>
-  <%#= t.key %>
-  <%# @admin_translations.select_key(t.key).each do |translate| %>
-    <%#= form_for translate do |f| %>
-    <%#= f.text_field :value, class: 'form-control ' %>
-    <%#= f.submit 'update', class: 'btn btn-primary form-control' %>
+
+<!-- <div class="col-sm-8 col-sm-offset-2">
+  <%# @indexing.each do |t| %>
+    <%#= t.key %>
+    <%# @admin_translations.select_key(t.key).each do |translate| %>
+      <%#= form_for translate do |f| %>
+      <%#= f.text_field :value, class: 'form-control mt-xs-10' %>
+      <%#= f.submit 'update', class: 'btn btn-primary form-control' %>
+      <%# end %>
     <%# end %>
-  <%# end %>
-<%# end %>    
+  <%# end %>    
+</div> -->

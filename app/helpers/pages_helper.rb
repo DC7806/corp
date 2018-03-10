@@ -1,23 +1,23 @@
 module PagesHelper
   
-  def contact_info_hq(locale)
+  def contact_info_hq(locale, contacts)
     case locale
       when :'zh-TW'
         lang = 'hq_zh'
       when :en
         lang = 'hq_en'
     end
-    @contacts.slice(lang).values.first.map do |k,v|
+    contacts.fetch(lang).map do |k,v|
       content_tag :div, class: 'col-sm-3' do
         (content_tag :h4, k, class: 'title') + (content_tag :p, v)
       end
     end.inject(&:+)
   end
 
-  def contact_info_regions(locale)
+  def contact_info_regions(locale, contacts_regions)
     if I18n.locale == :'zh-TW'
       (content_tag :h2, '各區營業所', class: 'text-center') + 
-      @contacts_regions.map do |k,v|
+      contacts_regions.map do |k,v|
         content_tag :div, class: 'col-sm-4 mt-sm-15' do
           content_tag :div, class: 'col-sm-10 col-sm-offset-1' do
             (content_tag :h4, k) +
@@ -57,7 +57,7 @@ module PagesHelper
   end
 
   def raw_contents locale, src, section
-    src.slice(locale.to_s).values.first[section].html_safe
+    src.fetch(locale.to_s)[section].html_safe
   end
 
   def milestone_list(list, locale)

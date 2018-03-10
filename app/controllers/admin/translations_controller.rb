@@ -1,22 +1,21 @@
 class Admin::TranslationsController < AdminController
 
   def index
+    @admin_translations = Admin::Translation.order(key: :asc)
     @indexing = Admin::Translation.where(locale: "zh-TW")
-    @admin_translations = Admin::Translation.order(created_at: :desc)
   end
 
-  def edit
-  end
-
-  def update
-    admin_translation = Admin::Translation.find_by(id: params[:id])
-    admin_translation.update(translation_params)
-    redirect_to admin_translations_path
+  def update_all
+    params['admin_translation'].each do |id|
+      admin_translation = Admin::Translation.find(id.to_i)
+      admin_translation.update(translation_params(id))
+    end
+    redirect_back(fallback_location: request.referrer)
   end
 
   private
-  def translation_params
-    params.require(:admin_translation).permit(:locale, :key, :value)
+  def translation_params(id)
+    params.require(:admin_translation).fetch(id).permit(:locale, :key, :value)
   end
 
 end

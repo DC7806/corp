@@ -3,9 +3,9 @@ tracking:
   FB_id: Kerr.Huang
   GA_id: ha
   GTM_id: yo
-logo:
-  zh: "/images/system/logo_zh.jpg"
-  en: "/images/system/logo_en.jpg"
+images:
+  logo_zh-TW: "/images/system/logo_zh-TW.jpg"
+  logo_en: "/images/system/logo_en.jpg"
 site_name:
-  zh: site tw
+  zh-TW: site tw
   en: EN sitename

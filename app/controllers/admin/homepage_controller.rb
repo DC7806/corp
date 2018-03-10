@@ -20,8 +20,10 @@ class Admin::HomepageController < AdminController
     # store
     File.write("#{Rails.root}/config/home.yml", @admin_home.to_yaml)
 
-    @admin_home.slice('images').values.first.keys.each do |image|
-      upload(image)
+    # upload images
+    @admin_home.fetch('images').keys.each do |image|
+    # @admin_home.slice('images').values.first.keys.each do |image|
+      upload(:home, image)
     end
 
     redirect_back(fallback_location: request.referrer)
@@ -34,14 +36,14 @@ class Admin::HomepageController < AdminController
   end
 
   # upload background images
-  def upload(image)
-    if params[:home][:images] && params[:home][:images][image.to_sym] != nil
-      uploaded_io = params[:home][:images][image.to_sym]
-      images_dir = 'public/images/home'
-      File.open(Rails.root.join(images_dir, uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-        File.rename(file, "#{images_dir}/#{image}.jpg")
-      end
-    end
-  end
+  # def upload(image)
+  #   if params[:home][:images] && params[:home][:images][image.to_sym] != nil
+  #     uploaded_io = params[:home][:images][image.to_sym]
+  #     images_dir = 'public/images/home'
+  #     File.open(Rails.root.join(images_dir, uploaded_io.original_filename), 'wb') do |file|
+  #       file.write(uploaded_io.read)
+  #       File.rename(file, "#{images_dir}/#{image}.jpg")
+  #     end
+  #   end
+  # end
 end

@@ -10,11 +10,11 @@
               <div id="google-map" class="map col-xs-12 mt-sm-20"></div>
               <div class="col-xs-12 mt-xs-20">
                 <%#= hq_contact_info @contacts_hq_en, @contacts_hq_zh %>
-                <%= contact_info_hq I18n.locale %>
+                <%= contact_info_hq I18n.locale, @contacts %>
               </div>
             </div>
             <div class="row mt-sm-20">
-              <%= contact_info_regions I18n.locale %>
+              <%= contact_info_regions I18n.locale, @contacts_regions %>
             </div>
         </div>
         <!-- /contact-item-wrapper -->

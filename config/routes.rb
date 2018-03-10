@@ -22,8 +22,12 @@ Rails.application.routes.draw do
     get 'inquiries'
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 
               :news, :products, except: :show
-    resources :translations, only: [:index, :edit, :update]
     resources :about, :contacts, :homepage, :system, only: [:index, :create]
+    resources :translations, only: [:index] do
+      collection do
+        put 'update_all'
+      end
+    end
   end
   
 end

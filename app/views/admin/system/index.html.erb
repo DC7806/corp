@@ -1,10 +1,10 @@
-<%= form_for(:system, url: admin_system_index_path) do |f| %>
+<%= form_for :system, url: admin_system_index_path do |f| %>
   <ul class="nav nav-pills my-xs-20" role="tablist">
-    <li class="active"><a role="tab" href="#system_zh" data-toggle="tab">中文</a></li>
+    <li class="active"><a role="tab" href="#system_zh-TW" data-toggle="tab">中文</a></li>
     <li ><a role="tab" href="#system_en" data-toggle="tab">英文</a></li>
   </ul>
   <div class="tab-content mt-xs-20">
-    <% {'zh': 'active', 'en': 'fade'}.each do |key, value| %> 
+    <% {'zh-TW': 'active', 'en': 'fade'}.each do |key, value| %> 
     <!-- content_<%= key.to_s %> panel -->
     <div role="tabpanel" class="tab-pane <%= value %>" id="system_<%= key %>">
       <% @admin_system_site_name.each do |k1, v1| %>
@@ -18,7 +18,7 @@
       <% end %>
       <% @admin_system_logo.each do |k1, v1| %>
       <% v1.each do |k2, v2| %>
-      <% if k2 == key.to_s %>
+      <% if k2 == 'logo_' + key.to_s %>
       <div class="form-group">
         <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, class: "dropify" %>
       </div>
@@ -33,7 +33,7 @@
   <% v1.each do |k2, v2| %>
   <div class="form-group">
     <%= f.label k2, k2 %>
-    <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: "form-control" %>
+    <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: 'form-control' %>
   </div>
   <% end %>
   <% end %>

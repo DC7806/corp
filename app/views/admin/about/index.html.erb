@@ -1,4 +1,4 @@
-<%= form_for(:about, url: admin_about_index_path) do |f| %>
+<%= form_for :about, url: admin_about_index_path do |f| %>
 <ul class="nav nav-pills my-xs-20" role="tablist">
   <li class="active"><a role="tab" href="#about_zh-TW" data-toggle="tab">中文</a></li>
   <li ><a role="tab" href="#about_en" data-toggle="tab">英文</a></li>
@@ -7,30 +7,29 @@
   <% {'zh-TW': 'active', en: 'fade'}.each do |locale, status| %> 
   <!-- content_<%= locale %> panel -->
   <div role="tabpanel" class="tab-pane <%= status %>" id="about_<%= locale %>">
-    <% @admin_about.slice(locale.to_s).each do |k1, v1| %>
+    <!-- title -->
+    <% @admin_about.slice(locale.to_s).each do |key, value| %>
     <div class="form-group">
-      <%= f.label v1.key(v1['title']) %>
-      <%= f.text_field v1['title'], name: "about[#{locale}][title]", value: v1['title'], class: "form-control"%>
+      <%= f.label value.key(value['title']) %>
+      <%= f.text_field value['title'], name: "about[#{locale}][title]", value: value['title'], class: "form-control"%>
     </div>
     <% end %>
-    <% @admin_about.slice(locale.to_s).each do |k1, v1| %>
-    <% v1.except('title').each do |k2, v2| %>
+    <!-- summary, mission, feature, service -->
+    <% @admin_about.fetch(locale.to_s).except('title').each do |key, value| %>
     <div class="form-group">
-      <%= f.label k2 %>
-      <%= f.cktext_area v2, name: "about[#{k1}][#{k2}]", value: v2, class: "form-control", id: "about[#{k1}][#{k2}]"%>
+      <%= f.label key %>
+      <%= f.cktext_area value, name: "about[#{locale}][#{key}]", value: value, class: "form-control", id: "about[#{locale}][#{key}]"%>
     </div>
-    <% end %>
     <% end %>
   </div>
   <% end %>
 </div>
-<% @admin_about.slice('images').each do |k1, v1| %>
-<% v1.each do |k2, v2| %>
+<!-- images -->
+<% @admin_about.fetch('images').each do |key, value| %>
 <div class="form-group mt-xs-20">
-  <%= f.label k2 %>
-  <%= f.file_field v2, name: "about[#{k1}][#{k2}]", value: v2, 'data-default-file': "/images/about/#{k2}.jpg", class: 'dropify' %>
+  <%= f.label key %>
+  <%= f.file_field value, name: "about[images][#{key}]", value: value, 'data-default-file': "/images/about/#{key}.jpg", class: 'dropify' %>
 </div>
-<% end %>
 <% end %>
 <%= f.submit "確認送出", class: "btn btn-primary form-control mt-xs-20" %>
 <% end %>
