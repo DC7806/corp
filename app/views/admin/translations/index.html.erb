@@ -1,3 +1,5 @@
+<%= render 'layouts/admin/search', path: admin_translations_path %>
+
 <%= form_for :translations, url: update_all_admin_translations_path, html: {method: :put} do %>
   <% @indexing.each do |t| %>
   <div class="form-group col-sm-4">
