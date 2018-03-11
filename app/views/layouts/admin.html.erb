@@ -107,8 +107,11 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <li>
+          <%= link_to admin_homepage_index_path do %>
+            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :span, 'Home' %>
+          <% end %>
         <li>
           <%= link_to admin_products_path do%>
             <%= content_tag :i, '', class: 'fa fa-link' %>

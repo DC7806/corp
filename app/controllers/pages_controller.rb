@@ -28,4 +28,15 @@ class PagesController < ApplicationController
     @milestones = Milestone.order(created_at: :desc)
   end
 
+  def search
+    if params[:query]
+      byebug
+      @products = Product.search(params[:query]).order(created_at: :desc).page(params[:page]).per(9)
+      @categories = Category.all
+    else
+      @products = Product.order(created_at: :desc).page(params[:page]).per(9)
+      @categories = Category.all  
+    end
+  end
+
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'faq', to: 'pages#faq'
     get 'download', to: 'pages#download'
     get 'milestone', to: 'pages#milestone'
+    get 'search', to: 'pages#search'
     resources :inquiries, only: [:new, :create]
     resources :categories, :news, :products, only: [:index, :show]
   end
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 
               :news, :products, except: :show
     resources :about, :contacts, :homepage, :system, only: [:index, :create]
-    resources :translations, only: [:index] do
+    resources :translations, only: :index do
       collection do
         put 'update_all'
       end

@@ -28,6 +28,15 @@ class Product < ApplicationRecord
   # Carrierwave
   mount_uploader :document, AttachmentUploader
 
+  def self.search query
+    # better ways?
+    obj = Mobility::ActiveRecord::StringTranslation
+    .where(translatable_type: 'Product', locale: I18n.locale.to_s, key: 'name').where("value LIKE ?", "%#{query.downcase}%")
+    where(id: [obj.pluck(:translatable_id)])
+
+    
+  end
+
   private
 
   def set_default_values
