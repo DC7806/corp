@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   
+  skip_before_action :breadcrumbs_root, only: :homepage
+
   def homepage
     @home = YAML::load_file("#{Rails.root}/config/home.yml")
     @news = News.last(3)
@@ -28,9 +30,9 @@ class PagesController < ApplicationController
     add_breadcrumb t('frontend.breadcrumbs.download'), :download_path
   end
 
-  def milestone
+  def milestones
     @milestones = Milestone.order(created_at: :desc)
-    add_breadcrumb t('frontend.breadcrumbs.milestone'), :milestone_path
+    add_breadcrumb t('frontend.breadcrumbs.milestones'), :milestones_path
   end
 
   def search

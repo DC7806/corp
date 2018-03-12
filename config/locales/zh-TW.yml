@@ -13,6 +13,7 @@ zh-TW:
       news: "最新消息"
       services: "服務範圍"
     contact:
+      title: "聯絡我們"
       hq: "總公司"
       contact_us: "聯絡我們"
       prefix: "選擇稱謂"
@@ -27,7 +28,7 @@ zh-TW:
       title: "常見問題"
     download:
       title: "資源下載" 
-    milestone:
+    milestones:
       title: "里程碑"
     nav:
       categories: "產品分類"
@@ -38,6 +39,7 @@ zh-TW:
       faq: "常見問題"
       download: "技術支援"
       search: "搜尋產品名稱"
+      milestones: "里程碑"
     breadcrumbs:
       home: "首頁"
       products: "所有產品"
@@ -47,7 +49,7 @@ zh-TW:
       faq: "常見問題"
       about: "關於我們"
       download: "技術支援"
-      milestone: "里程碑"
+      milestones: "里程碑"
       search: "產品搜尋"
     product:
       model: "型號"

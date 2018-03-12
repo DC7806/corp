@@ -1,6 +1,6 @@
 defaults: &defaults
   admin_secret_path: "corp"
-  host_name:
+  host_name:  "https://www.corp.com"
   recaptcha:  
     site_key: '6LfMw0cUAAAAAFxmPM67X0UsNwm5_pvwj_qfnxoC'
     secret_key: '6LfMw0cUAAAAAAoVOPDCNOlno75yFXUB22eJSIeS'  

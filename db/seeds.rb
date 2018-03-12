@@ -1,12 +1,12 @@
 # setup static pages meta defalut values
-['about', 'contact', 'home', 'faq', 'download'].each do |name|
+['about', 'contact', 'home', 'faq', 'download', 'milestones'].each do |name|
   Metum.create(page_name: name)
-# end
+end
 
 # setup frontend translations
-['zh-TW', 'en'].each do |locale|
+I18n.available_locales.each do |locale|
   
-  translations = YAML::load_file("#{Rails.root}/config/locales/#{locale}.yml")
+  translations = YAML::load_file("#{Rails.root}/config/locales/#{locale.to_s}.yml")
 
   data = translations.values.first.slice('frontend')
   

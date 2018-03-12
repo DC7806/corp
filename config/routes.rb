@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'contact', to: 'pages#contact'
     get 'faq', to: 'pages#faq'
     get 'download', to: 'pages#download'
-    get 'milestone', to: 'pages#milestone'
+    get 'milestones', to: 'pages#milestones'
     get 'search', to: 'pages#search'
     resources :inquiries, only: [:new, :create]
     resources :categories, :news, :products, only: [:index, :show]

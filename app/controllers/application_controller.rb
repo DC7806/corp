@@ -43,9 +43,11 @@ class ApplicationController < ActionController::Base
     system_settings = YAML::load_file("#{Rails.root}/config/system.yml")
     case I18n.locale
     when :'zh-TW'
-      @site_name = system_settings['site_name']['zh']
+      @site_name = system_settings['site_name']['zh-TW']
+      @logo = system_settings['images']['logo_zh-TW']
     when :en
       @site_name = system_settings['site_name']['en']
+      @logo = system_settings['images']['logo_en']
     end
     @nav_categories = Category.all
     @footer_site_name = system_settings['site_name']['en'].upcase

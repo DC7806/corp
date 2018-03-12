@@ -13,8 +13,9 @@ en:
       news: "NEWS"
       services: "SERVICES"
     contact:
+      title: "CONTACT US"
       hq: "HEADQUARTERS"
-      contact_us: "CONTACT US"
+      contact_us: "message"
       prefix: "Prefix"
       mr: "Mr."
       ms: "Ms."
@@ -27,7 +28,7 @@ en:
       title: "FAQ"
     download:
       title: "SUPPORT DOCUMENTS" 
-    milestone:
+    milestones:
       title: "MILESTONES"
     nav:
       categories: "CATEGORY"
@@ -38,6 +39,7 @@ en:
       faq: "FAQ"
       download: "DOWNLOAD"
       search: "Search Product"
+      milestones: "MILESTONE"
     breadcrumbs:
       home: "Home"
       products: "Products"
@@ -47,7 +49,7 @@ en:
       faq: "Faq"
       about: "About"
       download: "Download"
-      milestone: "Milestone"
+      milestones: "Milestone"
       search: "Search" 
     product:
       model: "Model"

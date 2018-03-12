@@ -46,6 +46,15 @@ gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
 gem 'font-ionicons-rails'
+# to be moved to producton upon deploy
+gem 'sitemap_generator'
+
+group :production do
+  # gem 'pg', '~> 0.18'
+  # sitemap
+  # gem 'sitemap_generator', require: true 
+end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
