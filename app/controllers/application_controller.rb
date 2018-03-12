@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
-  before_action :set_locale, :default_url_options, :site_settings
+  before_action :set_locale, :default_url_options, :site_settings, :breadcrumbs_root
   before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :breadcrumbs_root
 
   private
 
@@ -50,9 +51,13 @@ class ApplicationController < ActionController::Base
     @footer_site_name = system_settings['site_name']['en'].upcase
     @fb_id = system_settings['tracking']['FB_id']
   end
+
+  def breadcrumbs_root
+    add_breadcrumb t('frontend.breadcrumbs.home'), :root_path
+  end
   
   protected
-
+  # devise
   def configure_permitted_parameters
     added_attrs = [:name, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

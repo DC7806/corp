@@ -1,7 +1,7 @@
 # setup static pages meta defalut values
 ['about', 'contact', 'home', 'faq', 'download'].each do |name|
   Metum.create(page_name: name)
-end
+# end
 
 # setup frontend translations
 ['zh-TW', 'en'].each do |locale|

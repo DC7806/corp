@@ -22,24 +22,30 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'simple_form'
+gem 'kaminari'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'delayed_job_active_record'
 gem 'settingslogic'
+gem "breadcrumbs_on_rails"
+# translation
 gem 'i18n-active_record', require: 'i18n/active_record'
 gem 'mobility', '~> 0.3.6'
+# file upload
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+# contact form validation
+gem "recaptcha", require: "recaptcha/rails"
+# devise
+gem 'devise'
+gem 'devise-async'
+# assets
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
-gem "font-ionicons-rails"
-gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
-gem 'simple_form'
-gem 'kaminari'
-gem 'ckeditor', github: 'galetahub/ckeditor'
-gem "recaptcha", require: "recaptcha/rails"
-gem 'delayed_job_active_record'
-gem 'devise'
-gem "devise-async"
+gem 'font-ionicons-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -37,6 +37,18 @@ en:
       about: "ABOUT"
       faq: "FAQ"
       download: "DOWNLOAD"
+      search: "Search Product"
+    breadcrumbs:
+      home: "Home"
+      products: "Products"
+      categories: "Categories"
+      news_index: "News"
+      contact: "Contact"
+      faq: "Faq"
+      about: "About"
+      download: "Download"
+      milestone: "Milestone"
+      search: "Search" 
     product:
       model: "Model"
       country: "Made In"

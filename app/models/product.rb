@@ -30,11 +30,11 @@ class Product < ApplicationRecord
 
   def self.search query
     # better ways?
+    # to do: test multiple products
     obj = Mobility::ActiveRecord::StringTranslation
-    .where(translatable_type: 'Product', locale: I18n.locale.to_s, key: 'name').where("value LIKE ?", "%#{query.downcase}%")
-    where(id: [obj.pluck(:translatable_id)])
-
-    
+          .where(translatable_type: 'Product', locale: I18n.locale.to_s, key: 'name')
+          .where("value LIKE ?", "%#{query.downcase}%")
+    where(id: [obj.pluck(:translatable_id)])    
   end
 
   private

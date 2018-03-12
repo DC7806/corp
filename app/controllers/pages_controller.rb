@@ -9,23 +9,28 @@ class PagesController < ApplicationController
     @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
     @contacts_regions = @contacts.except('hq_zh', 'hq_en')
     @inquiry = Inquiry.new
+    add_breadcrumb t('frontend.breadcrumbs.contact'), :contact_path
   end
 
   def faq
     @faqs = Faq.order(created_at: :desc)
+    add_breadcrumb t('frontend.breadcrumbs.faq'), :faq_path
   end
 
   def about
     @about = YAML::load_file("#{Rails.root}/config/about.yml")
     @certificates = Certificate.all
+    add_breadcrumb t('frontend.breadcrumbs.about'), :about_path
   end
 
   def download
     @downloads = Download.order(created_at: :desc)
+    add_breadcrumb t('frontend.breadcrumbs.download'), :download_path
   end
 
   def milestone
     @milestones = Milestone.order(created_at: :desc)
+    add_breadcrumb t('frontend.breadcrumbs.milestone'), :milestone_path
   end
 
   def search
@@ -37,6 +42,7 @@ class PagesController < ApplicationController
       @products = Product.order(created_at: :desc).page(params[:page]).per(9)
       @categories = Category.all  
     end
+    add_breadcrumb t('frontend.breadcrumbs.search'), :search_path
   end
 
 end

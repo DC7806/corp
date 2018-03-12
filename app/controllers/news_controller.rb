@@ -4,9 +4,12 @@ class NewsController < ApplicationController
 
   def index
     @news = News.order(created_at: :desc).page(params[:page]).per(5)
+    add_breadcrumb t('frontend.breadcrumbs.news_index'), :news_index_path
   end
 
   def show
+    add_breadcrumb t('frontend.breadcrumbs.news_index'), :news_index_path
+    add_breadcrumb @news.title, news_path(@news.permalink)
   end
 
   private
