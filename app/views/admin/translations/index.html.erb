@@ -1,14 +1,14 @@
 <%= render 'layouts/admin/search', path: admin_translations_path %>
 
 <%= form_for :translations, url: update_all_admin_translations_path, html: {method: :put} do %>
-  <% @indexing.each do |t| %>
+  <% @labels.each do |label| %>
   <div class="form-group col-sm-4">
-    <span><%= t.key %></span>
-    <% @admin_translations.group_by_key(t.key).each do |translation| %>
+    <span><%= label %></span>
+    <% @admin_translations.where(key: label).each do |translation| %>
       <%= fields_for "admin_translation[]", translation do |f| %>
       <%#= fields_for "admin_translation[#{translation.id}]", translation do |f| %>
       <!-- index: option omitted -->
-        <%= f.text_field :value, class: 'form-control' %>
+        <%= f.text_field :value, class: 'form-control mt-xs-5' %>
       <% end %>
     <% end %>
   </div>

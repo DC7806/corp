@@ -1,12 +1,13 @@
 class Admin::TranslationsController < AdminController
 
   def index
-    if params[:query]      
-      @indexing = Admin::Translation.where(locale: "zh-TW").search(params[:query])
+    if params[:query]
+      @labels = Admin::Translation.search(params[:query]).map(&:key).uniq
+      # @labels = Admin::Translation.search(params[:query]).map {|e| e.key}.uniq
       @admin_translations = Admin::Translation.search(params[:query])
     else
+      @labels = Admin::Translation.all.map(&:key).uniq
       @admin_translations = Admin::Translation.order(key: :asc)
-      @indexing = Admin::Translation.where(locale: "zh-TW")
     end
   end
 
