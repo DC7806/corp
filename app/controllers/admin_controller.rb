@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   include DeviseAdminLocale
-  before_action :authenticate_admin!
+  before_action :authenticate_admin_user!
   # before_action :set_locale
 
   # def set_locale

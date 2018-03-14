@@ -80,9 +80,7 @@
   <div class="container">
     <div class="owl-5 owl-carousel clients-1">
       <% @certificates.each do |cert| %>
-        <div class="item"><%= image_tag cert.image_url, class: 'img-responsive' %></div>
-        <!-- thumb not working -->
-        <!-- <div class="item"><%#= image_tag cert.image_url(:thumb_150), class: 'img-responsive' %></div> -->
+        <div class="item"><%= image_tag cert.image_url(:thumb_150), class: 'img-responsive' %></div>
       <% end %>
     </div>
     <!-- clients-1 -->

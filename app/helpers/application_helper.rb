@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def page_title site_name, title
+    if title.present?
+      content_tag :title, "#{title} | #{site_name}"
+    else
+      content_tag :title, site_name
+    end
+  end
+
   def nav_locale locale
     if locale == :en 
       content_tag :li ,(link_to '中文', locale: :'zh-TW')

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :admins, controllers: {sessions: "sessions"}
-  
+  devise_for :admin_users, controllers: {sessions: "sessions"}
+
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
     root 'pages#homepage'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #admin
 
   namespace :admin, path: Settings.admin_secret_path do
-    get Settings.admin_secret_path, to: "homepage#index", as: :admin_root
+    get '/', to: "homepage#index", as: :root
     get 'inquiries'
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 
               :news, :products, except: :show

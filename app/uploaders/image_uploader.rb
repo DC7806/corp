@@ -54,7 +54,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   private
 
   def is_cert? picture
-    model.class.to_s == 'Admin::Certificate'
+    model.class.to_s.end_with? 'Certificate'
   end
 
 end

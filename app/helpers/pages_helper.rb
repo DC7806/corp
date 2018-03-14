@@ -37,7 +37,7 @@ module PagesHelper
         (content_tag :h4, faq.question, class: 'my-xs-15')+
         (content_tag :i, '', class: 'text-center fa fa-angle-down rotate-180 mb-xs-5')
         end)+
-        (content_tag :div, faq.answer.html_safe)
+        (content_tag :div, faq.answer.html_safe, class: 'hidden')
       end
     end.inject(&:+)
   end

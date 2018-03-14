@@ -78,7 +78,7 @@
               <!-- The user image in the navbar-->
               <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><%= current_admin.email %></span>
+              <span class="hidden-xs"><%= current_admin_user.email %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -91,7 +91,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div>
-                  <%= link_to "修改密碼", edit_admin_registration_path, class: "btn btn-default btn-flat form-control mb-xs-10" %>
+                  <%= link_to "修改密碼", edit_admin_user_registration_path, class: "btn btn-default btn-flat form-control mb-xs-10" %>
                   <%= admin_session %>
                 </div>
               </li>

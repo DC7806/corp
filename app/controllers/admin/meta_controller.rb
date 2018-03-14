@@ -4,8 +4,8 @@ class Admin::MetaController < AdminController
   
   def index
     @admin_meta = []
-    ['home', 'about', 'contact', 'faq'].each do |name|
-    @admin_meta << Metum.where(page_name: name).first
+    ['homepage','products','categories','contact','faq','about','download','milestones'].each do |name|
+      @admin_meta << Metum.where(page_name: name).first
     end
   end
 

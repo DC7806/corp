@@ -17,7 +17,7 @@ en:
   service_3: "<p>Lorem ipsum dolor sit amet</p>\r\n"
 images:
   title: "/images/home/title.jpg"
-  mission: "/images/home/feature.jpg"
+  mission: "/images/home/mission.jpg"
   services_icon_1: "/images/home/services_icon_1.jpg"
   services_icon_2: "/images/home/services_icon_2.jpg"
   services_icon_3: "/images/home/services_icon_3.jpg"

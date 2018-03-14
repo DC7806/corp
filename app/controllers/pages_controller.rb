@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+  before_action :find_title, except: :homepage
   skip_before_action :breadcrumbs_root, only: :homepage
 
   def homepage
@@ -45,6 +45,12 @@ class PagesController < ApplicationController
       @categories = Category.all  
     end
     add_breadcrumb t('frontend.breadcrumbs.search'), :search_path
+  end
+
+  private
+
+  def find_title
+    @title = Metum.where(page_name: action_name).first.title
   end
 
 end

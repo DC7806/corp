@@ -8719,6 +8719,10 @@ label {
     display: flex;
 }
 
+.hidden {
+    display: none;
+}
+
 /* rotate */
 .rotate-180{
   -moz-transition: all .5s linear;
@@ -8787,19 +8791,12 @@ img {
     padding: 6px 12px;
 }
 @media only screen and (min-width: 768px){
-.link-widget > ul > li {
-    display: inline-block;
-    min-width: 90px;
-}
 .link-widget > ul > li:not(:first-child) {
     border-left: 1px solid;
 }
 }
 @media only screen and (min-width: 992px){
-.link-widget > ul > li {
-    min-width: 110px;
-}}
-
+ */
 /* download */
 #download h4 {
     line-height: 26px;
