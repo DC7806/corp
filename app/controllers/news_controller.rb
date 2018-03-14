@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-
+  before_action :page_meta, only: :index
   before_action :find_news, only: :show
 
   def index
@@ -10,6 +10,7 @@ class NewsController < ApplicationController
   def show
     add_breadcrumb t('frontend.breadcrumbs.news_index'), :news_index_path
     add_breadcrumb @news.title, news_path(@news.permalink)
+    page_meta @news
   end
 
   private

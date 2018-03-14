@@ -8,6 +8,14 @@ module ApplicationHelper
     end
   end
 
+  def meta_desc_tag(desc)
+    tag(:meta, name: 'description', content: desc) unless desc.nil?
+  end
+
+  def og_tag(hsh)
+    hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+)
+  end
+
   def nav_locale locale
     if locale == :en 
       content_tag :li ,(link_to '中文', locale: :'zh-TW')

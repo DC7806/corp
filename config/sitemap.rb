@@ -6,7 +6,7 @@ SitemapGenerator::Sitemap.create do
   I18n.available_locales.each do |locale|
     group(filename: "sitemap-"+locale.to_s) do
       add root_path(locale: locale), lastmod: 1.day.ago, priority: 1, changefreq: 'daily'
-      ['products','categories','contact','faq','about','download','milestones'].each do |page|
+      ['products','categories','news','contact','faq','about','download','milestones'].each do |page|
         add "#{locale.to_s}/#{page}", lastmod: 1.month.ago, priority: 0.6, changefreq: 'monthly'
       end
       Product.find_each do |product|

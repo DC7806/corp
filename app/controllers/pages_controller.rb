@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :find_title, except: :homepage
+  # before_action :find_title, except: [:homepage, :search]
+  before_action :page_meta
   skip_before_action :breadcrumbs_root, only: :homepage
 
   def homepage
@@ -37,9 +38,9 @@ class PagesController < ApplicationController
 
   def search
     if params[:query]
-      byebug
       @products = Product.search(params[:query]).order(created_at: :desc).page(params[:page]).per(9)
       @categories = Category.all
+      params[:query] = nil
     else
       @products = Product.order(created_at: :desc).page(params[:page]).per(9)
       @categories = Category.all  
@@ -49,8 +50,8 @@ class PagesController < ApplicationController
 
   private
 
-  def find_title
-    @title = Metum.where(page_name: action_name).first.title
-  end
+  # def find_title
+  #   @title = Metum.where(page_name: action_name).first.title
+  # end
 
 end

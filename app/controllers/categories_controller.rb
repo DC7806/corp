@@ -1,17 +1,18 @@
 class CategoriesController < ApplicationController
-
+  before_action :page_meta, only: :index
   before_action :find_category, only: :show
   before_action :find_products
 
   def index
     @categories = Category.order(created_at: :desc)
-    add_breadcrumb t('frontend.breadcrumbs.categories'), :categories_path  
+    add_breadcrumb t('frontend.breadcrumbs.categories'), :categories_path
   end
 
   def show
     @categories = Category.order(created_at: :desc)
     add_breadcrumb t('frontend.breadcrumbs.categories'), :categories_path
     add_breadcrumb @category.name, category_path(@category.permalink)
+    page_meta @category
   end
 
   private
