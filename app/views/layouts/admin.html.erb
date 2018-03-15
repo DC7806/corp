@@ -40,7 +40,7 @@
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs"><%= current_admin_user.email %></span>
+              <span class="hidden-xs"><% if admin_user_signed_in?  %><%= current_admin_user.email %><% end %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
@@ -148,9 +148,10 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content container-fluid">
-
-    <%= yield %>
-
+    <div id="notification" class="form-group text-center">  
+      <%= notice_msg %>
+    </div>
+      <%= yield %>
     </section>
     <!-- /.content -->
   </div>

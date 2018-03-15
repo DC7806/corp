@@ -21,5 +21,13 @@ module Corp
 
     # delay job
     config.active_job.queue_adapter = :delayed_job
+
+    config.to_prepare do
+      Devise::SessionsController.layout 'admin'
+      Devise::RegistrationsController.layout 'admin'
+      Devise::ConfirmationsController.layout 'admin'
+      Devise::UnlocksController.layout 'admin'
+      Devise::PasswordsController.layout 'admin'
+    end
   end
 end

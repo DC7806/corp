@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def og_tag(hsh)
-    hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+)
+    hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+) if hsh.present?
   end
 
   def nav_locale locale
@@ -36,6 +36,10 @@ module ApplicationHelper
     end
   end
 
+  def breadcrumbs_wrapper_class
+    'my-sm-10' unless action_name == 'homepage'
+  end
+
   def nav_logo site_name, logo
     if action_name == 'homepage'
       link_to root_path do
@@ -48,9 +52,23 @@ module ApplicationHelper
       end
     end
   end
-
-  def breadcrumbs_wrapper_class
-    'my-sm-10' if action_name != 'homepage'
+  
+  def notice_msg
+    if flash.present?
+      flash.each do |type, msg|
+        alert_class = case type.to_sym
+                      when :notice then 'alert-info'
+                      when :alert  then 'alert-danger'
+                      end
+        return  content_tag :div, class: "alert #{alert_class}" do
+                (button_tag type: "button", class: "close", data: {dismiss: "alert"} do
+                  content_tag :span, data: {hidden: true} do 
+                    "&times;".html_safe
+                  end
+                end) + msg
+               end
+      end
+    end  
   end
 
 end

@@ -24,6 +24,8 @@ zh-TW:
       number: "電話"
       email: "Email"
       message: "訊息"
+      message_sent: "訊息已送出"
+      message_failed: "訊息傳送失敗"
     faq:
       title: "常見問題"
     download:

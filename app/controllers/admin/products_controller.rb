@@ -16,9 +16,9 @@ class Admin::ProductsController < AdminController
   def create
     @admin_product = Admin::Product.new(product_params)
     if @admin_product.save
-      redirect_to admin_products_path, notice: "New product created"
+      redirect_to admin_products_path, notice: '新增成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '新增失敗'
       render :new
     end
   end
@@ -28,16 +28,16 @@ class Admin::ProductsController < AdminController
 
   def update
     if @admin_product.update(product_params)
-      redirect_to admin_products_path, notice: "Product updated"
+      redirect_to admin_products_path, notice: '更新成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '更新失敗'
       render :edit
     end
   end
 
   def destroy
     @admin_product.destroy
-    redirect_to admin_products_path, notice: "Product deleted"
+    redirect_to admin_products_path, notice: '刪除成功'
   end
 
   private

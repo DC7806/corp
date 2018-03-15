@@ -13,9 +13,9 @@ class Admin::CertificatesController < AdminController
   def create
     @admin_certificate = Admin::Certificate.new(certificate_params)
     if @admin_certificate.save
-      redirect_to admin_certificates_path, notice: "New certificate created"
+      redirect_to admin_certificates_path, notice: '新增成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '新增失敗'
       render :new
     end
   end
@@ -25,16 +25,16 @@ class Admin::CertificatesController < AdminController
 
   def update
     if @admin_certificate.update(certificate_params)
-      redirect_to admin_certificates_path, notice: "certificate updated"
+      redirect_to admin_certificates_path, notice: '更新成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '更新失敗'
       render :edit
     end
   end
 
   def destroy
     @admin_certificate.destroy
-    redirect_to admin_certificates_path, notice: "certificate deleted"
+    redirect_to admin_certificates_path, notice: '刪除成功'
   end
 
   private

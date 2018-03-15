@@ -11,14 +11,14 @@ class InquiriesController < ApplicationController
       InquiryMailer.delay.inquiry_auto_reply(@inquiry)
       InquiryMailer.delay(run_at: 1.minute.from_now).inquiry_notification(@inquiry)
       redirect_back(fallback_location: request.referrer)
+      flash[:notice] = t('frontend.contact.message_sent')
     else
       # for render template
       @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
       @contacts_hq_zh = @contacts.slice('hq_zh')
       @contacts_hq_en = @contacts.slice('hq_en')
-      flash[:alert] = 'something went wrong'
-      render template: 'pages/contact'
-      ## to do: front end error messages
+      render template: 'pages/contact', layout: true
+      flash[:alert] = t('frontend.contact.message_failed')
     end
   end
 

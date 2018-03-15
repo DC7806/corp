@@ -27,7 +27,7 @@
 <% @admin_home.fetch('images').each do |key, value| %>
 <div class="form-group mt-xs-20">
   <%= f.label key %>
-  <%= f.file_field value, name: "home[images][#{key}]", value: value, 'data-default-file': "/images/home/#{key}.jpg", class: 'dropify' %>
+  <%= f.file_field value, name: "home[images][#{key}]", value: value, 'data-default-file': "/images/home/#{key}.jpg", data: {'max-file-size': '500k'}, class: 'dropify' %>
 </div>
 <% end %>
 <%= f.submit "確認送出", class: 'btn btn-primary form-control mt-xs-20' %>

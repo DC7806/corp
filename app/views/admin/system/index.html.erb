@@ -11,16 +11,18 @@
       <% v1.each do |k2, v2| %>
       <% if k2 == key.to_s %>
       <div class="form-group">
+        <%= f.label '網站名稱' %>
         <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: "form-control" %>
       </div>
       <% end %>
       <% end %>
       <% end %>
-      <% @admin_system_logo.each do |k1, v1| %>
+      <% @admin_system_images.each do |k1, v1| %>
       <% v1.each do |k2, v2| %>
       <% if k2 == 'logo_' + key.to_s %>
       <div class="form-group">
-        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, class: "dropify" %>
+        <%= f.label 'Logo' %>
+        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, data: {'max-file-size': '500k'}, class: "dropify" %>
       </div>
       <% end %>
       <% end %>
@@ -37,6 +39,15 @@
   </div>
   <% end %>
   <% end %>
+  <!-- favicon -->
+  <div class="form-group">
+    <% @admin_system_images.each do |k1, v1| %>
+    <% v1.slice('favicon').each do |k2, v2| %>
+    <%= f.label 'Favicon' %>
+    <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, data: {'max-file-size': '50k'}, class: "dropify" %>
+    <% end %>
+    <% end %>
+  </div>
 
   <%= f.submit '確認送出', class: 'btn btn-primary form-control mt-xs-20' %>
 <% end %>

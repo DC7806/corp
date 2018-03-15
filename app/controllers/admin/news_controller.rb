@@ -15,9 +15,9 @@ class Admin::NewsController < AdminController
   def create
     @admin_news = Admin::News.new(news_params)
     if @admin_news.save
-      redirect_to admin_news_index_path, notice: "New news created"
+      redirect_to admin_news_index_path, notice: '新增成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '新增失敗'
       render :new
     end
   end
@@ -28,16 +28,16 @@ class Admin::NewsController < AdminController
 
   def update
     if @admin_news.update(news_params)
-      redirect_to admin_news_index_path, notice: "News updated"
+      redirect_to admin_news_index_path, notice: '更新成功'
     else
-      flash[:alert] = "Somthing Went Wrong: "
+      flash[:alert] = '更新失敗'
       render :edit
     end
   end
 
   def destroy
     @admin_news.destroy
-    redirect_to admin_news_index_path, notice: "News deleted"
+    redirect_to admin_news_index_path, notice: '刪除成功'
   end
 
   private

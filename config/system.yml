@@ -6,6 +6,7 @@ tracking:
 images:
   logo_zh-TW: "/images/system/logo_zh-TW.jpg"
   logo_en: "/images/system/logo_en.jpg"
+  favicon: "/images/system/favicon.jpg"
 site_name:
   zh-TW: site tw2
   en: EN sitename

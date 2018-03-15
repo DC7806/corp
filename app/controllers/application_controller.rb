@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
       @site_name = system_settings['site_name']['en']
       @logo = system_settings['images']['logo_en']
     end
+    @favicon = system_settings['images']['favicon']
     @nav_categories = Category.all
     @footer_site_name = system_settings['site_name']['en'].upcase
     @fb_id = system_settings['tracking']['FB_id']

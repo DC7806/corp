@@ -24,6 +24,8 @@ en:
       number: "number"
       email: "email"
       message: "message"
+      message_sent: "Message Sent"
+      message_failed: "Message Fails To Send"
     faq:
       title: "FAQ"
     download:

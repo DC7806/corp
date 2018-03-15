@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order(created_at: :desc).page(params[:page]).per(9)
     add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
-    # page_meta 'products'
   end
 
   def show 

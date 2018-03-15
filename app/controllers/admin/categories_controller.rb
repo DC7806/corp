@@ -14,9 +14,9 @@ class Admin::CategoriesController < AdminController
   def create
     @admin_category = Admin::Category.new(category_params)
     if @admin_category.save
-      redirect_to admin_categories_path, notice: "New Category Created"
+      redirect_to admin_categories_path, notice: '新增成功'
     else
-      flash[:alert] = "Something Went Wrong: "
+      flash[:alert] = '新增失敗'
       render :new
     end
   end
@@ -26,16 +26,16 @@ class Admin::CategoriesController < AdminController
 
   def update
     if @admin_category.update(category_params)
-      redirect_to admin_categories_path, notice: "Category Updated"
+      redirect_to admin_categories_path, notice: '更新成功'
     else
-      flash[:alert] = "Something Went Wrong: "
+      flash[:alert] = '更新失敗'
       render :edit
     end
   end
 
   def destroy
     @admin_category.destroy
-    redirect_to admin_categories_path
+    redirect_to admin_categories_path, notice: '刪除成功'
   end
 
   private

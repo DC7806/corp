@@ -20,6 +20,7 @@
 //= require jquery_magnific_popup
 //= require main
 //= require front_end
+//= require shared
 //= require_self
 
 // turbolink disable not working
