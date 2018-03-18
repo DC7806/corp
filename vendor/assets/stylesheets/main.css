@@ -8713,10 +8713,6 @@ label {
     display: flex;
 }
 
-.hidden {
-    display: none;
-}
-
 /* rotate */
 .rotate-180{
   -moz-transition: all .5s linear;
@@ -8750,9 +8746,6 @@ img {
 
 /********************  31. faq *********************/
 
-#faq .faq-item div {
-  display: none
-}
 #faq .faq-item h4 {
   border-bottom: 1px solid #777;
   padding-bottom: 10px;

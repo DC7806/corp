@@ -2,20 +2,23 @@ defaults: &defaults
   admin_secret_path: "corp"
   host_name:  "https://www.corp.com"
   recaptcha:  
-    site_key: '6LfMw0cUAAAAAFxmPM67X0UsNwm5_pvwj_qfnxoC'
-    secret_key: '6LfMw0cUAAAAAAoVOPDCNOlno75yFXUB22eJSIeS'
+    site_key: "6LfMw0cUAAAAAFxmPM67X0UsNwm5_pvwj_qfnxoC"
+    secret_key: "6LfMw0cUAAAAAAoVOPDCNOlno75yFXUB22eJSIeS"
   action_mailer:
     default_url_options:
       host: "https://www.corp.com"
     delivery_method: :smtp
     smtp_settings:
-      address: 'smtp.mailgun.org',
-      port: '587',
-      domain: 'corp.com',
-      user_name: 'postmaster@sandboxd3762ddd4aef4da1925f21660a56b656.mailgun.org',
-      password: 'cb793857378389b68e52ca459d3b0310',
-      authentication: 'plain',
+      address: "smtp.mailgun.org"
+      port: 587
+      domain: "corp.com"
+      user_name: "postmaster@sandboxd3762ddd4aef4da1925f21660a56b656.mailgun.org"
+      password: "cb793857378389b68e52ca459d3b0310"
+      authentication: "plain"
       enable_starttls_auto: true
+
+production:
+  <<: *defaults 
 
 development:
   <<: *defaults
@@ -23,5 +26,3 @@ development:
 test:
   <<: *defaults
 
-production:
-  <<: *defaults 

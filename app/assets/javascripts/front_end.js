@@ -1,7 +1,7 @@
 $( document ).on('turbolinks:load', function() {
   $('#faq .faq-item a').on('click', function(event){
   $(this).children('i').toggleClass('down');
-  $(this).siblings().toggleClass('hidden');
+  $(this).siblings('div').toggleClass('hidden');
   event.preventDefault();
   })
 })
