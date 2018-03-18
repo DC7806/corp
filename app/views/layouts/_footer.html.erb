@@ -10,8 +10,8 @@
         <div class="link-widget">
           <ul class="nav-justified">
             <li><%= link_to t('frontend.nav.news'), news_index_path %></li>
-            <li><%= link_to t('frontend.nav.contact.'), contact_path %></li>
-            <li><%= link_to t('frontend.nav.about'), about_path %></li>
+            <li><%= link_to t('frontend.nav.contact.'), contact_path, data: {turbolinks: false} %></li>
+            <li><%= link_to t('frontend.nav.about'), about_path, data: {turbolinks: false} %></li>
             <li><%= link_to t('frontend.nav.faq'), faq_path %></li>
             <li><%= link_to t('frontend.nav.download'), download_path %></li>
             <li><%= link_to t('frontend.nav.milestones'), milestones_path %></li>

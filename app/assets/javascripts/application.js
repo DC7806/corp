@@ -22,14 +22,3 @@
 //= require front_end
 //= require shared
 //= require_self
-
-// turbolink disable not working
-
-// not working here but in other file
-// $( document ).on('turbolinks:load', function() {
-//   $('#faq .faq-item a').on('click', function(event){
-//   $(this).children('i').toggleClass('down');
-//   $(this).siblings().fadeToggle(300);
-//   event.preventDefault();
-//   })
-// })

@@ -17,10 +17,9 @@ module ApplicationHelper
   end
 
   def nav_locale locale
-    if locale == :en 
-      content_tag :li ,(link_to '中文', locale: :'zh-TW')
-    elsif locale == :'zh-TW'
-      content_tag :li ,(link_to 'EN', locale: :en)
+    case locale
+      when :en then content_tag :li ,(link_to '中文', locale: :'zh-TW')
+      when :'zh-TW' then content_tag :li ,(link_to 'EN', locale: :en)
     end
   end
 
@@ -69,6 +68,12 @@ module ApplicationHelper
                end
       end
     end  
+  end
+
+  def analytics_tags(gtm, ga)
+    {'gtm': gtm,'ga': ga}.map do |key, value|
+      render "layouts/analytics/#{key}" if value.present?
+    end.join.html_safe
   end
 
 end

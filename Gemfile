@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem 'kaminari'
-gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git', branch: 'master'#, github: 'galetahub/ckeditor'
 gem 'delayed_job_active_record'
 gem 'settingslogic'
 gem "breadcrumbs_on_rails"
@@ -46,13 +46,12 @@ gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'
 gem 'font-ionicons-rails'
-# to be moved to producton upon deploy
-gem 'sitemap_generator'
+gem 'whenever', require: false
+gem 'capistrano3-delayed-job', '~> 1.0'
 
 group :production do
-  # gem 'pg', '~> 0.18'
   # sitemap
-  # gem 'sitemap_generator', require: true 
+  gem 'sitemap_generator', require: true 
 end
 
 
@@ -65,6 +64,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.10', '>= 3.10.1'
+  gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
+  gem 'capistrano-rbenv', git: 'https://github.com/capistrano/rbenv.git', branch: 'master'#, github: "capistrano/rbenv"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

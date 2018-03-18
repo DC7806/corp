@@ -2599,7 +2599,6 @@ section {
     background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(153, 153, 153, 0.51) 26%, rgba(62, 62, 62, 0.66) 49%, rgba(33, 33, 33, 1) 100%);
     background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(153, 153, 153, 0.51) 26%, rgba(62, 62, 62, 0.66) 49%, rgba(33, 33, 33, 1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(153, 153, 153, 0.51) 26%, rgba(62, 62, 62, 0.66) 49%, rgba(33, 33, 33, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#212121', GradientType=0);
 }
 
 .parallax-overlay-light:before {
@@ -2627,7 +2626,6 @@ section {
     background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.51) 26%, rgba(255, 255, 255, 0.66) 49%, rgba(255, 255, 255, 1) 100%);
     background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.51) 26%, rgba(255, 255, 255, 0.66) 49%, rgba(255, 255, 255, 1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.51) 26%, rgba(255, 255, 255, 0.66) 49%, rgba(255, 255, 255, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
 }
 
 .parallax-overlay-dark,
@@ -5444,7 +5442,6 @@ button {
 
 .btn-md {
     padding: 10px 35px;
-    ;
 }
 
 .btn-lg {
@@ -6030,7 +6027,7 @@ button {
 
 .countdown.bordered-light div {
     border: 2px solid #ececec;
-    color: # ececec
+    color: #ececec
 }
 
 .countdown.timer-lg.bordered-dark div,
@@ -6181,7 +6178,6 @@ button {
     margin: 10px;
     border: 2px solid #EFB521;
     display: inline-block;
-    transform: scale(, )
 }
 
 .folio-style-1 .folio-links a:first-child i {
@@ -6326,9 +6322,7 @@ button {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     transform: scale(1.2) rotate(5deg);
-    ;
     -webkit-transform: scale(1.2) rotate(5deg);
-    ;
 }
 
 .folio-style-4 .overlay {
@@ -6483,7 +6477,7 @@ button {
 
 .team-style-1 .team-member {
     border: 10px solid transparent;
-    !important position: relative;
+    position: relative !important ;
     margin-bottom: 30px;
 }
 
@@ -6646,7 +6640,6 @@ button {
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(38%, rgba(195, 195, 195, 0.36)), color-stop(60%, rgba(161, 161, 161, 0.48)), color-stop(100%, rgba(18, 18, 18, 0.71)));
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(195, 195, 195, 0.36) 38%, rgba(161, 161, 161, 0.48) 60%, rgba(18, 18, 18, 0.71) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(195, 195, 195, 0.36) 38%, rgba(161, 161, 161, 0.48) 60%, rgba(18, 18, 18, 0.71) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#121212', GradientType=0);
 }
 
 .team-style-4 .team-member .member-img .overlay .member-info {

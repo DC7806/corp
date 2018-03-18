@@ -12,7 +12,7 @@
         <div class="inner-nav right-nav">
           <ul>
             <li>
-              <a href="#/" class="ti-search" id='search-trigger' data-turbolinks="false"></a>
+              <a href="#" class="ti-search" id='search-trigger' data-turbolinks="false"></a>
             </li>
             <li class="navbar-toggle">
               <button type="button" data-toggle="collapse" data-target=".collapse">
@@ -30,7 +30,7 @@
 
       <div class="custom-collapse navbar-collapse collapse inner-nav">
         <ul class="nav navbar-nav">
-          <li><%= link_to t('frontend.nav.products'), products_path %></li>
+          <li><%= link_to t('frontend.nav.products'), products_path, data: {turbolinks: false} %></li>
           <li class="dropdown classic-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %> <i class="ti-angle-down"></i></a>
             <ul class="dropdown-menu">
@@ -41,7 +41,7 @@
               <% end %>
             </ul>
             <!-- /dropdown-menu -->
-            <li><%= link_to t('frontend.nav.about'), about_path %></li>
+            <li><%= link_to t('frontend.nav.about'), about_path, data: {turbolinks: false} %></li>
             <li><%= link_to t('frontend.nav.download'), download_path %></li>
             <li>
               <%= link_to "https://www.facebook.com/"+@fb_id, target: '_blank' do %>

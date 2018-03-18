@@ -11,6 +11,7 @@
   <meta name="robots"                content="all" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqRZdw23nabFTCp8uRZWHvwxRR0DgSoFc"></script>
   <%= csrf_meta_tags %>
 </head>
 
@@ -19,5 +20,6 @@
   <%= render 'layouts/breadcrumbs' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
+  <%= analytics_tags @gtm_id, @ga_id %>
 </body>
 </html>

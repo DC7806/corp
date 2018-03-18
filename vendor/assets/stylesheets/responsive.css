@@ -252,7 +252,7 @@
     }
     #search #close:hover {
         color: #ececec;
-        border-color: #ececec
+        border: 1px solid #ececec
     }
     .cart-dropdown-menu.dropdown-menu {
         position: absolute;

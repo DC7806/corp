@@ -52,6 +52,8 @@ class ApplicationController < ActionController::Base
     @nav_categories = Category.all
     @footer_site_name = system_settings['site_name']['en'].upcase
     @fb_id = system_settings['tracking']['FB_id']
+    @ga_id = system_settings['tracking']['GA_id']
+    @gtm_id = system_settings['tracking']['GTM_id']
   end
 
   def breadcrumbs_root
@@ -65,7 +67,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
-
+  # seo
   def page_meta page = nil
     if action_name == 'show'
       @title = page.metum.title

@@ -14,12 +14,14 @@ Rails.application.routes.draw do
     get 'search', to: 'pages#search'
     resources :inquiries, only: [:new, :create]
     resources :categories, :news, :products, only: [:index, :show]
+    get '/inquiries', to: redirect('/contact')
   end
 
   #admin
 
   namespace :admin, path: Settings.admin_secret_path do
-    get '/', to: "homepage#index", as: :root
+    # get '/', to: "homepage#index", as: :root
+    root 'homepage#index'
     get 'inquiries'
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 
               :news, :products, except: :show

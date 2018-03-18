@@ -17,8 +17,10 @@ class InquiriesController < ApplicationController
       @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
       @contacts_hq_zh = @contacts.slice('hq_zh')
       @contacts_hq_en = @contacts.slice('hq_en')
-      render template: 'pages/contact', layout: true
       flash[:alert] = t('frontend.contact.message_failed')
+      render template: 'pages/contact', layout: true
+      # not working unless refresh contact page
+      
     end
   end
 

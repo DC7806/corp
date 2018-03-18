@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :page_meta
+  before_action :page_meta, except: :search
   skip_before_action :breadcrumbs_root, only: :homepage
 
   def homepage
@@ -38,12 +38,11 @@ class PagesController < ApplicationController
   def search
     if params[:query]
       @products = Product.search(params[:query]).order(created_at: :desc).page(params[:page]).per(9)
-      @categories = Category.all
       params[:query] = nil
     else
-      @products = Product.order(created_at: :desc).page(params[:page]).per(9)
-      @categories = Category.all  
+      @products = Product.order(created_at: :desc).page(params[:page]).per(9)  
     end
+    @categories = Category.all
     add_breadcrumb t('frontend.breadcrumbs.search'), :search_path
   end
 

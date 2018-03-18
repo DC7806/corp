@@ -1,8 +1,8 @@
 ---
 tracking:
   FB_id: Kerr.Huang
-  GA_id: ha
-  GTM_id: yo
+  GA_id: ''
+  GTM_id: '1234'
 images:
   logo_zh-TW: "/images/system/logo_zh-TW.jpg"
   logo_en: "/images/system/logo_en.jpg"
