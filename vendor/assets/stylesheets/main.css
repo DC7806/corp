@@ -4646,7 +4646,7 @@ h5.hero-heading-alt {
     border-radius: 5px;
     box-shadow: 0 0 0px 10px #fff;
     transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out
+    -webkit-transition: all 0.3s ease-in-out;
 }
 
 .infography-style-5 .inner-wrapper {
@@ -6646,7 +6646,8 @@ button {
     text-align: center;
     left: 0;
     right: 0;
-    padding: 30px transition: all 0.4s ease-in-out;
+    padding: 30px;
+    transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     position: absolute;
     bottom: 15px
@@ -8519,7 +8520,7 @@ footer .latest-news-widget .news-wrapper {
     display: block;
     border-bottom: 1px solid rgba(204, 204, 204, 0.2);
     transition: all 0.3s ease-in-out;
-    -webkit- transition: all 0.3s ease-in-out
+    -webkit-transition: all 0.3s ease-in-out;
 }
 
 footer .latest-news-widget .news-wrapper:last-child {
@@ -8748,7 +8749,6 @@ img {
 
 
 /********************  31. faq *********************/
-/
 
 #faq .faq-item div {
   display: none
@@ -8803,11 +8803,11 @@ img {
 }
 }
 @media only screen and (min-width: 992px){
- */
+
 /* download */
 #download h4 {
     line-height: 26px;
-}
+}}
 
 
 /********************  31. About **********************/

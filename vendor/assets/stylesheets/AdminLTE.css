@@ -51,8 +51,7 @@ body {
 /*
  * Content Wrapper - contains the main content
  */
-.content-wrapper,
-.main-footer {
+.content-wrapper, .main-footer {
   -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
@@ -678,8 +677,7 @@ a:focus {
   z-index: 1000;
   bottom: 0;
 }
-.control-sidebar-bg,
-.control-sidebar {
+.control-sidebar-bg, .control-sidebar {
   top: 0;
   right: -230px;
   width: 230px;
