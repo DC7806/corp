@@ -5,6 +5,7 @@
       <div class="tab-pane fade active in border border-xs-0 py-xs-20 py-sm-40 overflow-auto">
         <% @category.products.each do |product| %>
           <div class="col-sm-3 border mb-xs-20 mx-sm-15 pt-xs-15 text-center">
+            <!-- links on mobile not working -->
           <%= link_to product_path(product.permalink) do %>  
             <%= product_image I18n.locale, product %>
             <h5><%= product.name %></h5>

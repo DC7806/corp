@@ -35,15 +35,4 @@ class Admin::HomepageController < AdminController
     @admin_home = YAML::load_file("#{Rails.root}/config/home.yml")
   end
 
-  # upload background images
-  # def upload(image)
-  #   if params[:home][:images] && params[:home][:images][image.to_sym] != nil
-  #     uploaded_io = params[:home][:images][image.to_sym]
-  #     images_dir = 'public/images/home'
-  #     File.open(Rails.root.join(images_dir, uploaded_io.original_filename), 'wb') do |file|
-  #       file.write(uploaded_io.read)
-  #       File.rename(file, "#{images_dir}/#{image}.jpg")
-  #     end
-  #   end
-  # end
 end

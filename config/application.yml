@@ -1,6 +1,6 @@
 defaults: &defaults
   admin_secret_path: "corp"
-  host_name:  "www.devox.cc"
+  host_name: "htt://www.devox.cc"
   recaptcha:
     site_key: "6Le0ak0UAAAAAJhuMHrsVrZWEpe1AShWkRypn44x"
     secret_key: "6Le0ak0UAAAAAO5g7I87IoBgMhDZvVW-uBawxXJk"
@@ -22,7 +22,3 @@ production:
 
 development:
   <<: *defaults
-
-test:
-  <<: *defaults
-
