@@ -5,14 +5,11 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def two_user_registered?
-    if AdminUser.count > 2
+    if ((AdminUser.count == 2) & (admin_user_signed_in?))
       redirect_to root_path
+    elsif AdminUser.count == 2
+      redirect_to new_admin_user_session_path
     end  
-    # if ((User.count == 2) & (user_signed_in?))
-    #   redirect_to root_path
-    # elsif User.count == 2
-    #   redirect_to new_user_session_path
-    # end  
   end
 
 end

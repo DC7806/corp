@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :admin_users, controllers: {sessions: "sessions"}
+  devise_for :admin_users, controllers: {sessions: "sessions", registrations: "registrations"}
 
   #user
   scope '(:locale)', locale: /en|zh-TW/ do
