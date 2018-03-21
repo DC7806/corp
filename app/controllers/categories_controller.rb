@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+
   before_action :page_meta, only: :index
   before_action :find_category, only: :show
   before_action :find_products
@@ -21,7 +22,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(permalink: params[:id])
     if @category.blank?
       redirect_to categories_path
-      flash[:notice] = "Page Not Found"
+      flash[:alert] = t('frontend.alert.page_not_found')
     end
   end
 

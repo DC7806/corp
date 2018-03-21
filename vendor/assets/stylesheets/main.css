@@ -8744,6 +8744,14 @@ img {
 }}
 
 
+/*******************  31. home *********************/
+
+@media only screen and (max-width: 991px){
+#home .split-box .image-container{
+    position: absolute;    
+}
+}
+
 /********************  31. faq *********************/
 
 #faq .faq-item h4 {

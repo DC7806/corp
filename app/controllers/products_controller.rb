@@ -1,15 +1,16 @@
 class ProductsController < ApplicationController
+  
   before_action :page_meta, only: :index
   before_action :find_product, only: :show
   before_action :find_categories
   
   def index
     @products = Product.order(created_at: :desc).page(params[:page]).per(9)
-    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
+    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path, data: {turbolinks: false} 
   end
 
   def show 
-    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
+    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path, data: {turbolinks: false}
     add_breadcrumb @product.name, product_path(@product.permalink)
     page_meta @product      
   end
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.find_by(permalink: params[:id])
     if @product.blank?
       redirect_to products_path
-      flash[:notice] = "Page Not Found"
+      flash[:alert] = t('frontend.alert.page_not_found')
     end
   end
   

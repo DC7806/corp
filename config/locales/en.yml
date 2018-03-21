@@ -51,7 +51,7 @@ en:
       faq: "Faq"
       about: "About"
       download: "Download"
-      milestones: "Milestone"
+      milestones: "Milestones"
       search: "Search" 
     product:
       model: "Model"
@@ -65,3 +65,5 @@ en:
     news_index:
       title: "NEWS"
       readmore: "READ MORE"
+    alert:
+      page_not_found: "Page Not Found"

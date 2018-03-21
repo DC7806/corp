@@ -65,3 +65,5 @@ zh-TW:
     news_index:
       title: "最新消息"
       readmore: "點擊進入"
+    alert:
+      page_not_found: "頁面不存在"

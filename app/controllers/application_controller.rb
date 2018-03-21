@@ -57,10 +57,11 @@ class ApplicationController < ActionController::Base
   end
 
   def breadcrumbs_root
-    add_breadcrumb t('frontend.breadcrumbs.home'), :root_path
+    add_breadcrumb t('frontend.breadcrumbs.home'), :root_path, data: {turbolinks: false}
   end
   
   protected
+  
   # devise
   def configure_permitted_parameters
     added_attrs = [:name, :email, :password, :password_confirmation, :remember_me]
@@ -77,7 +78,7 @@ class ApplicationController < ActionController::Base
               title:       page.metum.title,
               url:         request.url,
               description: page.metum.meta_description,
-              image:       (root_url+page.metum.og_image.url if page.metum.og_image.url.present?)}
+              image:       (root_url + page.metum.og_image.url if page.metum.og_image.url.present?)}
     elsif action_name == 'index'
       @title = Metum.find_page(controller_name).title
       @meta_desc = Metum.find_page(controller_name).meta_description
@@ -86,7 +87,7 @@ class ApplicationController < ActionController::Base
               title:       Metum.find_page(controller_name).og_title,
               url:         request.url,
               description: Metum.find_page(controller_name).og_description,
-              image:       (root_url+Metum.find_page(controller_name).og_image.url if Metum.find_page(controller_name).og_image.url.present?)}              
+              image:       (root_url + Metum.find_page(controller_name).og_image.url if Metum.find_page(controller_name).og_image.url.present?)}              
     elsif controller_name == 'pages'
       @title = Metum.find_page(action_name).title
       @meta_desc = Metum.find_page(action_name).meta_description

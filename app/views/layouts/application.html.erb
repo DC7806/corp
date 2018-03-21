@@ -2,22 +2,21 @@
 <html>
 <head>
   <%= page_title @site_name, @title %>
-  <link rel="canonical"              href="<%= request.url %>" />
-  <link rel="icon"                   href="<%= @favicon %>" type="image/png"/>
+  <link rel="canonical" href="<%= request.url %>" />
+  <link rel="icon"      href="<%= @favicon %>" type="image/png"/>
   <%= meta_desc_tag @meta_desc %>
-  <!-- og -->
   <%= og_tag @og %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots"                content="all" />
+  <meta name="robots"   content="all" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqRZdw23nabFTCp8uRZWHvwxRR0DgSoFc"></script>
   <%= csrf_meta_tags %>
 </head>
-
 <body <%= yield(:body_attributes) %>>
   <%= render 'layouts/nav' %>
   <%= render 'layouts/breadcrumbs' %>
+  <%= frontend_notice_msg %>
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= analytics_tags @gtm_id, @ga_id %>

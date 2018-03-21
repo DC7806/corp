@@ -19,7 +19,7 @@ class NewsController < ApplicationController
     @news = News.find_by(permalink: params[:id])
     if @news.blank?
       redirect_to news_index_path
-      flash[:notice] = "Page Not Found"
+      flash[:alert] = t('frontend.alert.page_not_found')
     end
   end
 

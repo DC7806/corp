@@ -10,6 +10,7 @@ class Metum < ApplicationRecord
   extend Mobility
   translates :title, :meta_description, :og_title, :og_description, type: :string, locale_accessors: [:en, :"zh-TW"]
 
+  # find associated page
   def self.find_page page
     where(page_name: page).first
   end
