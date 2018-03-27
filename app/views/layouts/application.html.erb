@@ -3,7 +3,7 @@
 <head>
   <%= page_title @site_name, @title %>
   <link rel="canonical" href="<%= request.url %>" />
-  <link rel="icon"      href="<%= @favicon %>" type="image/png"/>
+  <link rel="icon"      href="<%= @favicon %>?<%= @image_cache %>" type="image/png"/>
   <%= meta_desc_tag @meta_desc %>
   <%= og_tag @og %>
   <meta name="viewport" content="width=device-width, initial-scale=1">

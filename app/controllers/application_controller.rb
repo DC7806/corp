@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
     @fb_id = system_settings['tracking']['FB_id']
     @ga_id = system_settings['tracking']['GA_id']
     @gtm_id = system_settings['tracking']['GTM_id']
+    @image_cache = system_settings['others']['image_cache']
   end
 
   def breadcrumbs_root

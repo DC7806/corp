@@ -8755,6 +8755,12 @@ body {
  position: relative;
 }
 
+#faq,
+#download,
+#milestone{
+    border-bottom: unset;
+}
+
 /*******************  31. home *********************/
 
 @media only screen and (max-width: 991px){
@@ -8770,11 +8776,6 @@ body {
 }
 
 /********************  31. faq *********************/
-
-#faq {
-    border-bottom: unset;
-}
-
 #faq .faq-item h4 {
   border-bottom: 1px solid #777;
   padding-bottom: 10px;
@@ -8852,7 +8853,3 @@ footer {
 .clients-1 .item img {
     width: 70%;
 }}
-/******************  31. Milestone *********************/
-#milestone{
-    border-bottom: unset;
-}

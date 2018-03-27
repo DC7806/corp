@@ -3,7 +3,7 @@
   <section class="title text-center py-xs-20">
     <h1><%= raw_contents I18n.locale, @about, 'title' %></h1>
   </section>
-  <section id="summary" class="section parallax" style="background-image: url('/images/about/summary.jpg')" >
+  <section id="summary" class="section parallax" style="background-image: url('/images/about/summary.jpg?<%= @image_cache %>')" >
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 bg-white">
@@ -23,7 +23,7 @@
 <section id="features" class="no-border">
   <div class="split-box">
     <div class="image-container col-md-6">
-      <div class="background-holder parallax-overlay-light" style="background-image: url('/images/about/mission.jpg')">
+      <div class="background-holder parallax-overlay-light" style="background-image: url('/images/about/mission.jpg?<%= @image_cache %>')">
       </div>
       <!-- /background-holder -->
     </div>
@@ -46,7 +46,7 @@
 
   <div class="split-box">
     <div class="image-container col-md-offset-6 col-md-6">
-      <div class="background-holder has-content parallax-overlay-light" style="background-image: url('/images/about/feature.jpg')">
+      <div class="background-holder has-content parallax-overlay-light" style="background-image: url('/images/about/feature.jpg?<%= @image_cache %>')">
       </div>
       <!-- /background-holder -->
     </div>

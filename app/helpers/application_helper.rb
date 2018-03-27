@@ -45,15 +45,15 @@ module ApplicationHelper
     'my-sm-10' unless action_name == 'homepage'
   end
 
-  def nav_logo site_name, logo
+  def nav_logo site_name, logo, imaga_cache
     if action_name == 'homepage'
       link_to root_path do
         (content_tag :h1 , site_name, style: 'text-indent: -9999px; position: absolute')+
-        (image_tag logo, alt: site_name)
+        (image_tag logo + '?' + imaga_cache, alt: site_name)
       end
     else
       link_to root_path do
-        image_tag logo, alt: site_name
+        image_tag logo + '?' + imaga_cache, alt: site_name
       end
     end
   end

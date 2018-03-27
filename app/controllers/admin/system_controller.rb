@@ -7,6 +7,7 @@ class Admin::SystemController < AdminController
     @admin_system_site_name = @admin_system.slice('site_name')
     @admin_system_tracking = @admin_system.slice('tracking')
     @admin_system_images = @admin_system.slice('images')
+    @admin_system_cache = @admin_system.slice('others')
   end
 
   def create

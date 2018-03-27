@@ -10,3 +10,5 @@ images:
 site_name:
   zh-TW: site tw2
   en: EN sitename
+others:
+  image_cache: '1234'
