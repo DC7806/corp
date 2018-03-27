@@ -2,7 +2,6 @@ class ApplicationRecord < ActiveRecord::Base
   
   self.abstract_class = true
 
-  # overwrite default_url_options
   include LangQuery
 
   # product search

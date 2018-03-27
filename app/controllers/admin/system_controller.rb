@@ -1,4 +1,5 @@
 class Admin::SystemController < AdminController
+
   before_action :find_system
   require 'yaml'
 
@@ -9,9 +10,6 @@ class Admin::SystemController < AdminController
   end
 
   def create
-    # load
-    # @admin_system = YAML::load_file("#{Rails.root}/config/system.yml")
-    
     # write
     data = params[:system].except('images')
     data.each do |k1, v1|
@@ -21,11 +19,9 @@ class Admin::SystemController < AdminController
     end
     # store
     File.write("#{Rails.root}/config/system.yml", @admin_system.to_yaml)
-
     @admin_system.fetch('images').keys.each do |locale|
       upload(:system, locale)
     end
-
     redirect_back(fallback_location: request.referrer)
   end
 

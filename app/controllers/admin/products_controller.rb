@@ -24,6 +24,7 @@ class Admin::ProductsController < AdminController
   end
 
   def edit
+    # @admin_product.documents.build if @admin_product.documents.blank?
   end
 
   def update

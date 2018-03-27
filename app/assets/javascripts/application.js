@@ -20,5 +20,6 @@
 //= require jquery_magnific_popup
 //= require main
 //= require front_end
+//= require google_map
 //= require shared
 //= require_self

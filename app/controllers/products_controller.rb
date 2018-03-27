@@ -6,11 +6,11 @@ class ProductsController < ApplicationController
   
   def index
     @products = Product.order(created_at: :desc).page(params[:page]).per(9)
-    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path, data: {turbolinks: false} 
+    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
   end
 
   def show 
-    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path, data: {turbolinks: false}
+    add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
     add_breadcrumb @product.name, product_path(@product.permalink)
     page_meta @product      
   end

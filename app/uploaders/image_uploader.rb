@@ -50,6 +50,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [150, 150]
   end
 
+  version :thumb_50, if: :is_cert? do
+    process resize_to_fill: [50, 50]
+  end
+
   
   private
 

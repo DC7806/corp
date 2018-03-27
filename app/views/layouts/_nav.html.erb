@@ -2,12 +2,10 @@
 <nav class="main-nav menu-light <%= nav_wrapper_class %>">
   <div class="<%= nav_wrapper_inner_class %>">
     <div class="navbar">
-
       <div class="brand-logo">
         <%= nav_logo @site_name, @logo %>
       </div>
       <!-- brand-logo -->
-
       <div class="navbar-header">
         <div class="inner-nav right-nav">
           <ul>
@@ -27,10 +25,9 @@
         <!-- /right-nav -->
       </div>
       <!-- navbar-header -->
-
       <div class="custom-collapse navbar-collapse collapse inner-nav">
         <ul class="nav navbar-nav">
-          <li><%= link_to t('frontend.nav.products'), products_path, data: {turbolinks: false} %></li>
+          <li><%= link_to t('frontend.nav.products'), products_path %></li>
           <li class="dropdown classic-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %> <i class="ti-angle-down"></i></a>
             <ul class="dropdown-menu">

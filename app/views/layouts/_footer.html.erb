@@ -26,9 +26,9 @@
   <!-- /container -->
   <div class="footer-bottom">
     <div class="container">
-      <span class="copyright pull-left"> COPYRIGHT © <%= Date.today.year.to_s+' '+@footer_site_name %>  ALL RIGHT RESERVED.</span>
+      <span class="copyright pull-left"> COPYRIGHT © <%= Date.today.year.to_s %> <%= @footer_site_name %> ALL RIGHT RESERVED.</span>
       <div class="social-icon pull-right">
-        <%= link_to "https://www.facebook.com/"+@fb_id, target: '_blank' do %>
+        <%= link_to "https://www.facebook.com/" + @fb_id, target: '_blank' do %>
           <i class="fa fa-facebook"></i>
         <% end %>
       </div>

@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   #admin
 
   namespace :admin, path: Settings.admin_secret_path do
-    # get '/', to: "homepage#index", as: :root
     root 'homepage#index'
     get 'inquiries'
     resources :categories, :certificates, :downloads, :faqs, :meta, :milestones, 

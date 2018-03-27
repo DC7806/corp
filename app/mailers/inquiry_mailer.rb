@@ -1,4 +1,5 @@
 class InquiryMailer < ApplicationMailer
+  
   # notify corp user
   def inquiry_notification(inquiry)
     @inquiry = inquiry

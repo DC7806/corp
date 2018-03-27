@@ -4,7 +4,7 @@ class DeviseCustomMailer < Devise::Mailer
   default template_path: 'devise/mailer' # to make sure that your mailer uses the devise views
   
   def reset_password_instructions(record, token, opts={})
-    opts[:from] = 'service@corp.com'
+    opts[:from] = Settings.site_name
     opts[:subject] = 'Forget Password?'
     super
   end

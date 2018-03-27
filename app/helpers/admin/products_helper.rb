@@ -59,7 +59,8 @@ module Admin::ProductsHelper
         end ) + 
         ( content_tag :div, class: 'form-group' do
         ( doc.label :src, "說明文件"  ) +
-        ( doc.file_field :src, "data-default-file": admin_product.documents.lang_query(locale.to_s).first.src.url, class: "dropify" )
+        ( doc.file_field :src, "data-default-file": (admin_product.documents.lang_query(locale.to_s).first.src.url if 
+          admin_product.documents.lang_query(locale.to_s).first.present?), class: "dropify" )
         end)
       end
     end

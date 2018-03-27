@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   has_many  :images, as: :imagable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many  :documents, as: :documentable, dependent: :destroy
-  accepts_nested_attributes_for :documents, allow_destroy: true
+  accepts_nested_attributes_for :documents, allow_destroy: true#, reject_if: proc { |attrs| attrs[:src].blank? }
   has_one  :metum, as: :metable, dependent: :destroy
   accepts_nested_attributes_for :metum, allow_destroy: true
 

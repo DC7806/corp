@@ -17,4 +17,22 @@ module AdminHelper
     end
   end
 
+  def notice_msg
+    if flash.present?
+      flash.each do |type, msg|
+        alert_class = case type.to_sym
+                      when :notice then 'alert-info'
+                      when :alert  then 'alert-danger'
+                      end
+        return  content_tag :div, class: "alert #{alert_class}" do
+                (button_tag type: "button", class: "close", data: {dismiss: "alert"} do
+                  content_tag :span, data: {hidden: true} do 
+                    "&times;".html_safe
+                  end
+                end) + msg
+               end
+      end
+    end  
+  end
+
 end

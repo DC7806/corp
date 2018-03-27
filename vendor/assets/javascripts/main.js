@@ -3,8 +3,8 @@ jQuery(function($) {
 	'use strict';
     //Preloader
 
-    $(".page-loader .loader").delay(0).fadeOut();
-    $(".page-loader").delay(500).fadeOut("slow");
+    // $(".page-loader .loader").delay(0).fadeOut();
+    // $(".page-loader").delay(500).fadeOut("slow");
 
 
     //Menu Sticky
@@ -53,15 +53,14 @@ jQuery(function($) {
     });
 
     $('.side-nav .sidebar-inner li.dropdown').children('ul').hide();
-
-    $('.side-nav .sidebar-inner li a').click(function(event) {
-        event.stopPropagation();
-        $(this).find(".side-nav .sidebar-inner li a").removeClass('menu-open');
-        $(this).parents(".side-nav .sidebar-inner li a").addClass('menu-open');
-        $(this).toggleClass('menu-open');
-        $(this).parent().children('ul.side-sub-menu').toggle(200);
-    });
-
+    
+    // $('.side-nav .sidebar-inner li a').on('click', function(event) {
+    //     event.stopPropagation();
+    //     $(this).find(".side-nav .sidebar-inner li a").removeClass('menu-open');
+    //     $(this).parents(".side-nav .sidebar-inner li a").addClass('menu-open');
+    //     $(this).toggleClass('menu-open');
+    //     $(this).parent().children('ul.side-sub-menu').toggle(200);
+    // });
 
     //OnePage Menu tracking 
     $('body').scrollspy({

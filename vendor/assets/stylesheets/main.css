@@ -8742,7 +8742,18 @@ img {
 .border-xs-0 {
   border: none!important;
 }}
-
+/* body min-height */
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+.main-wrapper {
+ min-height: 100vh;
+ overflow: hidden;
+ display: block;
+ position: relative;
+}
 
 /*******************  31. home *********************/
 
@@ -8752,7 +8763,17 @@ img {
 }
 }
 
+/******************  31. product ********************/
+
+#product-wrapper .cert-icon{
+    display: inline-block
+}
+
 /********************  31. faq *********************/
+
+#faq {
+    border-bottom: unset;
+}
 
 #faq .faq-item h4 {
   border-bottom: 1px solid #777;
@@ -8762,7 +8783,6 @@ img {
   display: block;
   font-size: 2.4rem
 }
-
 
 /*******************  31. Category ********************/
 
@@ -8793,27 +8813,33 @@ img {
     background: rgba(139, 228, 5, 0.82);
 }    
 
-
-
 /********************  31. Footer *********************/
-
 
 /* Footer Partial */
 .link-widget > ul > li > a{
     padding: 6px 12px;
 }
 @media only screen and (min-width: 768px){
+.main-wrapper {
+    padding-bottom: 360px;
+}
+footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
 .link-widget > ul > li:not(:first-child) {
     border-left: 1px solid;
 }
 }
 @media only screen and (min-width: 992px){
-
+.main-wrapper {
+    padding-bottom: 316px;
+} 
 /* download */
 #download h4 {
     line-height: 26px;
 }}
-
 
 /********************  31. About **********************/
 
@@ -8826,21 +8852,7 @@ img {
 .clients-1 .item img {
     width: 70%;
 }}
-
-
-/********************  31. Demo ***********************/
-
-
-/* .demo-item {
-    margin-bottom: 30px;
+/******************  31. Milestone *********************/
+#milestone{
+    border-bottom: unset;
 }
-
-.demo-item img {
-    border: 1px solid #e9e9e9;
-    transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease;
-}
-
-.demo-item:hover img {
-    opacity: 0.4
-} 

@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   def breadcrumbs_root
-    add_breadcrumb t('frontend.breadcrumbs.home'), :root_path, data: {turbolinks: false}
+    add_breadcrumb t('frontend.breadcrumbs.home'), :root_path
   end
   
   protected

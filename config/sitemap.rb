@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = Settings.host_name
+SitemapGenerator::Sitemap.default_host = Settings.host
 SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.create_index = false
 SitemapGenerator::Sitemap.create do  

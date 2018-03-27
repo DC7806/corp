@@ -16,6 +16,12 @@ module ApplicationHelper
     hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+) if hsh.present?
   end
 
+  def google_map_js
+    if action_name == 'homepage' or action_name == 'contact'
+      javascript_include_tag '', src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDqRZdw23nabFTCp8uRZWHvwxRR0DgSoFc'
+    end
+  end
+
   def nav_locale locale
     case locale
       when :en then content_tag :li ,(link_to '中文', locale: :'zh-TW')
@@ -41,39 +47,35 @@ module ApplicationHelper
 
   def nav_logo site_name, logo
     if action_name == 'homepage'
-      link_to root_path, data: {turbolinks: false} do
+      link_to root_path do
         (content_tag :h1 , site_name, style: 'text-indent: -9999px; position: absolute')+
         (image_tag logo, alt: site_name)
       end
     else
-      link_to root_path, data: {turbolinks: false} do
+      link_to root_path do
         image_tag logo, alt: site_name
       end
     end
-  end
-  
-  def notice_msg
-    if flash.present?
-      flash.each do |type, msg|
-        alert_class = case type.to_sym
-                      when :notice then 'alert-info'
-                      when :alert  then 'alert-danger'
-                      end
-        return  content_tag :div, class: "alert #{alert_class}" do
-                (button_tag type: "button", class: "close", data: {dismiss: "alert"} do
-                  content_tag :span, data: {hidden: true} do 
-                    "&times;".html_safe
-                  end
-                end) + msg
-               end
-      end
-    end  
   end
 
   def analytics_tags(gtm, ga)
     {'gtm': gtm,'ga': ga}.map do |key, value|
       render "layouts/analytics/#{key}" if value.present?
     end.join.html_safe
+  end
+
+  def frontend_notice_msg
+    if flash.present?
+      flash.each do |type, msg|
+        alert_class = case type.to_sym
+                      when :notice then 'msg-sent'
+                      when :alert  then 'msg-failed'
+                      end
+        return  content_tag :div, id: 'notification', class: "text-center msg #{alert_class}" do
+                  content_tag :p, msg, class: 'py-xs-0'
+                end
+      end
+    end  
   end
 
 end

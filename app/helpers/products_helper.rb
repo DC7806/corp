@@ -1,5 +1,5 @@
 module ProductsHelper
-  # set default image to en page if en image is nil
+  # set default image to frontedn en page if en image is nil
   def product_image locale, product
     if locale == :en 
       if product.images.where(lang: 'en').first.src.present?  
@@ -18,7 +18,7 @@ module ProductsHelper
   def product_document locale
     if @product.documents.where(lang: locale).first.src.present?
       content_tag :a, href: @product.documents.where(lang: locale).first.src.url do
-        fa_icon 'file 4x'
+        fa_icon 'file 3x'
       end
     end
   end
