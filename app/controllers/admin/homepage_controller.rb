@@ -1,6 +1,5 @@
 class Admin::HomepageController < AdminController
   before_action :find_home
-  require 'yaml'
 
   def index
   end

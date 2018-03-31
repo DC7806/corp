@@ -1,6 +1,5 @@
 class Admin::ContactsController < AdminController
   before_action :find_contacts
-  require 'yaml'
 
   def index
     @admin_contacts_en = @admin_contacts.slice('hq_en')

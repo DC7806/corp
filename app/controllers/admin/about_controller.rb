@@ -1,6 +1,6 @@
 class Admin::AboutController < AdminController
+  
   before_action :find_about
-  require 'yaml'
 
   def index
   end

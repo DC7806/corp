@@ -1,7 +1,6 @@
 class Admin::SystemController < AdminController
 
   before_action :find_system
-  require 'yaml'
 
   def index
     @admin_system_site_name = @admin_system.slice('site_name')

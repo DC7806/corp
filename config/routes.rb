@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   end
 
   #admin
-
   namespace :admin, path: Settings.admin_secret_path do
     root 'homepage#index'
     get 'inquiries'
