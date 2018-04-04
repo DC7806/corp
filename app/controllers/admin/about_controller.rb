@@ -19,6 +19,7 @@ class Admin::AboutController < AdminController
     
     # store
     File.write("#{Rails.root}/config/about.yml", @admin_about.to_yaml)
+    # YamlModel.save("/config/about", @admin_about)
 
     # upload images
     @admin_about.fetch('images').keys.each do |image|
@@ -35,3 +36,40 @@ class Admin::AboutController < AdminController
   end
 
 end
+
+# class Meta
+#   def method1
+#   end
+
+#   def method2
+#   end
+
+#   def main
+#     ....
+#     method1
+#     ....
+#     method2
+#   end
+# end
+
+# class AdminMeta < Meta
+#   def method1 
+#     super
+#     ....
+
+#   end
+
+#   def main
+#     super
+#     return .....
+#   end
+# end
+
+# class PageMeta < Meta
+# end
+
+# am = AdminMeta.new
+# pm = PageMeta.new
+
+# am.main
+# pm.main

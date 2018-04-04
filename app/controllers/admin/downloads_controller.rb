@@ -22,10 +22,12 @@ class Admin::DownloadsController < AdminController
   end
 
   def edit
-    @admin_download.build_document if @admin_download.document.blank? 
+    @admin_download.build_document if @admin_download.document.nil?
+    byebug
   end
 
   def update
+    @admin_download.build_document if @admin_download.document.nil?
     if @admin_download.update(download_params)
       redirect_to admin_downloads_path, notice: '更新成功'
     else

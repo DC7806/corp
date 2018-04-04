@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   #overwrite default_url_options
   include DeviseAdminLocale
 
-  #before_action :authenticate_admin_user!
+  before_action :authenticate_admin_user!
 
   def inquiries
     @inquiries = Inquiry.order(created_at: :desc).page(params[:page]).per(10)
