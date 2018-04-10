@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
 
   def show
     @categories = Category.order(created_at: :desc)
+    @products = @category.products.where(public: true)
     add_breadcrumb t('frontend.breadcrumbs.categories'), :categories_path
     add_breadcrumb @category.name, category_path(@category.permalink)
     page_meta @category

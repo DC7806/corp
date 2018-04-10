@@ -16,8 +16,12 @@
         <!-- basics_<%= locale %> panel-->
         <div role="tabpanel" class="tab-pane <%= status %>" id=<%= "basics_#{locale}" %> >
           <div class="form-group">
-            <%= f.label "name_#{locale.to_s.downcase.underscore}", "品名" %>
+            <%= f.label "name_#{locale.to_s.downcase.underscore}", "品名*" %>
             <%= f.text_field "name_#{locale.to_s.downcase.underscore}", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label "summary_#{locale.to_s.downcase.underscore}", "短說明*" %>
+            <%= f.text_field "summary_#{locale.to_s.downcase.underscore}", class: "form-control" %>
           </div>
           <%= admin_product_image(f,locale, admin_product) %>
           <div class="form-group">
@@ -28,7 +32,7 @@
         <% end %>
       </div>
       <div class="form-group">
-        <%= f.label :model, "型號" %>
+        <%= f.label :model, "型號*" %>
         <%= f.text_field :model, class: "form-control" %>
       </div>  
       <div class="form-group">

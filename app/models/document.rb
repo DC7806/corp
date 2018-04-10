@@ -10,7 +10,7 @@ class Document < ApplicationRecord
   mount_uploader :src, AttachmentUploader
 
   private
-
+  # only validates Download class
   def is_download?
     self.documentable_type == 'Download'
   end

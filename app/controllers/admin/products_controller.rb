@@ -1,6 +1,6 @@
 class Admin::ProductsController < AdminController
   
-  before_action :find_product, only: [:edit, :update, :destroy]
+  before_action :find_product, only: [:edit, :update, :destroy, :publish]
 
   def index
     @admin_products = Admin::Product.order(created_at: :desc).page(params[:page]).per(10)
@@ -40,6 +40,10 @@ class Admin::ProductsController < AdminController
     redirect_to admin_products_path, notice: '刪除成功'
   end
 
+  def publish
+    @admin_product.toggle!(:public)
+  end
+
   private
 
   def find_product
@@ -47,9 +51,9 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.require(:admin_product).permit(:name, :model, :country, :document, :inquiry, :permalink, :feature, :specification, :dimensions, :description,
-                                          :name_en, :feature_en, :specification_en, :dimensions_en, :description_en,
-                                          :name_zh_tw, :feature_zh_tw, :specification_zh_tw, :dimensions_zh_tw, :description_zh_tw,
+    params.require(:admin_product).permit(:name, :model, :country, :document, :inquiry, :permalink, :feature, :specification, :dimensions, :description, :public,
+                                          :name_en, :feature_en, :specification_en, :dimensions_en, :description_en, :summary_en,
+                                          :name_zh_tw, :feature_zh_tw, :specification_zh_tw, :dimensions_zh_tw, :description_zh_tw, :summary_zh_tw,
                                           :country_zh_tw, :country_en,
                                           category_ids: [], 
                                           certificate_ids: [], 

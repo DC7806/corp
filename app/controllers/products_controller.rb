@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :find_categories
   
   def index
-    @products = Product.order(created_at: :desc).page(params[:page]).per(9)
+    @products = Product.where(public: true).order(created_at: :desc).page(params[:page]).per(9)
     add_breadcrumb t('frontend.breadcrumbs.products'), :products_path
   end
 
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   end
   
   def find_categories
-    @categories = Category.all
+    @categories = Category.includes(:products)
   end
 
 end

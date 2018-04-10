@@ -22,7 +22,7 @@ class Product < ApplicationRecord
 
   # translation
   extend Mobility
-  translates :name, :country, type: :string, locale_accessors: [:en, :"zh-TW"]
+  translates :name, :country, :summary, type: :string, locale_accessors: [:en, :"zh-TW"]
   translates :feature, :specification, :dimensions, :description, type: :text, locale_accessors: [:en, :"zh-TW"]
 
   # Carrierwave

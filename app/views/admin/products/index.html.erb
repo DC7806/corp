@@ -2,10 +2,10 @@
 <table class="table xs-transform mt-xs-20">
   <thead class="hidden-xs">
     <tr>
-      <td class="col-sm-1">產品圖片</td>
-      <td class="col-sm-3">產品名稱</td>
-      <td class="col-sm-3">產品型號</td>
-      <td class="col-sm-3">產品分類</td>
+      <td class="col-sm-1">圖片</td>
+      <td class="col-sm-3">名稱</td>
+      <td class="col-sm-3">型號</td>
+      <td class="col-sm-3">分類</td>
     </tr>
   </thead>
   <tbody>
@@ -13,13 +13,14 @@
     <tr>
       <td class="col-sm-1"><%= admin_index_image product %></td>
       <td class="col-sm-3"><%= product.name %></td>
-      <td class="col-sm-3"><%= product.model %></td>
+      <td class="col-sm-2"><%= product.model %></td>
       <td class="col-sm-3">
       <% product.categories.each do |cat| %>
         <span class="well"><%= cat.name %></span>
       <% end %>  
       </td>
       <td class="col-sm-2 text-center">
+        <%= link_to publish_state(product), publish_admin_product_path(product), method: :patch, remote: true, class: 'btn btn-default publish_state' %>
         <%= link_to edit_admin_product_path(product), class: "btn btn-primary" do %>
           <i class="fa fa-pencil fa-fw"></i>
         <% end %> 
@@ -33,3 +34,21 @@
   </tbody>
 </table>
 <%= paginate @admin_products %>
+
+<script type="text/javascript">
+
+  $('.publish_state').each(function() {
+    if ($(this).text() == '下架'){
+      $(this).addClass("btn-warning");}  
+  });
+  
+  $('.publish_state').on('click', function(){
+    var state = $(this).text();
+    if (state == '上架'){
+      $(this).text('下架').toggleClass('btn-warning');
+    }
+    else if (state == '下架'){
+      $(this).text('上架').toggleClass('btn-warning');
+    };
+  })
+</script>

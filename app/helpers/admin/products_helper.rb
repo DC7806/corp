@@ -16,7 +16,7 @@ module Admin::ProductsHelper
             img.text_field :lang, value: locale.to_s, hidden: true
           end ) + 
         ( content_tag :div, class: 'form-group' do
-          ( img.label :image_src, "產品圖片"  ) +
+          ( img.label :image_src, "產品圖片*"  ) +
           ( img.file_field :src, class: "dropify" )
           end)  + 
         ( content_tag :div, class: 'form-group' do
@@ -30,7 +30,7 @@ module Admin::ProductsHelper
           img.text_field :lang, value: locale.to_s, hidden: true
         end ) + 
         ( content_tag :div, class: 'form-group' do
-        ( img.label :image_src, "產品圖片"  ) +
+        ( img.label :image_src, "產品圖片*"  ) +
         ( img.file_field :src, "data-default-file": admin_product.images.lang_query(locale.to_s).first.src.url, class: "dropify" )
         end)  + 
       ( content_tag :div, class: 'form-group' do
@@ -63,6 +63,13 @@ module Admin::ProductsHelper
           admin_product.documents.lang_query(locale.to_s).first.present?), class: "dropify" )
         end)
       end
+    end
+  end
+
+  def publish_state product
+    case product.public?
+    when true then '下架'
+    when false then '上架'
     end
   end
 

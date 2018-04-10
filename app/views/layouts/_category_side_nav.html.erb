@@ -9,7 +9,7 @@
       <li class="dropdown first-level">
         <a href="#/"><%= cat.name %></a>
         <ul class="side-sub-menu">
-          <% cat.products.each do |pro| %>
+          <% cat.products.where(public: true).each do |pro| %>
           <li><%= link_to pro.name, product_path(pro.permalink) %></li>
           <% end %>
         </ul>

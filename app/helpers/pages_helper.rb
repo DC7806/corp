@@ -6,7 +6,7 @@ module PagesHelper
 
   def carousel_cta carousel
     if carousel.cta.present? 
-      link_to t('frontend.button.enter'), carousel.cta, class: 'btn btn-lg btn-style-4 mt-xs-30'
+      link_to t('frontend.button.enter'), carousel.cta, class: 'btn btn-md btn-style-3 mt-xs-30'
     end
   end
 

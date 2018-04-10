@@ -25,44 +25,10 @@
       <!-- /carousel -->
     </div>
     <!-- /fw-slider -->
-    <!-- <div class="fs-img-parallax parallax parallax-overlay-light" style="background-image:url('/images/home/title.jpg?<%= @image_cache %>')">
-      <div class="hero-caption caption-center caption-height-center container">
-        <p class="hero-text-alt">
-          <%#= raw_contents I18n.locale, @home, 'title'  %>
-        </p>
-      </div>
-     </div>-->
   </header>
   <!--/#Full Screen Image Parallax -->
-  <!-- Feature -->
-  <section>
-    <div class="split-box">
-      <!-- column -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-6 clearfix bg-gray">
-            <div class="content">
-              <h2 class="heading-left"><%= t('frontend.home.mission') %></h2>
-              <div class="mrg-top-50">
-                <%= raw_contents I18n.locale, @home, 'mission'  %>
-              </div>
-            </div>
-            <!-- /content -->
-          </div>
-          <!-- /column -->
-        </div>
-        <!-- /row -->
-      </div>
-      <!-- /container-fluid -->
-      <div class="image-container col-sm-6 parallax-overlay-light">
-        <div class="background-holder " style="background-image: url('/images/home/mission.jpg?<%= @image_cache %>')"></div>
-      </div>
-    </div>
-    <!-- /split-box -->
-  </section>
-  <!-- /Split Box -->
   <!-- services -->
-  <section id="services" class="section-2">
+  <section id="services" class="section-4">
     <div class="container">
       <h2 class="heading"><%= t('frontend.home.services') %></h2>
       <div class="row mrg-top-75">
@@ -91,6 +57,32 @@
     <!-- /container -->
   </section>
   <!-- /#services -->
+  <section>
+    <div class="split-box">
+      <!-- column -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-6 clearfix bg-gray">
+            <div class="content">
+              <h2 class="heading-left"><%= t('frontend.home.mission') %></h2>
+              <div class="mrg-top-50">
+                <%= raw_contents I18n.locale, @home, 'mission'  %>
+              </div>
+            </div>
+            <!-- /content -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container-fluid -->
+      <div class="image-container col-sm-6 parallax-overlay-light">
+        <div class="background-holder " style="background-image: url('/images/home/mission.jpg?<%= @image_cache %>')"></div>
+      </div>
+    </div>
+    <!-- /split-box -->
+  </section>
+  <!-- /Split Box -->
   <!-- News -->
   <section id="news" class="section-2 bg-gray">
     <div class="container">

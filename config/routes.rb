@@ -22,8 +22,13 @@ Rails.application.routes.draw do
     root 'homepage#index'
     get 'inquiries'
     resources :categories, :carousels, :certificates, :downloads, :faqs, :meta, :milestones, 
-              :news, :products, except: :show
+              :news, except: :show
     resources :about, :contacts, :homepage, :system, only: [:index, :create]
+    resources :products, except: :show do
+      member do
+        patch 'publish'
+      end
+    end
     resources :translations, only: :index do
       collection do
         put 'update_all'
