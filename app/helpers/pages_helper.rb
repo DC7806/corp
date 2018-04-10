@@ -1,5 +1,15 @@
 module PagesHelper
-  
+
+  def carousel_active carousel
+    'active' if carousel == Carousel.first
+  end
+
+  def carousel_cta carousel
+    if carousel.cta.present? 
+      link_to t('frontend.button.enter'), carousel.cta, class: 'btn btn-lg btn-style-4 mt-xs-30'
+    end
+  end
+
   def contact_info_hq(locale, contacts)
     case locale
       when :'zh-TW'

@@ -45,6 +45,10 @@ module ApplicationHelper
     'my-sm-10' unless action_name == 'homepage'
   end
 
+  def breadcrumbs_hide
+    'hide' if action_name == 'homepage'
+  end
+
   def nav_logo site_name, logo, imaga_cache
     if action_name == 'homepage'
       link_to root_path do

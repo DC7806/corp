@@ -62,21 +62,27 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li>
-          <%= link_to admin_homepage_index_path do %>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '首頁' %>
-          <% end %>
-        <li>
-          <%= link_to admin_products_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '產品' %>
-          <% end %>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>首頁</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><%= link_to '輪播圖', admin_carousels_path %></li>
+            <li><%= link_to '其他版位', admin_homepage_index_path %></li>
+          </ul>
         </li>
         <li>
           <%= link_to admin_categories_path do%>
             <%= content_tag :i, '', class: 'fa fa-link' %>
             <%= content_tag :span, '產品分類' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_products_path do%>
+            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :span, '產品' %>
           <% end %>
         </li>
         <li>

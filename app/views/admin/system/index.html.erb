@@ -22,7 +22,7 @@
       <% if k2 == 'logo_' + key.to_s %>
       <div class="form-group">
         <%= f.label 'Logo' %>
-        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, data: {'max-file-size': '500k'}, class: "dropify" %>
+        <%= f.file_field v2, name: "system[#{k1}][#{k2}]", "data-default-file": v2, data: {'max-file-size': '200k'}, class: "dropify" %>
       </div>
       <% end %>
       <% end %>

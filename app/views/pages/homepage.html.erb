@@ -1,16 +1,37 @@
-<div id="home">
+<div id="homepage">
   <!-- Full Screen Image Parallax -->
-  <header>
-    <div class="fs-img-parallax parallax parallax-overlay-light" style="background-image:url('/images/home/title.jpg?<%= @image_cache %>')">
+  <header id="home">
+    <div class="fw-slider">
+      <div id="fw-slider-nav" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @carousels.each do |carousel| %>
+          <div class="<%= carousel_active(carousel) %> item bg" style="background-image:url(<%= carousel.image.src.url %>)">
+            <div class="hero-caption caption-center caption-height-top">
+                <h2 class="hero-heading text-light"><%= carousel.title_zh_tw %></h2>
+                <p class="hero-text-alt text-light mrg-top-30"><%= carousel.description_zh_tw %></p>
+                <%= carousel_cta carousel %>
+            </div>
+            <!--/ hero-caption -->
+          </div>
+          <% end %>
+          <!-- /item -->
+        </div>
+        <!-- /carousel-inner -->
+        <a class="carousel-control left" href="#fw-slider-nav" data-slide="prev"></a>
+        <!-- left-control -->
+        <a class="carousel-control right" href="#fw-slider-nav" data-slide="next"></a>
+        <!-- /right-control -->
+      </div>
+      <!-- /carousel -->
+    </div>
+    <!-- /fw-slider -->
+    <!-- <div class="fs-img-parallax parallax parallax-overlay-light" style="background-image:url('/images/home/title.jpg?<%= @image_cache %>')">
       <div class="hero-caption caption-center caption-height-center container">
-        <!-- <h1 class="hero-heading-alt"><%#= @site_name %></h1> -->
         <p class="hero-text-alt">
-          <%= raw_contents I18n.locale, @home, 'title'  %>
+          <%#= raw_contents I18n.locale, @home, 'title'  %>
         </p>
       </div>
-      <!-- /hero-caption -->
-    </div>
-    <!-- /fs-img-parallax -->
+     </div>-->
   </header>
   <!--/#Full Screen Image Parallax -->
   <!-- Feature -->
@@ -34,8 +55,7 @@
       </div>
       <!-- /container-fluid -->
       <div class="image-container col-sm-6 parallax-overlay-light">
-        <div class="background-holder " style="background-image: url('/images/home/mission.jpg?<%= @image_cache %>')">
-        </div>
+        <div class="background-holder " style="background-image: url('/images/home/mission.jpg?<%= @image_cache %>')"></div>
       </div>
     </div>
     <!-- /split-box -->

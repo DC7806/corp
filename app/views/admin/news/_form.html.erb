@@ -24,7 +24,7 @@
       <%= f.fields_for :image do |img| %>
       <div class="form-group">
         <%= img.label :src, "封面圖片" %>
-        <%= img.file_field :src, "data-default-file": admin_news.image.src.url, data: {'max-file-size': '500k'}, class: "dropify" %>
+        <%= img.file_field :src, "data-default-file": admin_news.image.src.url, data: {'max-file-size': '200k'}, class: "dropify" %>
       </div>
       <% end %>
     </div>

@@ -42,6 +42,7 @@ gem 'devise-async'
 # assets
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'rails_sortable'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails'

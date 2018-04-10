@@ -8,6 +8,7 @@ en:
   frontend:
     button:
       submit: "SEND"
+      enter: "Learn More"
     home:
       mission: "Mission"
       news: "NEWS"

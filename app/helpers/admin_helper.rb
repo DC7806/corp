@@ -6,6 +6,8 @@ module AdminHelper
       image_tag instance.images.lang_query("zh-TW").first.src.url, style: "width:100%" if instance.images.lang_query("zh-TW").first.src.present?
     when 'Admin::Metum'
       image_tag instance.og_image, style: "width:100%" if instance.og_image.present?
+    when 'Admin::Carousel'
+      image_tag instance.image.src, style: "width:100%" if instance.image.present?  
     end
   end
 

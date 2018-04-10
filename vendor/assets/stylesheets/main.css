@@ -4146,11 +4146,11 @@ h5.hero-heading-alt {
 }
 
 .carousel-control.left:hover {
-    cursor: url(../images/slide/left.png), auto;
+    cursor: url(chevron-left.png), auto;
 }
 
 .carousel-control.right:hover {
-    cursor: url(../images/slide/right.png), auto;
+    cursor: url(chevron-right.png), auto;
 }
 
 .carousel-control.control-style-2.left,
@@ -8733,6 +8733,10 @@ label {
     overflow: auto;
 }
 
+.hide {
+    display: none
+}
+
 /* image max width */
 img {
     max-width: 100%;
@@ -8764,7 +8768,7 @@ body {
 /*******************  31. home *********************/
 
 @media only screen and (max-width: 991px){
-#home .split-box .image-container{
+#homepage .split-box .image-container{
     position: absolute;    
 }
 }

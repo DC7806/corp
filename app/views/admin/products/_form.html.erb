@@ -98,7 +98,7 @@
       <div class="form-group">
         <%= f.fields_for :metum do |mt| %>  
           <%= mt.label :og_image, "FB_圖片" %>
-          <%= mt.file_field :og_image, "data-default-file": @admin_product.metum.og_image, data: {'max-file-size': '500k'}, class: "dropify" %>
+          <%= mt.file_field :og_image, "data-default-file": @admin_product.metum.og_image, data: {'max-file-size': '200k'}, class: "dropify" %>
         <% end %>
       </div>
     </div>

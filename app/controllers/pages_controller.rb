@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :breadcrumbs_root, only: :homepage
 
   def homepage
+    @carousels = Carousel.order(:sort).all
     @home = YAML::load_file("#{Rails.root}/config/home.yml")
     @news = News.last(3)
   end
