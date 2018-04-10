@@ -15,15 +15,28 @@
     </div>
     <% end %>
     <!-- mission, services -->
-    <% @admin_home.fetch(locale.to_s).except('title').each do |k1, v1| %>
+    <% @admin_home.fetch(locale.to_s).slice('mission').each do |k1, v1| %>
     <div class="form-group">
       <%= f.label k1 %>
       <%= f.cktext_area v1, name: "home[#{locale}][#{k1}]", value: v1, id: "home[#{locale}][#{k1}]", class: 'form-control' %>
     </div>
     <% end %>
+    <% @admin_home.fetch(locale.to_s).except('title', 'mission').each do |k1, v1| %>
+    <div class="form-group">
+      <%= f.label k1 %>
+      <%= f.text_field v1, name: "home[#{locale}][#{k1}]", value: v1, class: 'form-control' %>
+    </div>
+    <% end %>
   </div>
   <% end %>
 </div>
+
+<% @admin_home.fetch('url').each do |k1, v1| %>
+<div class="form-group">
+  <%= f.label k1 %>
+  <%= f.text_field v1, name: "home[url][#{k1}]", value: v1, class: 'form-control' %>
+</div>
+<% end %>
 <% @admin_home.fetch('images').each do |key, value| %>
 <div class="form-group mt-xs-20">
   <%= f.label key %>

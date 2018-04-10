@@ -68,14 +68,15 @@
       <div class="row mrg-top-75">
         <% ['1', '2', '3'].each do |num| %>
         <div class="col-sm-4">
-          <div class="infography-style-5">
+          <div class="infography-style-4">
             <div class="overflow-auto">
-              <%= image_tag "/images/home/services_icon_#{num}.jpg", class: 'col-xs-6 col-xs-offset-3' %>
+              <%= image_tag "/images/home/services_icon_#{num}.jpg?#{@image_cache}"%>
             </div>
             <!-- /infography-icon -->
             <div class="clear">
               <div class="mt-xs-15">
-                <%= raw_contents I18n.locale, @home, "service_#{num}"  %>
+                <p><%= raw_contents I18n.locale, @home, "service_#{num}"  %></p>
+                <%= link_to t('frontend.button.enter'), @home.fetch('url')["service_url_#{num}"], class: 'btn btn-default mt-xs-10 form-control' %>
               </div>
             </div>
             <!-- /inner-wrapper -->
