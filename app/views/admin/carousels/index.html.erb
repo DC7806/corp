@@ -13,7 +13,7 @@
     <% @admin_carousels.each_with_sortable_id do |carousel, sortable_id|%>
     <tr id="<%= sortable_id %>">
       <td class="col-sm-1 text-center"><i class="fa fa-arrows-alt fa-2x"></i></td>
-      <td class="col-sm-2"><%= admin_index_image carousel %></td>
+      <td class="col-sm-2"><%= image_tag carousel.image.src %></td>
       <td class="col-sm-3"><%= carousel.title %></td>
       <td class="col-sm-2"><%= carousel.description %></td>
       <td class="col-sm-2"><%= carousel.cta %></td>

@@ -40,58 +40,58 @@
     <!-- Product Details bottom -->
     <section id="product-details-btm" class="section-4 no-border clear">
       <ul class="nav custom-tabs tab-style-2 hidden-xs">
-        <% product_nav_tab @product.description do |description| %>
+        <% content_active? @product.description do |description| %>
         <li><a data-toggle="tab" href="#description"><%= t('frontend.product.description') %></a></li>
         <% end %>
-        <% product_nav_tab @product.feature do |feature| %>
+        <% content_active? @product.feature do |feature| %>
         <li><a data-toggle="tab" href="#feature"><%= t('frontend.product.features') %></a></li>
         <% end %>
-        <% product_nav_tab @product.dimensions do |dimensions| %>
+        <% content_active? @product.dimensions do |dimensions| %>
         <li><a data-toggle="tab" href="#dimensions"><%= t('frontend.product.dimensions') %></a></li>
         <% end %>
-        <% product_nav_tab @product.specification do |specification| %>
+        <% content_active? @product.specification do |specification| %>
         <li><a data-toggle="tab" href="#specification"><%= t('frontend.product.specification') %></a></li>
         <% end %>
       </ul>
       <!-- /custom-tabs -->
       <div class="tab-content">
-        <% product_content @product.description do |description| %>
+        <% content_active? @product.description do |description| %>
         <a href="#description" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.description') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
         <div id="description" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
-          <%= description %>
+          <%= description.html_safe %>
         </div>
         <% end %>
         <!-- /tab-pane -->
-        <% product_content @product.feature do |feature| %>
+        <% content_active? @product.feature do |feature| %>
         <a href="#feature" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.features') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
         <div id="feature" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
-          <%= feature %>
+          <%= feature.html_safe %>
         </div>
         <% end %>
         <!-- /tab-pane -->
-        <% product_content @product.dimensions do |dimensions| %>
+        <% content_active? @product.dimensions do |dimensions| %>
         <a href="#dimensions" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.dimensions') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
         <div id="dimensions" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
-          <%= dimensions %>
+          <%= dimensions.html_safe %>
         </div>
         <% end %>
         <!-- /tab-pane -->
-        <% product_content @product.specification do |specification| %>
+        <% content_active? @product.specification do |specification| %>
         <a href="#specification" class="dropdown-rotate text-center visible-xs-block">
           <h4 class="block"><b><%= t('frontend.product.specification') %></b></h4>
           <i class="block fa fa-angle-down rotate-180 mb-xs-5"></i>
         </a>
         <div id="specification" class="tab-pane fade in border border-xs-0 px-sm-30 py-xs-20 py-sm-40">
-          <%= specification %>
+          <%= specification.html_safe %>
         </div>
         <% end %>
         <!-- /tab-pane -->

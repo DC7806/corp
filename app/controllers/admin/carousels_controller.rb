@@ -16,6 +16,8 @@ class Admin::CarouselsController < AdminController
       redirect_to admin_carousels_path, notice: '新增成功'
     else
       flash[:alert] = '新增失敗'
+      # (not working) why image field disappears when rendering :new?
+      @admin_carousel.build_image if @admin_carousel.image.nil?
       render :new
     end
   end

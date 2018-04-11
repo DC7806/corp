@@ -1,21 +1,52 @@
-<%= content_for(:body_attributes) do %>data-turbolinks="false"<% end %>
 <!-- Contact -->
 <section id="contact" class="section-4">
   <div class="container">
     <div class="row">
       <div class="contact-form">
         <div class="col-md-10 col-md-offset-1 mt-sm-30">
-            <h1 class="text-center mb-xs-30 heading"><%= t('frontend.contact.title') %></h1>
-            <h2 class="text-center pt-xs-20"><%= t('frontend.contact.hq') %></h2>
-            <div class="row">
-              <div id="google-map" class="map col-xs-12 mt-sm-20"></div>
-              <div class="col-xs-12 mt-xs-20">
-                <%= contact_info_hq I18n.locale, @contacts %>
+            <h1 class="text-center heading"><%= t('frontend.contact.title') %></h1>
+            <div class="row mt-xs-40">
+              <% @companies.each do |company| %>
+              <div class="item overflow-auto mb-xs-20">
+                <%= image_tag company.image.src, class: "col-sm-7" %>
+                <div class="company-info col-sm-5">
+                  <h3 class="heading-left"><%= company.title %></h2>
+                  <h5 class="mt-xs-20 mb-xs-0"><%= t('frontend.contact.address') %></h5>
+                  <p><%= company.address %></p>
+                  <h5 class="mb-xs-0"><%= t('frontend.contact.number') %></h5>
+                  <p><%= link_to company.number, "tel:#{company.number.gsub('-','')}" %></p>
+                  <h5 class="mb-xs-0"><%= t('frontend.contact.email') %></h5>
+                  <p><%= link_to company.email, "mailto:#{company.email}" %></p>
+                  <% content_active? company.fax do |fax| %>  
+                  <h5 class="mb-xs-0"><%= t('frontend.contact.fax') %></h5>
+                  <p><%= fax %></p>
+                  <% end %>
+                  <% content_active? company.contact do |contact| %>  
+                  <h5 class="mb-xs-0"><%= t('frontend.contact.contact') %></h5>
+                  <p><%= contact %></p>
+                  <% end %>
+                </div>
               </div>
+              <% end %>
             </div>
-            <div class="row mt-sm-20">
-              <%= contact_info_regions I18n.locale, @contacts_regions %>
+            <% contact_offices I18n.locale, @offices do |offices| %>
+            <div class="row my-sm-30">
+              <h2 class="heading text-center">各區辦公室</h2>
+              <% offices.each do |office| %>
+              <div class="item col-sm-6 col-md-4">
+                <h3 class="heading-left"><%= office.title %></h3>
+                <h5 class="mt-xs-20 mb-xs-0"><%= t('frontend.contact.address') %></h5>
+                <p><%= office.address %></p>
+                <h5 class="mt-xs-0"><%= t('frontend.contact.contact') %></h5>
+                <p><%= office.contact %></p>
+                <h5 class="mb-xs-0"><%= t('frontend.contact.number') %></h5>
+                <p><%= link_to office.number, "tel:#{office.number.gsub('-','')}" %></p>
+                <h5 class="mb-xs-0"><%= t('frontend.contact.email') %></h5>
+                <p><%= link_to office.email, "mailto:#{office.email}" %></p>
+              </div>
+              <% end %>
             </div>
+            <% end %>
         </div>
         <!-- /contact-item-wrapper -->
       </div>
@@ -31,4 +62,3 @@
 </section>
 <!-- /Contact -->
 <!-- better ways? -->
-<%#= render 'pages/google-map' %>

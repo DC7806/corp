@@ -22,13 +22,5 @@ module ProductsHelper
       end
     end
   end
-  # nav tab shows only when attribute present
-  def product_nav_tab tab
-    yield tab if tab.present?
-  end
-  # content shows only when attribute present
-  def product_content content
-    yield(content.html_safe) if content.present?
-  end
 
 end

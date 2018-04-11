@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   after_save :set_default_alt
 
   # validation
-  validates :name, :model, :country, :permalink, presence: true 
+  validates :name_zh_tw, :name_en, :model, :country, :permalink, presence: true 
   validates :permalink, uniqueness: true
 
   # association
@@ -12,7 +12,6 @@ class Product < ApplicationRecord
   has_many :categories, through: :category_product_relations
   has_many :certificate_product_relations, dependent: :destroy
   has_many :certificates, through: :certificate_product_relations
-  
   has_many  :images, as: :imagable, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many  :documents, as: :documentable, dependent: :destroy

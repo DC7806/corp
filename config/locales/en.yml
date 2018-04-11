@@ -15,6 +15,9 @@ en:
       services: "SERVICES"
     contact:
       title: "CONTACT US"
+      address: "ADDRESS"
+      contact: "contact"
+      fax: "FAX"
       hq: "HEADQUARTERS"
       contact_us: "message"
       prefix: "Prefix"

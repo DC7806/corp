@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   namespace :admin, path: Settings.admin_secret_path do
     root 'homepage#index'
     get 'inquiries'
-    resources :categories, :carousels, :certificates, :downloads, :faqs, :meta, :milestones, 
-              :news, except: :show
+    resources :categories, :carousels, :certificates, :companies,:downloads, :faqs, :meta, :milestones, 
+              :news, :offices,except: :show
     resources :about, :contacts, :homepage, :system, only: [:index, :create]
     resources :products, except: :show do
       member do

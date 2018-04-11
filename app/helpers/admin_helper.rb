@@ -3,11 +3,9 @@ module AdminHelper
   def admin_index_image(instance)
     case instance.class.name
     when 'Admin::Product'
-      image_tag instance.images.lang_query("zh-TW").first.src.url, style: "width:100%" if instance.images.lang_query("zh-TW").first.src.present?
+      image_tag instance.images.lang_query("zh-TW").first.src.url if instance.images.lang_query("zh-TW").first.src.present?
     when 'Admin::Metum'
-      image_tag instance.og_image, style: "width:100%" if instance.og_image.present?
-    when 'Admin::Carousel'
-      image_tag instance.image.src, style: "width:100%" if instance.image.present?  
+      image_tag instance.og_image if instance.og_image.present?
     end
   end
 

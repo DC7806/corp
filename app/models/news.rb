@@ -2,7 +2,7 @@ class News < ApplicationRecord
   before_validation :set_default_values
 
   # validation
-  validates :title, presence: true
+  validates :title_zh_tw, :title_en, presence: true
   validates :permalink, presence: true, uniqueness: true
   
   # association
@@ -13,7 +13,7 @@ class News < ApplicationRecord
 
   # translation
   extend Mobility
-  translates :title, type: :string,  locale_accessors: [:en, :"zh-TW"]
+  translates :title, type: :string, locale_accessors: [:en, :"zh-TW"]
   translates :content, type: :text, locale_accessors: [:en, :"zh-TW"]
 
   private

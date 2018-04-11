@@ -1,7 +1,7 @@
 module PagesHelper
 
   def carousel_active carousel
-    'active' if carousel == Carousel.first
+    'active' if carousel.sort == 0
   end
 
   def carousel_cta carousel
@@ -10,34 +10,38 @@ module PagesHelper
     end
   end
 
-  def contact_info_hq(locale, contacts)
-    case locale
-      when :'zh-TW'
-        lang = 'hq_zh'
-      when :en
-        lang = 'hq_en'
-    end
-    contacts.fetch(lang).map do |k,v|
-      content_tag :div, class: 'col-sm-3' do
-        (content_tag :h4, k, class: 'title') + (content_tag :p, v)
-      end
-    end.inject(&:+)
-  end
+  # def contact_info_hq(locale, contacts)
+  #   case locale
+  #     when :'zh-TW'
+  #       lang = 'hq_zh'
+  #     when :en
+  #       lang = 'hq_en'
+  #   end
+  #   contacts.fetch(lang).map do |k,v|
+  #     content_tag :div, class: 'col-sm-3' do
+  #       (content_tag :h4, k, class: 'title') + (content_tag :p, v)
+  #     end
+  #   end.inject(&:+)
+  # end
 
-  def contact_info_regions(locale, contacts_regions)
-    if I18n.locale == :'zh-TW'
-      (content_tag :h2, '各區營業所', class: 'text-center') + 
-      contacts_regions.map do |k,v|
-        content_tag :div, class: 'col-sm-4 mt-sm-15' do
-          content_tag :div, class: 'col-sm-10 col-sm-offset-1' do
-            (content_tag :h4, k) +
-            v.map do |k1, v1|
-              (content_tag :p, k1 + '：' + v1)
-            end.inject(&:+)
-          end
-        end
-      end.inject(&:+) 
-    end
+  # def contact_info_regions(locale, contacts_regions)
+  #   if I18n.locale == :'zh-TW'
+  #     (content_tag :h2, '各區營業所', class: 'text-center') + 
+  #     contacts_regions.map do |k,v|
+  #       content_tag :div, class: 'col-sm-4 mt-sm-15' do
+  #         content_tag :div, class: 'col-sm-10 col-sm-offset-1' do
+  #           (content_tag :h4, k) +
+  #           v.map do |k1, v1|
+  #             (content_tag :p, k1 + '：' + v1)
+  #           end.inject(&:+)
+  #         end
+  #       end
+  #     end.inject(&:+) 
+  #   end
+  # end
+
+  def contact_offices locale, offices
+    yield offices if locale == :'zh-TW'
   end
 
   def faq_list(list, locale)

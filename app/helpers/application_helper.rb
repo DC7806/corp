@@ -82,4 +82,9 @@ module ApplicationHelper
     end  
   end
 
+  # display content only when argument present
+  def content_active? content
+    yield content if content.present?
+  end
+
 end

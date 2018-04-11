@@ -3,14 +3,14 @@ class PagesController < ApplicationController
   skip_before_action :breadcrumbs_root, only: :homepage
 
   def homepage
-    @carousels = Carousel.order(:sort).all
+    @carousels = Carousel.order(sort: :asc)
     @home = YAML::load_file("#{Rails.root}/config/home.yml")
     @news = News.last(3)
   end
 
   def contact
-    @contacts = YAML::load_file("#{Rails.root}/config/contacts.yml")
-    @contacts_regions = @contacts.except('hq_zh', 'hq_en')
+    @companies = Company.order(sort: :asc)
+    @offices = Office.order(sort: :asc)
     @inquiry = Inquiry.new
     add_breadcrumb t('frontend.breadcrumbs.contact'), :contact_path
   end
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
   end
 
   def milestones
-    @milestones = Milestone.order(created_at: :desc)
+    @milestones = Milestone.order(year: :desc)
     add_breadcrumb t('frontend.breadcrumbs.milestones'), :milestones_path
   end
 

@@ -1,6 +1,6 @@
 class Carousel < ApplicationRecord
 
-  has_one :image, as: :imagable, dependent: :destroy
+  has_one :image, as: :imagable, dependent: :destroy, required: true
   accepts_nested_attributes_for :image, allow_destroy: true
 
   # translation

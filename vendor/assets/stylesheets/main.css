@@ -421,14 +421,14 @@ ul li {
 .heading-left:before,
 .heading-right:before {
     width: 30px;
-    bottom: -14px;
+    bottom: -5px;
 }
 
 .heading:after,
 .heading-left:after,
 .heading-right:after {
     width: 40px;
-    bottom: -19px;
+    bottom: -10px;
 }
 
 .heading:before,

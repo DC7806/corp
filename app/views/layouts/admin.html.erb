@@ -104,10 +104,16 @@
           <% end %>
         </li>
         <li>
-          <%= link_to admin_contacts_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '連絡我們' %>
-          <% end %>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>聯絡我們</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><%= link_to '廠址', admin_companies_path %></li>
+            <li><%= link_to '辦公室', admin_offices_path %></li>
+          </ul>
         </li>
         <li>
           <%= link_to admin_milestones_path do%>

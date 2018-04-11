@@ -1,0 +1,40 @@
+<%= link_to "新增廠址", new_admin_company_path, class: "btn btn-default btn-add-new" %>
+<table class="table xs-transform mt-xs-20">
+  <thead class="hidden-xs">
+    <tr>
+      <td class="col-sm-1"></td>
+      <td class="col-sm-2">圖片</td>
+      <td class="col-sm-2">廠名</td>
+      <td class="col-sm-2">地址</td>
+      <td class="col-sm-2">電話</td>
+      <td class="col-sm-2">Email</td>
+    </tr>
+  </thead>
+  <tbody class="sortable">
+    <% @admin_companies.each_with_sortable_id do |company, sortable_id|%>
+    <tr id="<%= sortable_id %>">
+      <td class="col-sm-1 text-center"><i class="fa fa-arrows-alt fa-2x"></i></td>
+      <td class="col-sm-2"><%= image_tag company.image.src %></td>
+      <td class="col-sm-2"><%= company.title %></td>
+      <td class="col-sm-2"><%= company.address %></td>
+      <td class="col-sm-2"><%= company.number %></td>
+      <td class="col-sm-2"><%= company.email %></td>
+      <td class="col-sm-1 text-center">
+        <%= link_to edit_admin_company_path(company), class: "btn btn-primary mb-xs-5" do %>
+          <i class="fa fa-pencil fa-fw"></i>
+        <% end %> 
+        <%= link_to admin_company_path(company), method: "delete",
+            data: { confirm: "確認刪除?" }, class: "btn btn-danger mb-xs-5" do %>
+          <i class="fa fa-trash fa-fw"></i>
+        <% end %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(function() {
+  $('.sortable').railsSortable();
+});
+</script>

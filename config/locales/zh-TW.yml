@@ -15,6 +15,9 @@ zh-TW:
       services: "服務範圍"
     contact:
       title: "聯絡我們"
+      address: "地址"
+      contact: "聯絡人"
+      fax: "傳真"
       hq: "總公司"
       contact_us: "聯絡我們"
       prefix: "選擇稱謂"

@@ -4,7 +4,7 @@ class Admin::TranslationsController < AdminController
     if params[:query]
       @labels = Admin::Translation.search(params[:query]).map(&:key).uniq
       # @labels = Admin::Translation.search(params[:query]).map {|e| e.key}.uniq
-      @admin_translations = Admin::Translation.search(params[:query])
+      @admin_translations = Admin::Translation.search(params[:query]).order(key: :asc)
       params[:query] = nil
     else
       @labels = Admin::Translation.all.map(&:key).uniq

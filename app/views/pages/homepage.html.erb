@@ -7,9 +7,11 @@
           <% @carousels.each do |carousel| %>
           <div class="<%= carousel_active(carousel) %> item bg" style="background-image:url(<%= carousel.image.src.url %>)">
             <div class="hero-caption caption-center caption-height-top">
-                <h2 class="hero-heading text-light"><%= carousel.title_zh_tw %></h2>
-                <p class="hero-text-alt text-light mrg-top-30"><%= carousel.description_zh_tw %></p>
-                <%= carousel_cta carousel %>
+                <h2 class="hero-heading text-light"><%= carousel.title %></h2>
+                <p class="hero-text-alt text-light mrg-top-30"><%= carousel.description %></p>
+                <% content_active? carousel.cta do |cta| %>
+                  <%= link_to t('frontend.button.enter'), cta, class: 'btn btn-md btn-style-3 mt-xs-30' %>  
+                <% end %>
             </div>
             <!--/ hero-caption -->
           </div>

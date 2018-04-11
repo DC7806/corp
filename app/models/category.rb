@@ -2,8 +2,7 @@ class Category < ApplicationRecord
   before_validation :set_default_values
 
   # validation
-  validates :name, presence: true, uniqueness: true
-  validates :permalink, presence: true, uniqueness: true
+  validates :name_zh_tw, :name_en, :permalink, presence: true, uniqueness: true
 
   # association
   has_many :category_product_relations
