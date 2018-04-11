@@ -2,8 +2,7 @@ class Office < ApplicationRecord
 
   # validation
   validates :title_zh_tw, :address_zh_tw, :number_zh_tw, :contact_zh_tw, :email_zh_tw, presence: true
-  validates :title_en, :address_en, :number_en, :contact_en, :email_en, presence: true
-  validates :email_zh_tw, :email_en, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+  validates :email_zh_tw, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 
   # translation
   extend Mobility

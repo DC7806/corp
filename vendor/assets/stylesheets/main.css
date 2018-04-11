@@ -8764,7 +8764,11 @@ body {
 #milestone{
     border-bottom: unset;
 }
-
+@media only screen and (max-width: 1200px){
+.main-nav .inner-nav > ul > li > a {
+    padding-right: 0px;
+}
+}
 /*******************  31. home *********************/
 
 @media only screen and (max-width: 991px){
@@ -8802,6 +8806,15 @@ body {
 
 
 /********************  31. Contact *********************/
+@media only screen and (min-width: 1200px){
+#contact .col-lg-5{
+    padding-right: 0;
+}
+#contact .col-lg-5.col-lg-pull-7:nth-child(even){
+    padding-left: 0;
+    padding-right: 15px;
+}
+}
 .msg{
     padding: 15px;
     position: absolute;

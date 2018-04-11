@@ -29,7 +29,7 @@
         <ul class="nav navbar-nav">
           <li><%= link_to t('frontend.nav.products'), products_path %></li>
           <li class="dropdown classic-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %> <i class="ti-angle-down"></i></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.categories') %></a>
             <ul class="dropdown-menu">
               <% @nav_categories.each do |cat| %>
               <%= content_tag :li do %>
@@ -41,7 +41,7 @@
           </li>
           <!-- /dropdown -->
           <li class="dropdown classic-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.about') %> <i class="ti-angle-down"></i></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('frontend.nav.about') %></a>
             <ul class="dropdown-menu">
               <li><%= link_to t('frontend.nav.company'), about_path %></li>
               <li><%= link_to t('frontend.nav.milestones'), milestones_path %></li>

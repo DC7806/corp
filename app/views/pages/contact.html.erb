@@ -4,61 +4,66 @@
     <div class="row">
       <div class="contact-form">
         <div class="col-md-10 col-md-offset-1 mt-sm-30">
-            <h1 class="text-center heading"><%= t('frontend.contact.title') %></h1>
-            <div class="row mt-xs-40">
-              <% @companies.each do |company| %>
-              <div class="item overflow-auto mb-xs-20">
-                <%= image_tag company.image.src, class: "col-sm-7" %>
-                <div class="company-info col-sm-5">
-                  <h3 class="heading-left"><%= company.title %></h2>
+          <h1 class="text-center heading"><%= t('frontend.contact.title') %></h1>
+          <div class="row mt-xs-40">
+            <!-- company list -->
+            <% @companies.each do |company| %>
+            <div class="item overflow-auto mb-xs-15 mb-lg-20">
+              <%= image_tag company.image.src, class: "col-lg-7 px-lg-0 #{img_push(company)}" %>
+              <div class="col-lg-5 <%= div_pull(company) %>">
+                <h3 class="heading-left mt-lg-0"><%= company.title %></h3>
                   <h5 class="mt-xs-20 mb-xs-0"><%= t('frontend.contact.address') %></h5>
                   <p><%= company.address %></p>
-                  <h5 class="mb-xs-0"><%= t('frontend.contact.number') %></h5>
+                <div class="col-xs-6 col-sm-3 col-lg-12 px-xs-0">
+                  <h5 class="mb-xs-0 mt-lg-0"><%= t('frontend.contact.number') %></h5>
                   <p><%= link_to company.number, "tel:#{company.number.gsub('-','')}" %></p>
-                  <h5 class="mb-xs-0"><%= t('frontend.contact.email') %></h5>
-                  <p><%= link_to company.email, "mailto:#{company.email}" %></p>
-                  <% content_active? company.fax do |fax| %>  
-                  <h5 class="mb-xs-0"><%= t('frontend.contact.fax') %></h5>
-                  <p><%= fax %></p>
-                  <% end %>
-                  <% content_active? company.contact do |contact| %>  
-                  <h5 class="mb-xs-0"><%= t('frontend.contact.contact') %></h5>
-                  <p><%= contact %></p>
-                  <% end %>
                 </div>
+                <div class="col-xs-6 col-sm-3 col-lg-12 px-xs-0">
+                  <h5 class="mb-xs-0 mt-lg-0"><%= t('frontend.contact.email') %></h5>
+                  <p><%= link_to company.email, "mailto:#{company.email}" %></p>
+                </div>
+                <% content_active? company.fax do |fax| %>  
+                <div class="col-xs-6 col-sm-3 col-lg-12 px-xs-0">
+                  <h5 class="mb-xs-0 mt-lg-0"><%= t('frontend.contact.fax') %></h5>
+                  <p><%= fax %></p>
+                </div>
+                <% end %>
+                <% content_active? company.contact do |contact| %>  
+                <div class="col-xs-6 col-sm-3 col-lg-12 px-xs-0">
+                  <h5 class="mb-xs-0 mt-lg-0"><%= t('frontend.contact.contact') %></h5>
+                  <p><%= contact %></p>
+                </div>
+                <% end %>
               </div>
-              <% end %>
-            </div>
-            <% contact_offices I18n.locale, @offices do |offices| %>
-            <div class="row my-sm-30">
-              <h2 class="heading text-center">各區辦公室</h2>
-              <% offices.each do |office| %>
-              <div class="item col-sm-6 col-md-4">
-                <h3 class="heading-left"><%= office.title %></h3>
-                <h5 class="mt-xs-20 mb-xs-0"><%= t('frontend.contact.address') %></h5>
-                <p><%= office.address %></p>
-                <h5 class="mt-xs-0"><%= t('frontend.contact.contact') %></h5>
-                <p><%= office.contact %></p>
-                <h5 class="mb-xs-0"><%= t('frontend.contact.number') %></h5>
-                <p><%= link_to office.number, "tel:#{office.number.gsub('-','')}" %></p>
-                <h5 class="mb-xs-0"><%= t('frontend.contact.email') %></h5>
-                <p><%= link_to office.email, "mailto:#{office.email}" %></p>
-              </div>
-              <% end %>
             </div>
             <% end %>
+          </div>
+          <!-- office list -->
+          <% contact_offices I18n.locale, @offices do |offices| %>
+          <div class="row my-sm-30">
+            <h2 class="heading text-center">各區辦公室</h2>
+            <% offices.each do |office| %>
+            <div class="item col-sm-6 col-md-4">
+              <h3 class="heading-left"><%= office.title %></h3>
+              <h5 class="mt-xs-20 mb-xs-0"><%= t('frontend.contact.address') %></h5>
+              <p><%= office.address %></p>
+              <h5 class="mt-xs-0"><%= t('frontend.contact.contact') %></h5>
+              <p><%= office.contact %></p>
+              <h5 class="mb-xs-0"><%= t('frontend.contact.number') %></h5>
+              <p><%= link_to office.number, "tel:#{office.number.gsub('-','')}" %></p>
+              <h5 class="mb-xs-0"><%= t('frontend.contact.email') %></h5>
+              <p><%= link_to office.email, "mailto:#{office.email}" %></p>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+
+          <div class="row">
+            <%= render "inquiries/form", inquiry: @inquiry %>
+          </div>
+
         </div>
-        <!-- /contact-item-wrapper -->
       </div>
-      <!-- /contact-form-1 -->
     </div>
-    <!-- /row -->
-    <div class="row">
-      <%= render "inquiries/form", inquiry: @inquiry %>
-    </div>
-      <!-- /row -->
   </div>
-  <!-- /container -->
 </section>
-<!-- /Contact -->
-<!-- better ways? -->

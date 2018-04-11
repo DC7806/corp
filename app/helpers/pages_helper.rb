@@ -83,4 +83,13 @@ module PagesHelper
     end.inject(&:+)
   end
 
+  # contact page
+  def img_push company
+    'col-lg-push-5' if company.sort.odd?
+  end
+
+  def div_pull company
+    'col-lg-pull-7' if company.sort.odd?
+  end
+
 end
