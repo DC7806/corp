@@ -1,6 +1,6 @@
 module Admin::ProductsHelper
 
-  def checkbox(model)
+  def product_cat_checkbox(model)
     collection_check_boxes(:admin_product, :"#{model.name.underscore}_ids", model.all, :id, :name) do |b|
       b.label class: "btn btn-default btn-checkbox" do
       (b.check_box)+

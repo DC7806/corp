@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'milestones', to: 'pages#milestones'
     get 'search', to: 'pages#search'
     resources :inquiries, only: [:new, :create]
-    resources :categories, :news, :products, only: [:index, :show]
+    resources :achievements, :categories, :news, :products, only: [:index, :show]
     get '/inquiries', to: redirect('/contact')
   end
 
@@ -21,9 +21,14 @@ Rails.application.routes.draw do
   namespace :admin, path: Settings.admin_secret_path do
     root 'homepage#index'
     get 'inquiries'
-    resources :categories, :carousels, :certificates, :companies,:downloads, :faqs, :meta, :milestones, 
-              :news, :offices,except: :show
+    resources :achievements, :categories, :carousels, :certificates, :companies, :downloads,
+              :faqs, :meta, :milestones, :news, :offices, except: :show
     resources :about, :contacts, :homepage, :system, only: [:index, :create]
+    resources :achievement_cases, except: :show do
+      member do
+        patch 'highlight'
+      end
+    end
     resources :products, except: :show do
       member do
         patch 'publish'

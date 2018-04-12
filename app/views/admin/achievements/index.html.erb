@@ -1,4 +1,4 @@
-<%= link_to "新增輪播圖", new_admin_carousel_path, class: "btn btn-default btn-add-new" %>
+<%= link_to "新增分類", new_admin_achievement_path, class: "btn btn-default btn-add-new" %>
 <table class="table xs-transform mt-xs-20">
   <thead class="hidden-xs">
     <tr>
@@ -10,18 +10,18 @@
     </tr>
   </thead>
   <tbody class="sortable">
-    <% @admin_carousels.each_with_sortable_id do |carousel, sortable_id|%>
+    <% @admin_achievements.each_with_sortable_id do |achievement, sortable_id|%>
     <tr id="<%= sortable_id %>">
       <td class="col-sm-1 text-center"><i class="fa fa-arrows fa-2x"></i></td>
-      <td class="col-sm-2"><%= image_tag carousel.image.src %></td>
-      <td class="col-sm-3"><%= carousel.title %></td>
-      <td class="col-sm-2"><%= carousel.description %></td>
-      <td class="col-sm-2"><%= carousel.cta %></td>
+      <td class="col-sm-2"><%= admin_index_image achievement %></td>
+      <td class="col-sm-3"><%= achievement.title %></td>
+      <td class="col-sm-2"><%= achievement.description %></td>
+      <td class="col-sm-2"><%= achievement.permalink %></td>
       <td class="col-sm-2 text-center">
-        <%= link_to edit_admin_carousel_path(carousel), class: "btn btn-primary" do %>
+        <%= link_to edit_admin_achievement_path(achievement), class: "btn btn-primary" do %>
           <i class="fa fa-pencil fa-fw"></i>
         <% end %> 
-        <%= link_to admin_carousel_path(carousel), method: "delete",
+        <%= link_to admin_achievement_path(achievement), method: "delete",
             data: { confirm: "確認刪除?" }, class: "btn btn-danger" do %>
           <i class="fa fa-trash fa-fw"></i>
         <% end %>

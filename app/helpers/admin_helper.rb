@@ -1,11 +1,18 @@
 module AdminHelper
   
-  def admin_index_image(instance)
-    case instance.class.name
-    when 'Admin::Product'
+  def admin_index_image instance
+    # case instance.class.name
+    # when 'Admin::Product'
+    #   image_tag instance.images.lang_query("zh-TW").first.src.url if instance.images.lang_query("zh-TW").first.src.present?
+    # when 'Admin::Metum'
+    #   image_tag instance.og_image if instance.og_image.present?
+    # end
+    if instance.class.name == 'Admin::Product'
       image_tag instance.images.lang_query("zh-TW").first.src.url if instance.images.lang_query("zh-TW").first.src.present?
-    when 'Admin::Metum'
+    elsif instance.class.name == 'Admin::Metum'
       image_tag instance.og_image if instance.og_image.present?
+    elsif instance.class.name == 'Admin::Achievement' || instance.class.name == 'Admin::AchievementCase'
+      image_tag instance.image.src if instance.image.present?
     end
   end
 
@@ -33,6 +40,13 @@ module AdminHelper
                end
       end
     end  
+  end
+
+  def highlight_state instance
+    case instance.is_highlight?
+    when true then '精選'
+    when false then '一般'
+    end
   end
 
 end

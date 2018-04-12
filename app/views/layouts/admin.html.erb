@@ -63,49 +63,49 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>首頁</span>
+          <a href="#"><i class="fa fa-cog"></i> <span>首頁</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
             <li><%= link_to '輪播圖', admin_carousels_path %></li>
-            <li><%= link_to '其他版位', admin_homepage_index_path %></li>
+            <li><%= link_to '版位內容', admin_homepage_index_path %></li>
           </ul>
         </li>
         <li>
           <%= link_to admin_categories_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
             <%= content_tag :span, '產品分類' %>
           <% end %>
         </li>
         <li>
-          <%= link_to admin_products_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '產品' %>
-          <% end %>
-        </li>
-        <li>
           <%= link_to admin_certificates_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
             <%= content_tag :span, '產品認證' %>
           <% end %>
         </li>
         <li>
+          <%= link_to admin_products_path do%>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
+            <%= content_tag :span, '產品' %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to admin_news_index_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
             <%= content_tag :span, '最新消息' %>
           <% end %>
         </li>
         <li>
           <%= link_to admin_faqs_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
             <%= content_tag :span, '常見問題' %>
           <% end %>
         </li>
         <li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>聯絡我們</span>
+          <a href="#"><i class="fa fa-cog"></i> <span>聯絡我們</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -115,32 +115,42 @@
             <li><%= link_to '辦公室', admin_offices_path %></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-cog"></i> <span>關於我們</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><%= link_to '公司簡介', admin_about_index_path %></li>
+            <li><%= link_to '歷史沿革', admin_milestones_path %></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-cog"></i> <span>工程實績</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><%= link_to '實績分類', admin_achievements_path %></li>
+            <li><%= link_to '實績項目', admin_achievement_cases_path %></li>
+          </ul>
+        </li>
         <li>
-          <%= link_to admin_milestones_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '里程碑' %>
+          <%= link_to admin_downloads_path do%>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
+            <%= content_tag :span, '資源下載' %>
           <% end %>
         </li>
          <li>
           <%= link_to admin_inquiries_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
+            <%= content_tag :i, '', class: 'fa fa-cog' %>
             <%= content_tag :span, '訊息' %>
           <% end %>
         </li>
-        <li>
-          <%= link_to admin_about_index_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '關於我們' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_downloads_path do%>
-            <%= content_tag :i, '', class: 'fa fa-link' %>
-            <%= content_tag :span, '資源下載' %>
-          <% end %>
-        </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>設定</span>
+          <a href="#"><i class="fa fa-cog"></i> <span>設定</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

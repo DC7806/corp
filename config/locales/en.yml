@@ -47,6 +47,7 @@ en:
       download: "DOWNLOADS"
       search: "Search Product"
       milestones: "MILESTONES"
+      achievements: "ACHIEVEMENTS"
     breadcrumbs:
       home: "Home"
       products: "Products"
@@ -57,6 +58,7 @@ en:
       about: "About"
       download: "Download"
       milestones: "Milestones"
+      achievements: "Achievements"
       search: "Search" 
     product:
       model: "Model"
@@ -70,5 +72,7 @@ en:
     news_index:
       title: "NEWS"
       readmore: "READ MORE"
+    achievements:
+      title: "ACHIEVEMENT HIGHLIGHT"
     alert:
       page_not_found: "Page Not Found"

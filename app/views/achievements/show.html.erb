@@ -1,0 +1,29 @@
+<div class="container">
+  <section id="achievement" class="section-2 no-border row">
+    
+    <h1 class="heading mrg-btm-70"><%= @achievement.title %></h1>
+    
+    <div class="shop-sidebar col-sm-3 pr-md-30 mb-xs-20">
+      <div class="sidebar-inner">
+        <ul class="sidebar-menu" role="tablist">
+          <li class="tittle">
+            <span><b><%= t('frontend.nav.achievements') %></b></span>
+          </li>
+          <li><%= link_to t('frontend.achievements.title'), achievements_path %></li>
+          <% @achievements.each do |ach| %>
+          <li><%= link_to ach.title, achievement_path(ach.permalink) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-9 text-center border overflow-auto py-xs-15 achievement-cases" style="background: url('<%= @achievement.image.src.url %>') center/cover; opacity: .2;">
+      <% @achievement.achievement_cases.each do |ach|%>
+      <div class="col-xs-6 col-sm-4 col-md-3 py-xs-15 py-sm-20 my-xs-10 my-sm-20 border top btm">
+        <p class="my-xs-0"><%= ach.title %></p>
+      </div>
+      <% end %>
+    </div>
+
+  </section>
+</div>

@@ -1,11 +1,11 @@
 /*
 *= require_self
-*= require ./share/spacing
 *= require font-awesome
 *= require main
 *= require responsive
 *= require themify-icons
 *= require owl_carousel
+*= require ./share/spacing
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";

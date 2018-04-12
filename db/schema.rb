@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411151519) do
+ActiveRecord::Schema.define(version: 20180412132359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achievement_cases", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "sort"
+    t.boolean "is_highlight", default: false
+    t.bigint "achievement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["achievement_id"], name: "index_achievement_cases_on_achievement_id"
+  end
+
+  create_table "achievements", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "permalink"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -256,6 +276,7 @@ ActiveRecord::Schema.define(version: 20180411151519) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "achievement_cases", "achievements"
   add_foreign_key "category_product_relations", "categories"
   add_foreign_key "category_product_relations", "products"
   add_foreign_key "certificate_product_relations", "certificates"

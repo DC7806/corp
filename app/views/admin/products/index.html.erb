@@ -16,7 +16,7 @@
       <td class="col-sm-2"><%= product.model %></td>
       <td class="col-sm-3">
       <% product.categories.each do |cat| %>
-        <span class="well"><%= cat.name %></span>
+        <button class="btn btn-default btn-pseudo"><%= cat.name %></button>
       <% end %>  
       </td>
       <td class="col-sm-2 text-center">

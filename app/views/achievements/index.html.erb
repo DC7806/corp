@@ -1,0 +1,44 @@
+<div class="container">
+  <section id="achievements" class="section-2 no-border row">
+    
+    <h1 class="heading mrg-btm-70"><%= t('frontend.achievements.title') %></h1>
+    
+    <div class="shop-sidebar col-sm-3 pr-md-30">
+      <div class="sidebar-inner">
+        <ul class="sidebar-menu" role="tablist">
+          <li class="tittle">
+            <span><b><%= t('frontend.nav.achievements') %></b></span>
+          </li>
+          <% @achievements.each do |ach| %>
+          <li><%= link_to ach.title, achievement_path(ach.permalink) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <div class="portfolio portfolio-isotope col-3 gutter">
+        <% @highlights.each do |highlight|%>
+        <div class="folio-item col-sm-4 py-xs-15">
+          <div class="folio-style-1">
+            <div class="folio-image">
+              <%= image_tag highlight.image.src %>
+            </div>
+            <div class="overlay">
+              <div class="overlay-caption">
+                <div class="overlay-content">
+                  <div class="folio-info">
+                    <h3 class="text-white"><%= highlight.title %></h3>
+                    <p><%= highlight.description %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </section>
+</div>

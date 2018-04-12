@@ -8870,3 +8870,8 @@ footer {
 .clients-1 .item img {
     width: 70%;
 }}
+
+/*****************  31. Achievements ******************/
+.achievement-cases {
+    min-height: 40vh;
+}

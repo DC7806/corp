@@ -1,0 +1,59 @@
+<%= link_to "新增實績", new_admin_achievement_case_path, class: "btn btn-default btn-add-new" %>
+<table class="table xs-transform mt-xs-20">
+  <thead class="hidden-xs">
+    <tr>
+      <td class="col-sm-1"></td>
+      <td class="col-sm-2">圖片</td>
+      <td class="col-sm-2">標題</td>
+      <td class="col-sm-2">敘述</td>
+      <td class="col-sm-3">分類</td>
+    </tr>
+  </thead>
+  <tbody class="sortable">
+    <% @admin_achievement_cases.each_with_sortable_id do |achievement_case, sortable_id|%>
+    <tr id="<%= sortable_id %>">
+      <td class="col-sm-1 text-center"><i class="fa fa-arrows fa-2x"></i></td>
+      <td class="col-sm-2"><%= admin_index_image achievement_case %></td>
+      <td class="col-sm-3"><%= achievement_case.title %></td>
+      <td class="col-sm-2"><%= achievement_case.description %></td>
+      <td class="col-sm-3">
+        <button class="btn btn-default btn-pseudo">
+          <%= achievement_case.achievement.title %>
+        </button>
+      </td>
+      </td>
+      <td class="col-sm-2 text-center">
+        <%= link_to highlight_state(achievement_case), highlight_admin_achievement_case_path(achievement_case), method: :patch, remote: true, class: 'btn btn-default highlight_state' %>
+        <%= link_to edit_admin_achievement_case_path(achievement_case), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil fa-fw"></i>
+        <% end %> 
+        <%= link_to admin_achievement_case_path(achievement_case), method: "delete",
+            data: { confirm: "確認刪除?" }, class: "btn btn-danger" do %>
+          <i class="fa fa-trash fa-fw"></i>
+        <% end %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(function() {
+    $('.sortable').railsSortable();
+  });
+
+  $('.highlight_state').each(function() {
+    if ($(this).text() == '精選'){
+      $(this).addClass("btn-success");}  
+  });
+  
+  $('.highlight_state').on('click', function(){
+    var state = $(this).text();
+    if (state == '精選'){
+      $(this).text('一般').toggleClass('btn-success');
+    }
+    else if (state == '一般'){
+      $(this).text('精選').toggleClass('btn-success');
+    };
+  })
+</script>

@@ -1,5 +1,5 @@
 # setup static pages meta defalut values
-['homepage','products','news','categories','contact','faq','about','download','milestones'].each do |name|
+['homepage','achievements','products','news','categories','contact','faq','about','download','milestones'].each do |name|
   Metum.create(page_name: name)
 end
 
