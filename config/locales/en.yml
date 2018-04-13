@@ -48,6 +48,7 @@ en:
       search: "Search Product"
       milestones: "MILESTONES"
       achievements: "ACHIEVEMENTS"
+      career: "CAREER"
     breadcrumbs:
       home: "Home"
       products: "Products"
@@ -59,7 +60,8 @@ en:
       download: "Download"
       milestones: "Milestones"
       achievements: "Achievements"
-      search: "Search" 
+      search: "Search"
+      career: "Career" 
     product:
       model: "Model"
       country: "Made In"

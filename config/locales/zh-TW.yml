@@ -48,6 +48,7 @@ zh-TW:
       search: "搜尋產品名稱"
       milestones: "歷史沿革"
       achievements: "工程實績"
+      career: "人才招募"
     breadcrumbs:
       home: "首頁"
       products: "所有產品"
@@ -60,6 +61,7 @@ zh-TW:
       milestones: "歷史沿革"
       achievements: "工程實績"
       search: "產品搜尋"
+      career: "人才招募"
     product:
       model: "型號"
       country: "產地"

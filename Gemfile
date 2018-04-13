@@ -49,6 +49,8 @@ gem 'font-awesome-rails'
 gem 'font-ionicons-rails'
 gem 'whenever', require: false
 gem 'capistrano3-delayed-job', '~> 1.0'
+# api
+gem 'httparty', git: 'https://github.com/jnunemaker/httparty.git', branch: 'master'
 
 group :production do
   # sitemap

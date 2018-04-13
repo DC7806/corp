@@ -9,14 +9,18 @@
     <!-- Products Details -->
     <section id="products-list" class="no-border no-padding-btm row">
       <% @products.each do |product| %>
-      <div class="col-sm-3 border mb-xs-20 mx-sm-15 pt-xs-15 text-center overflow-auto">
-        <%= link_to product_path(product.permalink) do %>
-        <div class="col-xs-8 col-xs-offset-2 col-sm-12 col-sm-offset-0 px-sm-0">
-          <%= product_image I18n.locale, product %>
+      <div class="col-sm-4 mb-xs-15 pa-xs-10 text-center overflow-auto">
+        <div class="border pa-xs-10">
+          <div>
+            <%= link_to product_path(product.permalink) do %>
+            <div class="col-xs-8 col-xs-offset-2 col-sm-12 col-sm-offset-0 px-sm-0">
+              <%= product_image I18n.locale, product %>
+            </div>
+            <h5 class="clear pt-xs-15"><%= product.name %></h5>
+            <p><%= product.model %></p>
+            <% end %>
+          </div>
         </div>
-        <h5 class="clear pt-xs-15"><%= product.name %></h5>
-        <p><%= product.model %></p>
-        <% end %>
       </div>
       <% end %>
       <div class="text-center clear">

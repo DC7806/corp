@@ -87,4 +87,9 @@ module ApplicationHelper
     yield content if content.present?
   end
 
+  # display content only when particualr local is assigned
+  def locale_exclusive_content locale, locale_option
+    yield if locale == locale_option
+  end
+
 end

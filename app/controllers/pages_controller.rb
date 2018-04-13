@@ -8,6 +8,13 @@ class PagesController < ApplicationController
     @news = News.last(3)
   end
 
+  def career
+    response = Job.new
+    @jobs = response.jobs
+    @job_link = 'https://www.104.com.tw/104i/redir.cfm?i_from=qjob&t=job&j='
+    add_breadcrumb t('frontend.breadcrumbs.career'), :career_path
+  end
+
   def contact
     @companies = Company.order(sort: :asc)
     @offices = Office.order(sort: :asc)

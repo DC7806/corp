@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|zh-TW/ do
     root 'pages#homepage'
     get 'about', to: 'pages#about'
+    get 'career', to: 'pages#career'
     get 'contact', to: 'pages#contact'
     get 'faq', to: 'pages#faq'
     get 'download', to: 'pages#download'
