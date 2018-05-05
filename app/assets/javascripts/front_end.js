@@ -22,10 +22,10 @@ $( document ).on('turbolinks:load', function() {
   $('#product-details-btm li:first-child, #product-details-btm .tab-pane:first-of-type').addClass('active');
   // side-nav dropdown  
   $('.side-nav .sidebar-inner li a').click(function(event) {
-        event.stopPropagation();
-        $(this).find(".side-nav .sidebar-inner li a").removeClass('menu-open');
-        $(this).parents(".side-nav .sidebar-inner li a").addClass('menu-open');
-        $(this).toggleClass('menu-open');
-        $(this).parent().children('ul.side-sub-menu').toggle(200);
+      event.stopPropagation();
+      $(this).find(".side-nav .sidebar-inner li a").removeClass('menu-open');
+      $(this).parents(".side-nav .sidebar-inner li a").addClass('menu-open');
+      $(this).toggleClass('menu-open');
+      $(this).parent().children('ul.side-sub-menu').toggle(200);
     });
 })

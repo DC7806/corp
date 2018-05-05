@@ -5,18 +5,11 @@ defaults: &defaults
   recaptcha:
     site_key: "6Le0ak0UAAAAAJhuMHrsVrZWEpe1AShWkRypn44x"
     secret_key: "6Le0ak0UAAAAAO5g7I87IoBgMhDZvVW-uBawxXJk"
-  action_mailer:
-    default_url_options:
-      host: "www.devox.cc"
-    delivery_method: :smtp
-    smtp_settings:
-      address: "smtp.mailgun.org"
-      port: 587
-      domain: "mail.devox.cc"
-      user_name: "postmaster@mail.devox.cc"
-      password: "4fe673e8ad67b373a18c7edb09d55aeb-db1f97ba-074895f2"
-      authentication: :plain
-      enable_starttls_auto: true
+  smtp_host: "devox.cc"
+  smtp_domain: "mail.devox.cc"
+  smtp_user_name: "postmaster@mail.devox.cc"
+  smtp_password: "c8e2149244b411beead277c3270f1e64-116e1e4d-424cd137"
+  
 
 production:
   <<: *defaults

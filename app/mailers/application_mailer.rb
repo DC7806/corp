@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Settings.site_name
+  default from: 'noreply@devox.cc'
   layout 'mailer'
 end
