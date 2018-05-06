@@ -12,3 +12,5 @@ site_name:
   en: EN sitename
 others:
   image_cache: '1234'
+email:
+  contact_email: dachang.dev@gmail.com

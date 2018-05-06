@@ -2,8 +2,9 @@ class InquiryMailer < ApplicationMailer
   
   # notify corp user
   def inquiry_notification(inquiry)
+    mailbox = YAML::load_file("#{Rails.root}/config/system.yml").fetch('email').fetch('contact_email')
     @inquiry = inquiry
-    mail to: 'dachang.dev@gmail.com', subject: 'New Inquiry'
+    mail to: mailbox, subject: 'New Inquiry'
   end
 
   # auto reply to users

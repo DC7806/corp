@@ -30,6 +30,15 @@
     </div>
     <% end %>
   </div>
+  <!-- contact email -->
+  <% @admin_system_email.each do |k1, v1| %>
+  <% v1.each do |k2, v2| %>
+  <div class="form-group">
+    <%= f.label '收件信箱' %>
+    <%= f.text_field v2, name: "system[#{k1}][#{k2}]", value: v2, class: 'form-control' %>
+  </div>
+  <% end %>
+  <% end %>
   <!-- web tracking -->
   <% @admin_system_tracking.each do |k1, v1| %>
   <% v1.each do |k2, v2| %>
