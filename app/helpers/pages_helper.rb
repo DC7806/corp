@@ -92,4 +92,40 @@ module PagesHelper
     'col-lg-pull-7' if company.sort.odd?
   end
 
+  def job_list jobs, job_link
+    if jobs.empty?
+      content_tag :h2, '目前無職缺', class: 'text-center'
+    else
+      jobs.in_groups_of(3).map do |job_group|
+        content_tag :div, class: 'row' do
+          job_group.compact.map do |job|
+            content_tag :div, class: 'col-md-4 my-xs-15 pa-xs-10' do
+              content_tag :div, class: 'border pa-xs-10' do
+                (content_tag :h3, job["JOB"], class: 'mb-xs-0')+
+                (content_tag :h4, job["JOB_ADDR_NO_DESCRIPT"], class: 'mt-xs-5 mb-xs-15')+
+                (content_tag :p, job["DESCRIPTION"].gsub("\n", "<br>").html_safe)+
+                (link_to '加入我們', job_link+job["J"], target: '_blank', class: 'btn btn-md btn-default')
+              end
+            end
+          end.inject(&:+)
+        end
+      end.inject(&:+)
+    end  
+  end
+
 end
+
+# <% @jobs.in_groups_of(3).each do |job_group| %>
+# <div class="row">
+#   <% job_group.compact.each do |job| %>
+#   <div class="col-md-4 my-xs-15 pa-xs-10">
+#     <div class="border pa-xs-10">
+#       <h3 class="mb-xs-0"><%= job["JOB"] %></h3>
+#       <h4 class="mt-xs-5 mb-xs-15"><%= job["JOB_ADDR_NO_DESCRIPT"] %></h4>
+#       <p><%= job["DESCRIPTION"].gsub("\n", "<br>").html_safe %></p>
+#       <%= link_to "加入我們", "#{@job_link+job["J"]}", target: '_blank', class: 'btn btn-md btn-default' %>
+#     </div>
+#   </div>
+#   <% end %>
+# </div>
+# <% end %>
